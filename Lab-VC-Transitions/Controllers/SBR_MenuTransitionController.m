@@ -24,16 +24,15 @@ static SBR_ControllerFactory *Factory;
     
     SBR_SwipeUpIconView *_swipeUpIconView;
     UIGestureRecognizer *_presentGR;
-    UIGestureRecognizer *_dismissTapGR;
-    UIGestureRecognizer *_dismissSwipeGR;
-    
 }
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Life Cycle
 /////////////////////////////////////////////////////////////////////////
 
-+ (instancetype)newWithContainerVC:(UIViewController *)containerVC presentAnimator:(SBR_MenuTransitionPresentAnimator *)presentAnimator dismissAnimator:(SBR_MenuTransitionDismissAnimator *)dismissAnimator
++ (instancetype)newWithContainerVC:(UIViewController *)containerVC
+                   presentAnimator:(SBR_MenuTransitionPresentAnimator *)presentAnimator
+                   dismissAnimator:(SBR_MenuTransitionDismissAnimator *)dismissAnimator
 {
     SBR_MenuTransitionController *me = [[self alloc] init];
     if (me) {
@@ -50,6 +49,8 @@ static SBR_ControllerFactory *Factory;
 
 - (void)_setup
 {
+    @weakify(self);
+    
     // Setup the GR for presentation
     SBR_InteractiveSwipeGestureRecognizer *gr = [[SBR_InteractiveSwipeGestureRecognizer alloc] initWithTarget:self action:@selector(_handlePresentGesture:)];
     gr.numberOfTouchesRequired = 1;
@@ -57,14 +58,13 @@ static SBR_ControllerFactory *Factory;
     [_containerVC.view addGestureRecognizer:gr];
     _presentGR = gr;
     
-    
     // Create and hide the swipe up icon for dismissing.  Also link up it's gesture recognisers but disable them
     _swipeUpIconView = [SBR_SwipeUpIconView newSwipeUpIconView];
     _swipeUpIconView.center = CGPointMake(_containerVC.view.frame.size.width/2,
                                           _containerVC.view.frame.size.height - _swipeUpIconView.frame.size.height - 10);
     _swipeUpIconView.hidden = YES;
     [_containerVC.view addSubview:_swipeUpIconView];
-    _swipeUpIconView.userDidTriggerWithGesture = ^{
+    _swipeUpIconView.userDidTriggerWithGesture = ^{ @strongify(self);
         [self _handleDismissGesture];
     };
 }
@@ -78,20 +78,18 @@ static SBR_ControllerFactory *Factory;
 {
     switch (swipe.state) {
 		case UIGestureRecognizerStateBegan:
-            [_presentAnimator begin];
+            [_presentAnimator beginTransitionToView:Factory.menuNavVC.view];
             break;
             
 		case UIGestureRecognizerStateChanged:
             [_presentAnimator updateWithPercent:swipe.percentCompleted];
             break;
             
-            
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateFailed:
         case UIGestureRecognizerStateEnded:
         //case UIGestureRecognizerStateRecognized:  // same as "Ended"
         {
-        
             BOOL abort;
             if (swipe.state == UIGestureRecognizerStateRecognized) {
                 abort = NO;
@@ -100,11 +98,11 @@ static SBR_ControllerFactory *Factory;
             }
             
             if (abort) {
-                [_presentAnimator endWithAbort:YES completion:nil];
+                [_presentAnimator abortAndRevert];
             } else {
                 // Don't consider the xsition to have begun until it's certain
                 _presentedVC = Factory.menuNavVC;
-                [_presentAnimator endWithAbort:NO completion:^{ [self _handlePresentComplete]; }];
+                [_presentAnimator finishWithCompletion:^{ [self _handlePresentComplete]; }];
                 
                 // Must  be after the animator -end for screenshot method to work
                 [_containerVC addChildViewController:_presentedVC];
@@ -126,7 +124,6 @@ static SBR_ControllerFactory *Factory;
     
     _presentGR.enabled = NO;
     _swipeUpIconView.hidden = NO;
-    
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -135,18 +132,20 @@ static SBR_ControllerFactory *Factory;
 
 - (void)_handleDismissGesture
 {
-    
+    @weakify(self)
+    [_dismissAnimator dismissWithCompletion:^{ @strongify(self);
+        [self _handleDismissComplete];
+    }];
 }
 
 //---------------------------------------------------------------------
-
 
 - (void)_handleDismissComplete
 {
     [_presentedVC removeFromParentViewController];
     _presentedVC = nil;
     _presentGR.enabled = YES;
-    
+    _swipeUpIconView.hidden = YES;
 }
 
 

@@ -10,7 +10,47 @@
 		264FB71557EA48D694453140 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED7B89FF7C34E6CBCFF14A8 /* libPods.a */; };
 		A6395E53192D64D5009AAB72 /* SBR_MenuTransitionPresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B1360E192C7A920011852D /* SBR_MenuTransitionPresentAnimator.m */; };
 		A6395E56192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E55192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m */; };
-		A6395E59192D69DF009AAB72 /* SBR_MenuTransitionMenuFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E58192D69DF009AAB72 /* SBR_MenuTransitionMenuFilter.m */; };
+		A6395E5D192DEF24009AAB72 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E5B192DEF24009AAB72 /* EXTScope.m */; };
+		A6395EBA192DEFDE009AAB72 /* NSArray+OVCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E62192DEFDE009AAB72 /* NSArray+OVCore.m */; };
+		A6395EBB192DEFDE009AAB72 /* NSDictionary+OVCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E64192DEFDE009AAB72 /* NSDictionary+OVCore.m */; };
+		A6395EBC192DEFDE009AAB72 /* NSSet+OVCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E66192DEFDE009AAB72 /* NSSet+OVCore.m */; };
+		A6395EBD192DEFDE009AAB72 /* NSArray+OVDifference.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E6A192DEFDE009AAB72 /* NSArray+OVDifference.m */; };
+		A6395EBE192DEFDE009AAB72 /* NSArray+OVEnumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E6C192DEFDE009AAB72 /* NSArray+OVEnumeration.m */; };
+		A6395EBF192DEFDE009AAB72 /* NSArray+OVInitialize.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E6E192DEFDE009AAB72 /* NSArray+OVInitialize.m */; };
+		A6395EC0192DEFDE009AAB72 /* NSArray+OVRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E70192DEFDE009AAB72 /* NSArray+OVRandom.m */; };
+		A6395EC1192DEFDE009AAB72 /* NSArray+OVReverse.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E72192DEFDE009AAB72 /* NSArray+OVReverse.m */; };
+		A6395EC2192DEFDE009AAB72 /* NSArray+OVSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E74192DEFDE009AAB72 /* NSArray+OVSelector.m */; };
+		A6395EC3192DEFDE009AAB72 /* NSArray+OVShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E76192DEFDE009AAB72 /* NSArray+OVShorthand.m */; };
+		A6395EC4192DEFDE009AAB72 /* NSArray+OVSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E78192DEFDE009AAB72 /* NSArray+OVSorting.m */; };
+		A6395EC5192DEFDE009AAB72 /* NSArray+OVSubArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E7A192DEFDE009AAB72 /* NSArray+OVSubArray.m */; };
+		A6395EC6192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E7D192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m */; };
+		A6395EC7192DEFDE009AAB72 /* NSMutableArray+OVSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E7F192DEFDE009AAB72 /* NSMutableArray+OVSorting.m */; };
+		A6395EC8192DEFDE009AAB72 /* NSBundle+OVShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E82192DEFDE009AAB72 /* NSBundle+OVShorthand.m */; };
+		A6395EC9192DEFDE009AAB72 /* NSData+OVBase64Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E85192DEFDE009AAB72 /* NSData+OVBase64Encode.m */; };
+		A6395ECA192DEFDE009AAB72 /* NSDate+OVComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E88192DEFDE009AAB72 /* NSDate+OVComponents.m */; };
+		A6395ECB192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E8B192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m */; };
+		A6395ECC192DEFDE009AAB72 /* NSDictionary+OVEnumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E8E192DEFDE009AAB72 /* NSDictionary+OVEnumeration.m */; };
+		A6395ECD192DEFDE009AAB72 /* NSDictionary+OVPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E90192DEFDE009AAB72 /* NSDictionary+OVPath.m */; };
+		A6395ECE192DEFDE009AAB72 /* NSDictionary+OVSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E92192DEFDE009AAB72 /* NSDictionary+OVSelector.m */; };
+		A6395ECF192DEFDE009AAB72 /* NSNull+OVNatural.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E95192DEFDE009AAB72 /* NSNull+OVNatural.m */; };
+		A6395ED0192DEFDE009AAB72 /* NSNumber+OVEquals.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E98192DEFDE009AAB72 /* NSNumber+OVEquals.m */; };
+		A6395ED1192DEFDE009AAB72 /* NSObject+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E9B192DEFDE009AAB72 /* NSObject+Equals.m */; };
+		A6395ED2192DEFDE009AAB72 /* NSSet+OVEnumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E9E192DEFDE009AAB72 /* NSSet+OVEnumeration.m */; };
+		A6395ED3192DEFDE009AAB72 /* NSString+OVBase64Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EA1192DEFDE009AAB72 /* NSString+OVBase64Encode.m */; };
+		A6395ED4192DEFDE009AAB72 /* NSString+OVComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EA3192DEFDE009AAB72 /* NSString+OVComponents.m */; };
+		A6395ED5192DEFDE009AAB72 /* NSString+OVDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EA5192DEFDE009AAB72 /* NSString+OVDebugging.m */; };
+		A6395ED6192DEFDE009AAB72 /* NSString+OVHash.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EA7192DEFDE009AAB72 /* NSString+OVHash.m */; };
+		A6395ED7192DEFDE009AAB72 /* NSString+OVJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EA9192DEFDE009AAB72 /* NSString+OVJSON.m */; };
+		A6395ED8192DEFDE009AAB72 /* NSString+OVRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EAB192DEFDE009AAB72 /* NSString+OVRegularExpression.m */; };
+		A6395ED9192DEFDE009AAB72 /* NSString+OVShorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EAD192DEFDE009AAB72 /* NSString+OVShorthand.m */; };
+		A6395EDA192DEFDE009AAB72 /* NSString+OVURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EAF192DEFDE009AAB72 /* NSString+OVURLEncode.m */; };
+		A6395EDB192DEFDE009AAB72 /* NSURL+OVComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EB2192DEFDE009AAB72 /* NSURL+OVComponents.m */; };
+		A6395EDC192DEFDE009AAB72 /* NSURL+OVDirectories.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EB4192DEFDE009AAB72 /* NSURL+OVDirectories.m */; };
+		A6395EE6192DF556009AAB72 /* UIView+OVSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EE5192DF556009AAB72 /* UIView+OVSnapshot.m */; };
+		A6395EED192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EEC192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m */; };
+		A6395EF0192E2116009AAB72 /* SBR_MaterializeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EEF192E2116009AAB72 /* SBR_MaterializeFilter.m */; };
+		A6395EF3192E25ED009AAB72 /* SBR_DimFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EF2192E25ED009AAB72 /* SBR_DimFilter.m */; };
+		A6395EF6192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395EF5192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.m */; };
 		A63C6DA0192A23BF0041D4D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63C6D9F192A23BF0041D4D4 /* Foundation.framework */; };
 		A63C6DA2192A23BF0041D4D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63C6DA1192A23BF0041D4D4 /* CoreGraphics.framework */; };
 		A63C6DA4192A23BF0041D4D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63C6DA3192A23BF0041D4D4 /* UIKit.framework */; };
@@ -222,8 +262,94 @@
 		4FA6EA6A91C44963B78286BA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A6395E54192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MenuTransitionDismissAnimator.h; sourceTree = "<group>"; };
 		A6395E55192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuTransitionDismissAnimator.m; sourceTree = "<group>"; };
-		A6395E57192D69DF009AAB72 /* SBR_MenuTransitionMenuFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MenuTransitionMenuFilter.h; sourceTree = "<group>"; };
-		A6395E58192D69DF009AAB72 /* SBR_MenuTransitionMenuFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuTransitionMenuFilter.m; sourceTree = "<group>"; };
+		A6395E5A192DEF24009AAB72 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTScope.h; path = Vendor/libextobjc/extobjc/EXTScope.h; sourceTree = "<group>"; };
+		A6395E5B192DEF24009AAB72 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTScope.m; path = Vendor/libextobjc/extobjc/EXTScope.m; sourceTree = "<group>"; };
+		A6395E5C192DEF24009AAB72 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = metamacros.h; path = Vendor/libextobjc/extobjc/metamacros.h; sourceTree = "<group>"; };
+		A6395E61192DEFDE009AAB72 /* NSArray+OVCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVCore.h"; sourceTree = "<group>"; };
+		A6395E62192DEFDE009AAB72 /* NSArray+OVCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVCore.m"; sourceTree = "<group>"; };
+		A6395E63192DEFDE009AAB72 /* NSDictionary+OVCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+OVCore.h"; sourceTree = "<group>"; };
+		A6395E64192DEFDE009AAB72 /* NSDictionary+OVCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+OVCore.m"; sourceTree = "<group>"; };
+		A6395E65192DEFDE009AAB72 /* NSSet+OVCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+OVCore.h"; sourceTree = "<group>"; };
+		A6395E66192DEFDE009AAB72 /* NSSet+OVCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+OVCore.m"; sourceTree = "<group>"; };
+		A6395E69192DEFDE009AAB72 /* NSArray+OVDifference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVDifference.h"; sourceTree = "<group>"; };
+		A6395E6A192DEFDE009AAB72 /* NSArray+OVDifference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVDifference.m"; sourceTree = "<group>"; };
+		A6395E6B192DEFDE009AAB72 /* NSArray+OVEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVEnumeration.h"; sourceTree = "<group>"; };
+		A6395E6C192DEFDE009AAB72 /* NSArray+OVEnumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVEnumeration.m"; sourceTree = "<group>"; };
+		A6395E6D192DEFDE009AAB72 /* NSArray+OVInitialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVInitialize.h"; sourceTree = "<group>"; };
+		A6395E6E192DEFDE009AAB72 /* NSArray+OVInitialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVInitialize.m"; sourceTree = "<group>"; };
+		A6395E6F192DEFDE009AAB72 /* NSArray+OVRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVRandom.h"; sourceTree = "<group>"; };
+		A6395E70192DEFDE009AAB72 /* NSArray+OVRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVRandom.m"; sourceTree = "<group>"; };
+		A6395E71192DEFDE009AAB72 /* NSArray+OVReverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVReverse.h"; sourceTree = "<group>"; };
+		A6395E72192DEFDE009AAB72 /* NSArray+OVReverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVReverse.m"; sourceTree = "<group>"; };
+		A6395E73192DEFDE009AAB72 /* NSArray+OVSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVSelector.h"; sourceTree = "<group>"; };
+		A6395E74192DEFDE009AAB72 /* NSArray+OVSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVSelector.m"; sourceTree = "<group>"; };
+		A6395E75192DEFDE009AAB72 /* NSArray+OVShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVShorthand.h"; sourceTree = "<group>"; };
+		A6395E76192DEFDE009AAB72 /* NSArray+OVShorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVShorthand.m"; sourceTree = "<group>"; };
+		A6395E77192DEFDE009AAB72 /* NSArray+OVSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVSorting.h"; sourceTree = "<group>"; };
+		A6395E78192DEFDE009AAB72 /* NSArray+OVSorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVSorting.m"; sourceTree = "<group>"; };
+		A6395E79192DEFDE009AAB72 /* NSArray+OVSubArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OVSubArray.h"; sourceTree = "<group>"; };
+		A6395E7A192DEFDE009AAB72 /* NSArray+OVSubArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OVSubArray.m"; sourceTree = "<group>"; };
+		A6395E7C192DEFDE009AAB72 /* NSMutableArray+OVShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+OVShorthand.h"; sourceTree = "<group>"; };
+		A6395E7D192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+OVShorthand.m"; sourceTree = "<group>"; };
+		A6395E7E192DEFDE009AAB72 /* NSMutableArray+OVSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+OVSorting.h"; sourceTree = "<group>"; };
+		A6395E7F192DEFDE009AAB72 /* NSMutableArray+OVSorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+OVSorting.m"; sourceTree = "<group>"; };
+		A6395E81192DEFDE009AAB72 /* NSBundle+OVShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+OVShorthand.h"; sourceTree = "<group>"; };
+		A6395E82192DEFDE009AAB72 /* NSBundle+OVShorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+OVShorthand.m"; sourceTree = "<group>"; };
+		A6395E84192DEFDE009AAB72 /* NSData+OVBase64Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+OVBase64Encode.h"; sourceTree = "<group>"; };
+		A6395E85192DEFDE009AAB72 /* NSData+OVBase64Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+OVBase64Encode.m"; sourceTree = "<group>"; };
+		A6395E87192DEFDE009AAB72 /* NSDate+OVComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+OVComponents.h"; sourceTree = "<group>"; };
+		A6395E88192DEFDE009AAB72 /* NSDate+OVComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+OVComponents.m"; sourceTree = "<group>"; };
+		A6395E8A192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+OVShorthand.h"; sourceTree = "<group>"; };
+		A6395E8B192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+OVShorthand.m"; sourceTree = "<group>"; };
+		A6395E8D192DEFDE009AAB72 /* NSDictionary+OVEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+OVEnumeration.h"; sourceTree = "<group>"; };
+		A6395E8E192DEFDE009AAB72 /* NSDictionary+OVEnumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+OVEnumeration.m"; sourceTree = "<group>"; };
+		A6395E8F192DEFDE009AAB72 /* NSDictionary+OVPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+OVPath.h"; sourceTree = "<group>"; };
+		A6395E90192DEFDE009AAB72 /* NSDictionary+OVPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+OVPath.m"; sourceTree = "<group>"; };
+		A6395E91192DEFDE009AAB72 /* NSDictionary+OVSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+OVSelector.h"; sourceTree = "<group>"; };
+		A6395E92192DEFDE009AAB72 /* NSDictionary+OVSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+OVSelector.m"; sourceTree = "<group>"; };
+		A6395E94192DEFDE009AAB72 /* NSNull+OVNatural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+OVNatural.h"; sourceTree = "<group>"; };
+		A6395E95192DEFDE009AAB72 /* NSNull+OVNatural.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+OVNatural.m"; sourceTree = "<group>"; };
+		A6395E97192DEFDE009AAB72 /* NSNumber+OVEquals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+OVEquals.h"; sourceTree = "<group>"; };
+		A6395E98192DEFDE009AAB72 /* NSNumber+OVEquals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+OVEquals.m"; sourceTree = "<group>"; };
+		A6395E9A192DEFDE009AAB72 /* NSObject+Equals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Equals.h"; sourceTree = "<group>"; };
+		A6395E9B192DEFDE009AAB72 /* NSObject+Equals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Equals.m"; sourceTree = "<group>"; };
+		A6395E9D192DEFDE009AAB72 /* NSSet+OVEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+OVEnumeration.h"; sourceTree = "<group>"; };
+		A6395E9E192DEFDE009AAB72 /* NSSet+OVEnumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+OVEnumeration.m"; sourceTree = "<group>"; };
+		A6395EA0192DEFDE009AAB72 /* NSString+OVBase64Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVBase64Encode.h"; sourceTree = "<group>"; };
+		A6395EA1192DEFDE009AAB72 /* NSString+OVBase64Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVBase64Encode.m"; sourceTree = "<group>"; };
+		A6395EA2192DEFDE009AAB72 /* NSString+OVComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVComponents.h"; sourceTree = "<group>"; };
+		A6395EA3192DEFDE009AAB72 /* NSString+OVComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVComponents.m"; sourceTree = "<group>"; };
+		A6395EA4192DEFDE009AAB72 /* NSString+OVDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVDebugging.h"; sourceTree = "<group>"; };
+		A6395EA5192DEFDE009AAB72 /* NSString+OVDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVDebugging.m"; sourceTree = "<group>"; };
+		A6395EA6192DEFDE009AAB72 /* NSString+OVHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVHash.h"; sourceTree = "<group>"; };
+		A6395EA7192DEFDE009AAB72 /* NSString+OVHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVHash.m"; sourceTree = "<group>"; };
+		A6395EA8192DEFDE009AAB72 /* NSString+OVJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVJSON.h"; sourceTree = "<group>"; };
+		A6395EA9192DEFDE009AAB72 /* NSString+OVJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVJSON.m"; sourceTree = "<group>"; };
+		A6395EAA192DEFDE009AAB72 /* NSString+OVRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVRegularExpression.h"; sourceTree = "<group>"; };
+		A6395EAB192DEFDE009AAB72 /* NSString+OVRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVRegularExpression.m"; sourceTree = "<group>"; };
+		A6395EAC192DEFDE009AAB72 /* NSString+OVShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVShorthand.h"; sourceTree = "<group>"; };
+		A6395EAD192DEFDE009AAB72 /* NSString+OVShorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVShorthand.m"; sourceTree = "<group>"; };
+		A6395EAE192DEFDE009AAB72 /* NSString+OVURLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OVURLEncode.h"; sourceTree = "<group>"; };
+		A6395EAF192DEFDE009AAB72 /* NSString+OVURLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OVURLEncode.m"; sourceTree = "<group>"; };
+		A6395EB1192DEFDE009AAB72 /* NSURL+OVComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+OVComponents.h"; sourceTree = "<group>"; };
+		A6395EB2192DEFDE009AAB72 /* NSURL+OVComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+OVComponents.m"; sourceTree = "<group>"; };
+		A6395EB3192DEFDE009AAB72 /* NSURL+OVDirectories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+OVDirectories.h"; sourceTree = "<group>"; };
+		A6395EB4192DEFDE009AAB72 /* NSURL+OVDirectories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+OVDirectories.m"; sourceTree = "<group>"; };
+		A6395EB5192DEFDE009AAB72 /* OVBase64Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OVBase64Encode.h; sourceTree = "<group>"; };
+		A6395EB6192DEFDE009AAB72 /* Overline-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Overline-Prefix.pch"; sourceTree = "<group>"; };
+		A6395EB8192DEFDE009AAB72 /* Overline+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Overline+BlocksKit.h"; sourceTree = "<group>"; };
+		A6395EB9192DEFDE009AAB72 /* Overline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Overline.h; sourceTree = "<group>"; };
+		A6395EE3192DF34C009AAB72 /* Overline+UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overline+UIKit.h"; sourceTree = "<group>"; };
+		A6395EE4192DF556009AAB72 /* UIView+OVSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+OVSnapshot.h"; path = "UIKit/UIView/UIView+OVSnapshot.h"; sourceTree = "<group>"; };
+		A6395EE5192DF556009AAB72 /* UIView+OVSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+OVSnapshot.m"; path = "UIKit/UIView/UIView+OVSnapshot.m"; sourceTree = "<group>"; };
+		A6395EEB192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBR_CompositeGPUFilterAbstract.h; path = Other/SBR_CompositeGPUFilterAbstract.h; sourceTree = "<group>"; };
+		A6395EEC192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBR_CompositeGPUFilterAbstract.m; path = Other/SBR_CompositeGPUFilterAbstract.m; sourceTree = "<group>"; };
+		A6395EEE192E2116009AAB72 /* SBR_MaterializeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBR_MaterializeFilter.h; path = Other/SBR_MaterializeFilter.h; sourceTree = "<group>"; };
+		A6395EEF192E2116009AAB72 /* SBR_MaterializeFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBR_MaterializeFilter.m; path = Other/SBR_MaterializeFilter.m; sourceTree = "<group>"; };
+		A6395EF1192E25ED009AAB72 /* SBR_DimFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBR_DimFilter.h; path = Other/SBR_DimFilter.h; sourceTree = "<group>"; };
+		A6395EF2192E25ED009AAB72 /* SBR_DimFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBR_DimFilter.m; path = Other/SBR_DimFilter.m; sourceTree = "<group>"; };
+		A6395EF4192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_AnimatedFilterSnapshotView.h; sourceTree = "<group>"; };
+		A6395EF5192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_AnimatedFilterSnapshotView.m; sourceTree = "<group>"; };
 		A63C6D9C192A23BF0041D4D4 /* Lab-VC-Transitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lab-VC-Transitions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63C6D9F192A23BF0041D4D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A63C6DA1192A23BF0041D4D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -624,6 +750,262 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6395E5E192DEF28009AAB72 /* libextobjc */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E5A192DEF24009AAB72 /* EXTScope.h */,
+				A6395E5B192DEF24009AAB72 /* EXTScope.m */,
+				A6395E5C192DEF24009AAB72 /* metamacros.h */,
+			);
+			name = libextobjc;
+			sourceTree = "<group>";
+		};
+		A6395E5F192DEFDE009AAB72 /* Overline */ = {
+			isa = PBXGroup;
+			children = (
+				A6395EB7192DEFDE009AAB72 /* Header */,
+				A6395E60192DEFDE009AAB72 /* Core */,
+				A6395E67192DEFDE009AAB72 /* Over */,
+				A6395EB6192DEFDE009AAB72 /* Overline-Prefix.pch */,
+				A6395EE2192DF319009AAB72 /* UIKit */,
+			);
+			name = Overline;
+			path = Vendor/Overline/Overline;
+			sourceTree = "<group>";
+		};
+		A6395E60192DEFDE009AAB72 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E61192DEFDE009AAB72 /* NSArray+OVCore.h */,
+				A6395E62192DEFDE009AAB72 /* NSArray+OVCore.m */,
+				A6395E63192DEFDE009AAB72 /* NSDictionary+OVCore.h */,
+				A6395E64192DEFDE009AAB72 /* NSDictionary+OVCore.m */,
+				A6395E65192DEFDE009AAB72 /* NSSet+OVCore.h */,
+				A6395E66192DEFDE009AAB72 /* NSSet+OVCore.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A6395E67192DEFDE009AAB72 /* Over */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E68192DEFDE009AAB72 /* NSArray */,
+				A6395E80192DEFDE009AAB72 /* NSBundle */,
+				A6395E83192DEFDE009AAB72 /* NSData */,
+				A6395E86192DEFDE009AAB72 /* NSDate */,
+				A6395E89192DEFDE009AAB72 /* NSDateFormatter */,
+				A6395E8C192DEFDE009AAB72 /* NSDictionary */,
+				A6395E93192DEFDE009AAB72 /* NSNull */,
+				A6395E96192DEFDE009AAB72 /* NSNumber */,
+				A6395E99192DEFDE009AAB72 /* NSObject */,
+				A6395E9C192DEFDE009AAB72 /* NSSet */,
+				A6395E9F192DEFDE009AAB72 /* NSString */,
+				A6395EB0192DEFDE009AAB72 /* NSURL */,
+				A6395EB5192DEFDE009AAB72 /* OVBase64Encode.h */,
+			);
+			path = Over;
+			sourceTree = "<group>";
+		};
+		A6395E68192DEFDE009AAB72 /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E69192DEFDE009AAB72 /* NSArray+OVDifference.h */,
+				A6395E6A192DEFDE009AAB72 /* NSArray+OVDifference.m */,
+				A6395E6B192DEFDE009AAB72 /* NSArray+OVEnumeration.h */,
+				A6395E6C192DEFDE009AAB72 /* NSArray+OVEnumeration.m */,
+				A6395E6D192DEFDE009AAB72 /* NSArray+OVInitialize.h */,
+				A6395E6E192DEFDE009AAB72 /* NSArray+OVInitialize.m */,
+				A6395E6F192DEFDE009AAB72 /* NSArray+OVRandom.h */,
+				A6395E70192DEFDE009AAB72 /* NSArray+OVRandom.m */,
+				A6395E71192DEFDE009AAB72 /* NSArray+OVReverse.h */,
+				A6395E72192DEFDE009AAB72 /* NSArray+OVReverse.m */,
+				A6395E73192DEFDE009AAB72 /* NSArray+OVSelector.h */,
+				A6395E74192DEFDE009AAB72 /* NSArray+OVSelector.m */,
+				A6395E75192DEFDE009AAB72 /* NSArray+OVShorthand.h */,
+				A6395E76192DEFDE009AAB72 /* NSArray+OVShorthand.m */,
+				A6395E77192DEFDE009AAB72 /* NSArray+OVSorting.h */,
+				A6395E78192DEFDE009AAB72 /* NSArray+OVSorting.m */,
+				A6395E79192DEFDE009AAB72 /* NSArray+OVSubArray.h */,
+				A6395E7A192DEFDE009AAB72 /* NSArray+OVSubArray.m */,
+				A6395E7B192DEFDE009AAB72 /* NSMutableArray */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
+		A6395E7B192DEFDE009AAB72 /* NSMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E7C192DEFDE009AAB72 /* NSMutableArray+OVShorthand.h */,
+				A6395E7D192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m */,
+				A6395E7E192DEFDE009AAB72 /* NSMutableArray+OVSorting.h */,
+				A6395E7F192DEFDE009AAB72 /* NSMutableArray+OVSorting.m */,
+			);
+			path = NSMutableArray;
+			sourceTree = "<group>";
+		};
+		A6395E80192DEFDE009AAB72 /* NSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E81192DEFDE009AAB72 /* NSBundle+OVShorthand.h */,
+				A6395E82192DEFDE009AAB72 /* NSBundle+OVShorthand.m */,
+			);
+			path = NSBundle;
+			sourceTree = "<group>";
+		};
+		A6395E83192DEFDE009AAB72 /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E84192DEFDE009AAB72 /* NSData+OVBase64Encode.h */,
+				A6395E85192DEFDE009AAB72 /* NSData+OVBase64Encode.m */,
+			);
+			path = NSData;
+			sourceTree = "<group>";
+		};
+		A6395E86192DEFDE009AAB72 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E87192DEFDE009AAB72 /* NSDate+OVComponents.h */,
+				A6395E88192DEFDE009AAB72 /* NSDate+OVComponents.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		A6395E89192DEFDE009AAB72 /* NSDateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E8A192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.h */,
+				A6395E8B192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m */,
+			);
+			path = NSDateFormatter;
+			sourceTree = "<group>";
+		};
+		A6395E8C192DEFDE009AAB72 /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E8D192DEFDE009AAB72 /* NSDictionary+OVEnumeration.h */,
+				A6395E8E192DEFDE009AAB72 /* NSDictionary+OVEnumeration.m */,
+				A6395E8F192DEFDE009AAB72 /* NSDictionary+OVPath.h */,
+				A6395E90192DEFDE009AAB72 /* NSDictionary+OVPath.m */,
+				A6395E91192DEFDE009AAB72 /* NSDictionary+OVSelector.h */,
+				A6395E92192DEFDE009AAB72 /* NSDictionary+OVSelector.m */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
+		A6395E93192DEFDE009AAB72 /* NSNull */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E94192DEFDE009AAB72 /* NSNull+OVNatural.h */,
+				A6395E95192DEFDE009AAB72 /* NSNull+OVNatural.m */,
+			);
+			path = NSNull;
+			sourceTree = "<group>";
+		};
+		A6395E96192DEFDE009AAB72 /* NSNumber */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E97192DEFDE009AAB72 /* NSNumber+OVEquals.h */,
+				A6395E98192DEFDE009AAB72 /* NSNumber+OVEquals.m */,
+			);
+			path = NSNumber;
+			sourceTree = "<group>";
+		};
+		A6395E99192DEFDE009AAB72 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E9A192DEFDE009AAB72 /* NSObject+Equals.h */,
+				A6395E9B192DEFDE009AAB72 /* NSObject+Equals.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		A6395E9C192DEFDE009AAB72 /* NSSet */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E9D192DEFDE009AAB72 /* NSSet+OVEnumeration.h */,
+				A6395E9E192DEFDE009AAB72 /* NSSet+OVEnumeration.m */,
+			);
+			path = NSSet;
+			sourceTree = "<group>";
+		};
+		A6395E9F192DEFDE009AAB72 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				A6395EA0192DEFDE009AAB72 /* NSString+OVBase64Encode.h */,
+				A6395EA1192DEFDE009AAB72 /* NSString+OVBase64Encode.m */,
+				A6395EA2192DEFDE009AAB72 /* NSString+OVComponents.h */,
+				A6395EA3192DEFDE009AAB72 /* NSString+OVComponents.m */,
+				A6395EA4192DEFDE009AAB72 /* NSString+OVDebugging.h */,
+				A6395EA5192DEFDE009AAB72 /* NSString+OVDebugging.m */,
+				A6395EA6192DEFDE009AAB72 /* NSString+OVHash.h */,
+				A6395EA7192DEFDE009AAB72 /* NSString+OVHash.m */,
+				A6395EA8192DEFDE009AAB72 /* NSString+OVJSON.h */,
+				A6395EA9192DEFDE009AAB72 /* NSString+OVJSON.m */,
+				A6395EAA192DEFDE009AAB72 /* NSString+OVRegularExpression.h */,
+				A6395EAB192DEFDE009AAB72 /* NSString+OVRegularExpression.m */,
+				A6395EAC192DEFDE009AAB72 /* NSString+OVShorthand.h */,
+				A6395EAD192DEFDE009AAB72 /* NSString+OVShorthand.m */,
+				A6395EAE192DEFDE009AAB72 /* NSString+OVURLEncode.h */,
+				A6395EAF192DEFDE009AAB72 /* NSString+OVURLEncode.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		A6395EB0192DEFDE009AAB72 /* NSURL */ = {
+			isa = PBXGroup;
+			children = (
+				A6395EB1192DEFDE009AAB72 /* NSURL+OVComponents.h */,
+				A6395EB2192DEFDE009AAB72 /* NSURL+OVComponents.m */,
+				A6395EB3192DEFDE009AAB72 /* NSURL+OVDirectories.h */,
+				A6395EB4192DEFDE009AAB72 /* NSURL+OVDirectories.m */,
+			);
+			path = NSURL;
+			sourceTree = "<group>";
+		};
+		A6395EB7192DEFDE009AAB72 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				A6395EB8192DEFDE009AAB72 /* Overline+BlocksKit.h */,
+				A6395EB9192DEFDE009AAB72 /* Overline.h */,
+				A6395EE3192DF34C009AAB72 /* Overline+UIKit.h */,
+			);
+			name = Header;
+			path = ../Header;
+			sourceTree = "<group>";
+		};
+		A6395EDD192DEFE2009AAB72 /* Overline */ = {
+			isa = PBXGroup;
+			children = (
+				A6395E5F192DEFDE009AAB72 /* Overline */,
+			);
+			name = Overline;
+			sourceTree = "<group>";
+		};
+		A6395EE1192DF311009AAB72 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
+		A6395EE2192DF319009AAB72 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A6395EE1192DF311009AAB72 /* UIImage */,
+				A6395EE7192DF55A009AAB72 /* UIView */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		A6395EE7192DF55A009AAB72 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				A6395EE4192DF556009AAB72 /* UIView+OVSnapshot.h */,
+				A6395EE5192DF556009AAB72 /* UIView+OVSnapshot.m */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
 		A63C6D93192A23BF0041D4D4 = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +1111,12 @@
 				A63C706D192BC10E0041D4D4 /* SBR_InteractiveSwipeGestureRecognizer.m */,
 				A655910C192D3ED0002212D5 /* SBR_StyleKit.h */,
 				A655910D192D3ED0002212D5 /* SBR_StyleKit.m */,
+				A6395EEB192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.h */,
+				A6395EEC192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m */,
+				A6395EEE192E2116009AAB72 /* SBR_MaterializeFilter.h */,
+				A6395EEF192E2116009AAB72 /* SBR_MaterializeFilter.m */,
+				A6395EF1192E25ED009AAB72 /* SBR_DimFilter.h */,
+				A6395EF2192E25ED009AAB72 /* SBR_DimFilter.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -1085,6 +1473,8 @@
 		A6559104192D11D8002212D5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A6395EDD192DEFE2009AAB72 /* Overline */,
+				A6395E5E192DEF28009AAB72 /* libextobjc */,
 				A6558F03192D11D1002212D5 /* GPUImage */,
 			);
 			name = Vendor;
@@ -1093,6 +1483,8 @@
 		A655910B192D3E30002212D5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6395EF4192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.h */,
+				A6395EF5192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.m */,
 				A6559108192D3E1A002212D5 /* SBR_SwipeUpIconView.h */,
 				A6559109192D3E1A002212D5 /* SBR_SwipeUpIconView.m */,
 			);
@@ -1114,8 +1506,6 @@
 				A6B1360E192C7A920011852D /* SBR_MenuTransitionPresentAnimator.m */,
 				A6395E54192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.h */,
 				A6395E55192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m */,
-				A6395E57192D69DF009AAB72 /* SBR_MenuTransitionMenuFilter.h */,
-				A6395E58192D69DF009AAB72 /* SBR_MenuTransitionMenuFilter.m */,
 				A6B13603192C79ED0011852D /* SBR_MenuDrilldownAnimation.h */,
 				A6B13604192C79ED0011852D /* SBR_MenuDrilldownAnimation.m */,
 			);
@@ -1267,14 +1657,18 @@
 			files = (
 				A65590BA192D11D2002212D5 /* GPUImageOpacityFilter.m in Sources */,
 				A65590EF192D11D2002212D5 /* GPUImageTwoPassTextureSamplingFilter.m in Sources */,
+				A6395ED2192DEFDE009AAB72 /* NSSet+OVEnumeration.m in Sources */,
+				A6395ED8192DEFDE009AAB72 /* NSString+OVRegularExpression.m in Sources */,
 				A655910A192D3E1A002212D5 /* SBR_SwipeUpIconView.m in Sources */,
 				A65590E2192D11D2002212D5 /* GPUImageTextureInput.m in Sources */,
 				A65590A8192D11D2002212D5 /* GPUImageLowPassFilter.m in Sources */,
+				A6395ECC192DEFDE009AAB72 /* NSDictionary+OVEnumeration.m in Sources */,
 				A65590DF192D11D2002212D5 /* GPUImageStretchDistortionFilter.m in Sources */,
 				A65590F0192D11D2002212D5 /* GPUImageUIElement.m in Sources */,
 				A65590B8192D11D2002212D5 /* GPUImageNonMaximumSuppressionFilter.m in Sources */,
 				A65590B4192D11D2002212D5 /* GPUImageMovie.m in Sources */,
 				A65590A6192D11D2002212D5 /* GPUImageLocalBinaryPatternFilter.m in Sources */,
+				A6395ED0192DEFDE009AAB72 /* NSNumber+OVEquals.m in Sources */,
 				A6559065192D11D2002212D5 /* GPUImageBoxBlurFilter.m in Sources */,
 				A65590C6192D11D2002212D5 /* GPUImagePosterizeFilter.m in Sources */,
 				A65590F5192D11D2002212D5 /* GPUImageWeakPixelInclusionFilter.m in Sources */,
@@ -1300,21 +1694,30 @@
 				A65590D0192D11D2002212D5 /* GPUImageSaturationFilter.m in Sources */,
 				A6559099192D11D2002212D5 /* GPUImageHSBFilter.m in Sources */,
 				A6559064192D11D2002212D5 /* GPUImageBilateralFilter.m in Sources */,
+				A6395ECE192DEFDE009AAB72 /* NSDictionary+OVSelector.m in Sources */,
 				A65590B3192D11D2002212D5 /* GPUImageMotionDetector.m in Sources */,
+				A6395EBA192DEFDE009AAB72 /* NSArray+OVCore.m in Sources */,
 				A655905D192D11D2002212D5 /* GPUImage3x3TextureSamplingFilter.m in Sources */,
 				A65590B7192D11D2002212D5 /* GPUImageNobleCornerDetectionFilter.m in Sources */,
+				A6395EC8192DEFDE009AAB72 /* NSBundle+OVShorthand.m in Sources */,
+				A6395EBD192DEFDE009AAB72 /* NSArray+OVDifference.m in Sources */,
+				A6395EBC192DEFDE009AAB72 /* NSSet+OVCore.m in Sources */,
 				A65590A7192D11D2002212D5 /* GPUImageLookupFilter.m in Sources */,
 				A65590C0192D11D2002212D5 /* GPUImagePinchDistortionFilter.m in Sources */,
 				A6559061192D11D2002212D5 /* GPUImageAmatorkaFilter.m in Sources */,
+				A6395EBB192DEFDE009AAB72 /* NSDictionary+OVCore.m in Sources */,
 				A65590DE192D11D2002212D5 /* GPUImageStillCamera.m in Sources */,
 				A65590EE192D11D2002212D5 /* GPUImageTwoPassFilter.m in Sources */,
 				A65590EA192D11D2002212D5 /* GPUImageToonFilter.m in Sources */,
 				A65590F1192D11D2002212D5 /* GPUImageUnsharpMaskFilter.m in Sources */,
+				A6395ECB192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m in Sources */,
 				A6559087192D11D2002212D5 /* GPUImageFilterPipeline.m in Sources */,
+				A6395EDC192DEFDE009AAB72 /* NSURL+OVDirectories.m in Sources */,
 				A65590D9192D11D2002212D5 /* GPUImageSoftEleganceFilter.m in Sources */,
 				A655905E192D11D2002212D5 /* GPUImageAdaptiveThresholdFilter.m in Sources */,
 				A655908D192D11D2002212D5 /* GPUImageGaussianSelectiveBlurFilter.m in Sources */,
 				A6559079192D11D2002212D5 /* GPUImageDifferenceBlendFilter.m in Sources */,
+				A6395EC7192DEFDE009AAB72 /* NSMutableArray+OVSorting.m in Sources */,
 				A655905F192D11D2002212D5 /* GPUImageAddBlendFilter.m in Sources */,
 				A65590B0192D11D2002212D5 /* GPUImageMonochromeFilter.m in Sources */,
 				A655909E192D11D2002212D5 /* GPUImageKuwaharaFilter.m in Sources */,
@@ -1335,40 +1738,57 @@
 				A6559069192D11D2002212D5 /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
 				A655906D192D11D2002212D5 /* GPUImageClosingFilter.m in Sources */,
 				A6B13609192C79ED0011852D /* SBR_InstrumentVC.m in Sources */,
+				A6395ECF192DEFDE009AAB72 /* NSNull+OVNatural.m in Sources */,
 				A655907C192D11D2002212D5 /* GPUimageDirectionalSobelEdgeDetectionFilter.m in Sources */,
+				A6395EDA192DEFDE009AAB72 /* NSString+OVURLEncode.m in Sources */,
 				A6559119192D44AE002212D5 /* SBR_MenuTransitionController.m in Sources */,
 				A6559068192D11D2002212D5 /* GPUImageBulgeDistortionFilter.m in Sources */,
 				A6559097192D11D2002212D5 /* GPUImageHistogramGenerator.m in Sources */,
 				A65590CD192D11D2002212D5 /* GPUImageRGBFilter.m in Sources */,
 				A65590C1192D11D2002212D5 /* GPUImagePixellateFilter.m in Sources */,
 				A655906F192D11D2002212D5 /* GPUImageColorBurnBlendFilter.m in Sources */,
+				A6395EC1192DEFDE009AAB72 /* NSArray+OVReverse.m in Sources */,
+				A6395ECD192DEFDE009AAB72 /* NSDictionary+OVPath.m in Sources */,
+				A6395EF6192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.m in Sources */,
 				A6559073192D11D2002212D5 /* GPUImageColorPackingFilter.m in Sources */,
 				A6559095192D11D2002212D5 /* GPUImageHighPassFilter.m in Sources */,
 				A6559096192D11D2002212D5 /* GPUImageHistogramFilter.m in Sources */,
 				A6559080192D11D2002212D5 /* GPUImageErosionFilter.m in Sources */,
 				A65590BF192D11D2002212D5 /* GPUImagePerlinNoiseFilter.m in Sources */,
 				A65590F3192D11D2002212D5 /* GPUImageVignetteFilter.m in Sources */,
+				A6395EBE192DEFDE009AAB72 /* NSArray+OVEnumeration.m in Sources */,
 				A6559077192D11D2002212D5 /* GPUImageCrosshatchFilter.m in Sources */,
+				A6395E5D192DEF24009AAB72 /* EXTScope.m in Sources */,
 				A65590B6192D11D2002212D5 /* GPUImageMultiplyBlendFilter.m in Sources */,
 				A6B1360B192C79ED0011852D /* SBR_MenuDrilldownAnimation.m in Sources */,
 				A6559085192D11D2002212D5 /* GPUImageFilter.m in Sources */,
+				A6395ED5192DEFDE009AAB72 /* NSString+OVDebugging.m in Sources */,
 				A6559067192D11D2002212D5 /* GPUImageBuffer.m in Sources */,
+				A6395ECA192DEFDE009AAB72 /* NSDate+OVComponents.m in Sources */,
 				A65590C9192D11D2002212D5 /* GPUImageRawDataOutput.m in Sources */,
 				A65590D4192D11D2002212D5 /* GPUImageShiTomasiFeatureDetectionFilter.m in Sources */,
 				A65590EC192D11D2002212D5 /* GPUImageTwoInputCrossTextureSamplingFilter.m in Sources */,
 				A6559075192D11D2002212D5 /* GPUImageCropFilter.m in Sources */,
 				A655909D192D11D2002212D5 /* GPUImageJFAVoronoiFilter.m in Sources */,
+				A6395EC3192DEFDE009AAB72 /* NSArray+OVShorthand.m in Sources */,
 				A65590DC192D11D2002212D5 /* GPUImageSourceOverBlendFilter.m in Sources */,
 				A65590BC192D11D2002212D5 /* GPUImageOutput.m in Sources */,
+				A6395EC5192DEFDE009AAB72 /* NSArray+OVSubArray.m in Sources */,
 				A65590C7192D11D2002212D5 /* GPUImagePrewittEdgeDetectionFilter.m in Sources */,
 				A65590A4192D11D2002212D5 /* GPUImageLinearBurnBlendFilter.m in Sources */,
+				A6395EF3192E25ED009AAB72 /* SBR_DimFilter.m in Sources */,
 				A655906C192D11D2002212D5 /* GPUImageChromaKeyFilter.m in Sources */,
 				A65590DD192D11D2002212D5 /* GPUImageSphereRefractionFilter.m in Sources */,
 				A6559086192D11D2002212D5 /* GPUImageFilterGroup.m in Sources */,
 				A65590C3192D11D2002212D5 /* GPUImagePoissonBlendFilter.m in Sources */,
 				A655906E192D11D2002212D5 /* GPUImageColorBlendFilter.m in Sources */,
 				A6559093192D11D2002212D5 /* GPUImageHazeFilter.m in Sources */,
+				A6395ED9192DEFDE009AAB72 /* NSString+OVShorthand.m in Sources */,
 				A65590A5192D11D2002212D5 /* GPUImageLineGenerator.m in Sources */,
+				A6395EC4192DEFDE009AAB72 /* NSArray+OVSorting.m in Sources */,
+				A6395ED1192DEFDE009AAB72 /* NSObject+Equals.m in Sources */,
+				A6395ED3192DEFDE009AAB72 /* NSString+OVBase64Encode.m in Sources */,
+				A6395EC0192DEFDE009AAB72 /* NSArray+OVRandom.m in Sources */,
 				A6559092192D11D2002212D5 /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
 				A6559076192D11D2002212D5 /* GPUImageCrosshairGenerator.m in Sources */,
 				A655907E192D11D2002212D5 /* GPUImageDivideBlendFilter.m in Sources */,
@@ -1376,33 +1796,41 @@
 				A65590E5192D11D2002212D5 /* GPUImageThresholdEdgeDetectionFilter.m in Sources */,
 				A655907D192D11D2002212D5 /* GPUImageDissolveBlendFilter.m in Sources */,
 				A65590E9192D11D2002212D5 /* GPUImageToneCurveFilter.m in Sources */,
+				A6395ED7192DEFDE009AAB72 /* NSString+OVJSON.m in Sources */,
 				A6559088192D11D2002212D5 /* GPUImageFramebuffer.m in Sources */,
 				A65590CC192D11D2002212D5 /* GPUImageRGBErosionFilter.m in Sources */,
 				A655905B192D11D2002212D5 /* GLProgram.m in Sources */,
 				A65590AE192D11D2002212D5 /* GPUImageMedianFilter.m in Sources */,
 				A65590D2192D11D2002212D5 /* GPUImageSepiaFilter.m in Sources */,
+				A6395EDB192DEFDE009AAB72 /* NSURL+OVComponents.m in Sources */,
 				A65590F8192D11D2002212D5 /* GPUImageZoomBlurFilter.m in Sources */,
 				A65590CA192D11D2002212D5 /* GPUImageRGBClosingFilter.m in Sources */,
 				A65590EB192D11D2002212D5 /* GPUImageTransformFilter.m in Sources */,
 				A655907A192D11D2002212D5 /* GPUImageDilationFilter.m in Sources */,
+				A6395EE6192DF556009AAB72 /* UIView+OVSnapshot.m in Sources */,
 				A65590A0192D11D2002212D5 /* GPUImageLanczosResamplingFilter.m in Sources */,
 				A65590F7192D11D2002212D5 /* GPUImageXYDerivativeFilter.m in Sources */,
 				A6559090192D11D2002212D5 /* GPUImageHalftoneFilter.m in Sources */,
 				A6559062192D11D2002212D5 /* GPUImageAverageColor.m in Sources */,
 				A655908A192D11D2002212D5 /* GPUImageGammaFilter.m in Sources */,
 				A6559082192D11D2002212D5 /* GPUImageExposureFilter.m in Sources */,
+				A6395ED6192DEFDE009AAB72 /* NSString+OVHash.m in Sources */,
 				A655907F192D11D2002212D5 /* GPUImageEmbossFilter.m in Sources */,
 				A6559063192D11D2002212D5 /* GPUImageAverageLuminanceThresholdFilter.m in Sources */,
 				A655905C192D11D2002212D5 /* GPUImage3x3ConvolutionFilter.m in Sources */,
+				A6395ED4192DEFDE009AAB72 /* NSString+OVComponents.m in Sources */,
 				A65590D7192D11D2002212D5 /* GPUImageSmoothToonFilter.m in Sources */,
 				A6559081192D11D2002212D5 /* GPUImageExclusionBlendFilter.m in Sources */,
+				A6395EF0192E2116009AAB72 /* SBR_MaterializeFilter.m in Sources */,
 				A65590F9192D11D2002212D5 /* GPUImageContext.m in Sources */,
 				A65590CB192D11D2002212D5 /* GPUImageRGBDilationFilter.m in Sources */,
 				A65590B1192D11D2002212D5 /* GPUImageMosaicFilter.m in Sources */,
+				A6395EC2192DEFDE009AAB72 /* NSArray+OVSelector.m in Sources */,
 				A65590A2192D11D2002212D5 /* GPUImageLevelsFilter.m in Sources */,
 				A65590D6192D11D2002212D5 /* GPUImageSketchFilter.m in Sources */,
 				A6395E56192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m in Sources */,
 				A65590A9192D11D2002212D5 /* GPUImageLuminanceRangeFilter.m in Sources */,
+				A6395EC9192DEFDE009AAB72 /* NSData+OVBase64Encode.m in Sources */,
 				A655909C192D11D2002212D5 /* GPUImageiOSBlurFilter.m in Sources */,
 				A65590F2192D11D2002212D5 /* GPUImageVideoCamera.m in Sources */,
 				A65590AC192D11D2002212D5 /* GPUImageLuminosityBlendFilter.m in Sources */,
@@ -1419,14 +1847,15 @@
 				A65590AA192D11D2002212D5 /* GPUImageLuminanceThresholdFilter.m in Sources */,
 				A65590B5192D11D2002212D5 /* GPUImageMovieComposition.m in Sources */,
 				A65590B2192D11D2002212D5 /* GPUImageMotionBlurFilter.m in Sources */,
-				A6395E59192D69DF009AAB72 /* SBR_MenuTransitionMenuFilter.m in Sources */,
 				A65590D1192D11D2002212D5 /* GPUImageScreenBlendFilter.m in Sources */,
 				A655909F192D11D2002212D5 /* GPUImageKuwaharaRadius3Filter.m in Sources */,
 				A65590A3192D11D2002212D5 /* GPUImageLightenBlendFilter.m in Sources */,
 				A65590AB192D11D2002212D5 /* GPUImageLuminosity.m in Sources */,
 				A65590E8192D11D2002212D5 /* GPUImageTiltShiftFilter.m in Sources */,
+				A6395EED192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m in Sources */,
 				A6559071192D11D2002212D5 /* GPUImageColorInvertFilter.m in Sources */,
 				A65590E0192D11D2002212D5 /* GPUImageSubtractBlendFilter.m in Sources */,
+				A6395EC6192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m in Sources */,
 				A6559060192D11D2002212D5 /* GPUImageAlphaBlendFilter.m in Sources */,
 				A655906B192D11D2002212D5 /* GPUImageChromaKeyBlendFilter.m in Sources */,
 				A65590FA192D11D2002212D5 /* GPUImageMovieWriter.m in Sources */,
@@ -1440,6 +1869,7 @@
 				A65590D8192D11D2002212D5 /* GPUImageSobelEdgeDetectionFilter.m in Sources */,
 				A65590D3192D11D2002212D5 /* GPUImageSharpenFilter.m in Sources */,
 				A65590ED192D11D2002212D5 /* GPUImageTwoInputFilter.m in Sources */,
+				A6395EBF192DEFDE009AAB72 /* NSArray+OVInitialize.m in Sources */,
 				A6559083192D11D2002212D5 /* GPUImageFalseColorFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

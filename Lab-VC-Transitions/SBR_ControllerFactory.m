@@ -10,7 +10,8 @@
 
 #import "SBR_MenuTransitionPresentAnimator.h"
 #import "SBR_MenuTransitionDismissAnimator.h"
-#import "SBR_MenuTransitionMenuFilter.h"
+#import "SBR_DimFilter.h"
+#import "SBR_MaterializeFilter.h"
 
 @implementation SBR_ControllerFactory
 {
@@ -83,15 +84,22 @@
 
 //---------------------------------------------------------------------
 
-- (SBR_MenuTransitionController *)menuTransitionControllerWithContainerVC
+- (SBR_MenuTransitionController *)menuTransitionController
 {
     NSParameterAssert(self.mainVC);
     
-    if (_menuTransitionController) {
+    if (!_menuTransitionController) {
         // Construct the animators first. They share a GPU filter
-        SBR_MenuTransitionMenuFilter *filter = [SBR_MenuTransitionMenuFilter new];
-        SBR_MenuTransitionPresentAnimator *presentAnim = [SBR_MenuTransitionPresentAnimator newWithMenuFilter:filter];
-        SBR_MenuTransitionDismissAnimator *dismissAnim = [SBR_MenuTransitionDismissAnimator newWithMenuFilter:filter];
+        SBR_CompositeGPUFilterAbstract *menuFilter = [SBR_MaterializeFilter new];
+        SBR_CompositeGPUFilterAbstract *instrumentFilter = [SBR_DimFilter new];
+        
+        SBR_MenuTransitionPresentAnimator *presentAnim = [SBR_MenuTransitionPresentAnimator
+                                                          newWithContainerView:self.mainVC.view
+                                                          instrumentViewFilter:instrumentFilter
+                                                          presentingViewFilter:menuFilter];
+        
+        SBR_MenuTransitionDismissAnimator *dismissAnim = [SBR_MenuTransitionDismissAnimator newWithContainerView:self.mainVC.view
+                                                                                            instrumentViewFilter:instrumentFilter presentedViewFilter:menuFilter];
         
         _menuTransitionController = [SBR_MenuTransitionController newWithContainerVC:self.mainVC
                                                                      presentAnimator:presentAnim

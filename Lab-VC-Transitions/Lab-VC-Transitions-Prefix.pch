@@ -13,4 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #import "EXTScope.h"
+    #import <BlocksKit.h>
+    #import <BlocksKit/BlocksKit+UIKit.h>
+    #import "Overline.h"
+    #import "Overline+UIKit.h"
+
 #endif

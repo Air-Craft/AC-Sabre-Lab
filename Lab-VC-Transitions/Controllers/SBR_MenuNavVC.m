@@ -30,6 +30,8 @@
 - (void)_setup
 {
     // DEBUG: Add fake BG & panel
+    self.view.opaque = NO;
+    self.view.backgroundColor = [UIColor clearColor];
     UIImage *img = [UIImage imageNamed:@"temp-mainmenu"];
     UIImageView *imgV = [[UIImageView alloc] initWithImage:img];
     self.view.frame = imgV.frame;

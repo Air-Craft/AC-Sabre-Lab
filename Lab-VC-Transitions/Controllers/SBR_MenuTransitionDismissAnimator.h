@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SBR_CompositeGPUFilterAbstract.h"
 
 @interface SBR_MenuTransitionDismissAnimator : NSObject
 
-+ (instancetype)newWithMenuFilter:(SBR_MenuTransitionMenuFilter *)menuFilter;
 
++ (instancetype)newWithContainerView:(UIView *)containerView
+                instrumentViewFilter:(SBR_CompositeGPUFilterAbstract *)instrumentViewFilter
+                 presentedViewFilter:(SBR_CompositeGPUFilterAbstract *)presentedViewFilter;
+
+
+- (void)dismissWithCompletion:(void(^)(void))completion;
 
 @end

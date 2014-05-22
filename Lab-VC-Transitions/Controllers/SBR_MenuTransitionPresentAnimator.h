@@ -9,17 +9,40 @@
 @import UIKit;
 
 #import "SBR_InstrumentVC.h"
-#import "SBR_MenuTransitionMenuFilter.h"
+#import "SBR_CompositeGPUFilterAbstract.h"
 
 @interface SBR_MenuTransitionPresentAnimator : NSObject
 
-+ (instancetype)newWithMenuFilter:(SBR_MenuTransitionMenuFilter *)menuFilter;
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Life Cycle
+/////////////////////////////////////////////////////////////////////////
 
-- (void)begin;
++ (instancetype)newWithContainerView:(UIView *)containerView
+                instrumentViewFilter:(SBR_CompositeGPUFilterAbstract *)instrumentViewFilter
+                presentingViewFilter:(SBR_CompositeGPUFilterAbstract *)presentingViewFilter;
+
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Properties
+/////////////////////////////////////////////////////////////////////////
+
+/** Set to the snapshot view equivalent of the instrument view.  Needed by the DismissAnimator */
+@property (nonatomic, readonly) UIView *frozenBGSnapshotView;
+
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Public Methods
+/////////////////////////////////////////////////////////////////////////
+
+- (void)beginTransitionToView:(UIView *)presentingView;
 
 - (void)updateWithPercent:(CGFloat)percent;
 
-- (void)endWithAbort:(BOOL)abort completion:(void(^)(void))completion;
+/** Cancel the transition and revert back to previous state */
+- (void)abortAndRevert;
+
+/** Finishes the animations with completion callback */
+- (void)finishWithCompletion:(void(^)(void))completion;
 
 
 

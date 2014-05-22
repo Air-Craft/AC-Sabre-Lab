@@ -14,6 +14,8 @@
 #import "SBR_InstrumentVC.h"
 #import "SBR_MenuNavVC.h"
 
+#import "SBR_AnimatedFilterSnapshotView.h"
+
 #import "SBR_StyleKit.h"
 
 /////////////////////////////////////////////////////////////////////////
@@ -21,6 +23,8 @@
 /////////////////////////////////////////////////////////////////////////
 
 static SBR_ControllerFactory *Factory;
+
+static const NSTimeInterval _SBR_ANIM_INSTRUMENT_DIM_ALPHA = 0.4;   // in addition to the filter effects
 static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 
 
@@ -40,13 +44,13 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 
 @implementation SBR_MenuTransitionPresentAnimator
 {
-//    UIViewController *_containerVC;
-//    SBR_InstrumentVC *_instrumentVC;
-//    UIViewController *_menuVC;
-    GPUImageView *_menuSnapshotView;
-    GPUImagePicture *_snapshotPicture;
+    UIView *_containerView;
+    UIView *_presentingView;
+    SBR_CompositeGPUFilterAbstract *_instrumentViewFilter;
+    SBR_CompositeGPUFilterAbstract *_presentingViewFilter;
     
-    SBR_MenuTransitionDirection _direction;
+    SBR_AnimatedFilterSnapshotView *_presentingSnapshotView;
+    
     CGFloat _percentTransitioned;
 }
 
@@ -55,12 +59,17 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 #pragma mark - Life Cycle
 /////////////////////////////////////////////////////////////////////////
 
-+ (instancetype)newWithMenuFilter:(SBR_MenuTransitionMenuFilter *)menuFilter
++ (instancetype)newWithContainerView:(UIView *)containerView
+                instrumentViewFilter:(SBR_CompositeGPUFilterAbstract *)instrumentViewFilter
+                presentingViewFilter:(SBR_CompositeGPUFilterAbstract *)presentingViewFilter
 {
     SBR_MenuTransitionPresentAnimator *me = [[self alloc] init];
     if (me) {
-        [me _setup];
+        me->_containerView = containerView;
+        me->_instrumentViewFilter = instrumentViewFilter;
+        me->_presentingViewFilter = presentingViewFilter;
         Factory = [SBR_ControllerFactory sharedInstance];
+        [me _setup];
     }
     return me;
 }
@@ -69,8 +78,6 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 
 - (void)_setup
 {
-    _menuSnapshotView = [[GPUImageView alloc] initWithFrame:Factory.mainVC.view.frame];
-    [_blurFilter addTarget:_menuSnapshotView];
 }
 
 
@@ -78,8 +85,9 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 #pragma mark - Public Methods
 /////////////////////////////////////////////////////////////////////////
 
-- (void)begin
+- (void)beginTransitionToView:(UIView *)presentingView
 {
+    _presentingView = presentingView;
 }
 
 //---------------------------------------------------------------------
@@ -93,87 +101,92 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 }
 
 //---------------------------------------------------------------------
-//
-- (void)endWithAbort:(BOOL)abort completion:(void (^)(void))completion
+
+- (void)abortAndRevert
 {
+    if (_percentTransitioned == 0) return;
+    
     // Panel either animated the rest of the way down or back to the original position
-    CATransform3D panelTransform = [SBR_StyleKit menuTransitionPanelTransformForAmount:(abort ? 0 : 1)];
+    CATransform3D panelTransform = [SBR_StyleKit menuTransitionPanelTransformForAmount:0];
     
-    CABasicAnimation *panelAnim = [CABasicAnimation animationWithKeyPath: @"transform"];
-    panelAnim.fillMode = kCAFillModeForwards;
-    panelAnim.removedOnCompletion = NO;
-    panelAnim.toValue = [NSValue valueWithCATransform3D:panelTransform];
-    panelAnim.duration = _SBR_ANIM_STAGE2_TIME * (1 - _percentTransitioned);
-    panelAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [_instrumentVC.panelView.layer addAnimation:panelAnim forKey:@"transform"];
-    
+    [UIView
+     animateWithDuration:_SBR_ANIM_STAGE2_TIME * (1 - _percentTransitioned)
+     animations:^{
+         [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+         Factory.instrumentVC.panelView.layer.transform = panelTransform;
+     }];
+}
+
+//---------------------------------------------------------------------
+
+- (void)finishWithCompletion:(void (^)(void))completion
+{
     /////////////////////////////////////////
-    // MENU VIEW
+    // PANEL DOWN COMPLETION
+    /////////////////////////////////////////
+    [UIView
+     animateWithDuration:_SBR_ANIM_STAGE2_TIME * (1 - _percentTransitioned)
+     animations:^{
+        
+         [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+         CATransform3D transform = [SBR_StyleKit menuTransitionPanelTransformForAmount:1];
+         Factory.instrumentVC.panelView.layer.transform = transform;
+        
+     } completion:^(BOOL finished) {
+         /////////////////////////////////////////
+         // BG DIM & FADE
+         /////////////////////////////////////////
+         // Snapshot and dim...
+         SBR_AnimatedFilterSnapshotView *view
+         = [SBR_AnimatedFilterSnapshotView
+            newWithSourceView:Factory.instrumentVC.view
+            filter:_instrumentViewFilter
+            initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view){
+                [Factory.instrumentVC.view removeFromSuperview];
+                [_containerView insertSubview:view belowSubview:_presentingSnapshotView];
+                
+                NSTimeInterval dur = _SBR_ANIM_STAGE2_TIME * _percentTransitioned;
+                [view filterWithDuration:dur];
+                
+                // Also fade the view
+                [UIView animateWithDuration:dur animations:^{
+                    view.alpha = _SBR_ANIM_INSTRUMENT_DIM_ALPHA;
+                }];
+            }];
+         
+         // Public reference for later
+         _frozenBGSnapshotView = view;
+     }];
+    
+
+    /////////////////////////////////////////
+    // MENU: FILTER ANIM
     /////////////////////////////////////////
     
-    // Grab a snapshot, initialize its effects and add it to the view
-    UIImage *snapshotImage;
-    UIGraphicsBeginImageContext(_menuVC.view.frame.size);
-    {
-        [_menuVC.view drawViewHierarchyInRect:_menuVC.view.frame afterScreenUpdates:YES];
-        snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    UIGraphicsEndImageContext();
-    
-    // Use GPUImageView for convenience with animating the blur
-    if (!_blurFilter) _blurFilter = [[_SBR_FILTER_TYPE alloc] init];
-    if (!_menuSnapshotView) _menuSnapshotView = [[GPUImageView alloc] initWithFrame:_menuVC.view.frame];
-    
-    
-    
-    _menuSnapshotView.opaque = NO;
-    _snapshotPicture = [[GPUImagePicture alloc] initWithImage:snapshotImage];
-    [_snapshotPicture addTarget:_blurFilter];
-    //        [_snapshotPicture processImage];
-    
-    
-    [_containerVC addChildViewController:_menuVC];
-    [_containerVC.view addSubview:_menuSnapshotView];
-    
-    POPBasicAnimation *anim = [POPBasicAnimation easeOutAnimation];
-    anim.fromValue = @(_SBR_MENU_ANIM_FILTER_FROM);
-    anim.toValue = @(_SBR_MENU_ANIM_FILTER_TO);
-    anim.duration = _SBR_ANIM_STAGE2_TIME;
-    
-    POPAnimatableProperty *prop = [POPAnimatableProperty propertyWithName:@"co.air-craft.blurAmount" initializer:^(POPMutableAnimatableProperty *prop) {
-        prop.readBlock = ^(id obj, CGFloat values[]) {
-            values[0] = [_blurFilter blurSize];
-        };
-        // write value
-        prop.writeBlock = ^(id obj, const CGFloat values[]) {
-            [_blurFilter setBlurSize:values[0]];
-            [_snapshotPicture processImage];
-        };
+    _presentingSnapshotView = [SBR_AnimatedFilterSnapshotView newWithSourceView:_presentingView filter:_presentingViewFilter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view){
     }];
-    anim.property = prop;
-    [self pop_addAnimation:anim forKey:@"co.air-craft.blurInAnim"];
+    [_containerView addSubview:_presentingSnapshotView];
     
+    [_presentingSnapshotView filterWithDuration:_SBR_ANIM_STAGE2_TIME];
+   
     
-    // ANIMATION: ANGLE-PAN IN
-    CABasicAnimation *menuAnim = [CABasicAnimation animationWithKeyPath: @"transform"];
-    menuAnim.fillMode = kCAFillModeForwards;
-    menuAnim.removedOnCompletion = NO;
-    menuAnim.fromValue = [NSValue valueWithCATransform3D:[self _menuTransformForPercent:1]];
-    menuAnim.toValue = [NSValue valueWithCATransform3D:[self _menuTransformForPercent:0]];
-    menuAnim.duration = _SBR_ANIM_STAGE2_TIME;
-    menuAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    [_menuSnapshotView.layer addAnimation:menuAnim forKey:@"transform"];
+    /////////////////////////////////////////
+    // MENU: CA ANIMS
+    /////////////////////////////////////////
+    _presentingSnapshotView.layer.transform = [SBR_StyleKit menuTransitionMenuTransformForAmount:1];
+    _presentingSnapshotView.alpha = 0.0;
     
+    [UIView animateWithDuration:_SBR_ANIM_STAGE2_TIME animations:^{
+        // ANIMATION: ANGLE-PAN IN
+        [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+        
+        _presentingSnapshotView.alpha = 1.0;
+        _presentingSnapshotView.layer.transform = [SBR_StyleKit menuTransitionMenuTransformForAmount:0];
+        
+    } completion:^(BOOL finished) {
+        [self _handleTransitionAnimationCompleted];
+    }];
     
-    // ANIMATION: FADE IN
-    CABasicAnimation *fadeAnim = [CABasicAnimation animationWithKeyPath: @"opacity"];
-    fadeAnim.fillMode = kCAFillModeForwards;
-    fadeAnim.removedOnCompletion = NO;
-    fadeAnim.fromValue = @(0);
-    fadeAnim.toValue = @(1.0);
-    fadeAnim.duration = _SBR_ANIM_STAGE2_TIME;
-    fadeAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    [_menuSnapshotView.layer addAnimation:fadeAnim forKey:@"opacity"];
 }
 
 
@@ -181,5 +194,12 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 #pragma mark - Additional Privates
 /////////////////////////////////////////////////////////////////////////
 
+/** Swap for live views etc. */
+- (void)_handleTransitionAnimationCompleted
+{
+    [_containerView addSubview:_presentingView];
+    [_presentingSnapshotView removeFromSuperview];
+    _presentingSnapshotView = nil;
+}
 
 @end
