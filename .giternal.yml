@@ -1,0 +1,21 @@
+#BlocksKit:
+#  repo: git@github.com:zwaldowski/BlocksKit.git
+#  path: Lab-VC-Transitions/Vendor/
+
+GPUImage:
+  repo: git@github.com:BradLarson/GPUImage.git
+  path: Lab-VC-Transitions/Vendor/
+
+libextobjc:
+  repo: git@github.com:jspahrsummers/libextobjc.git
+  path: Lab-VC-Transitions/Vendor/
+
+Overline:
+  repo: git@github.com:yaakaito/Overline.git
+  path: Lab-VC-Transitions/Vendor/
+
+#Pop:
+#  repo: git@github.com:facebook/pop.git
+#  path: Lab-VC-Transitions/Vendor/
+
+
