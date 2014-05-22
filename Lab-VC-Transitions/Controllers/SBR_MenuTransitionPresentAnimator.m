@@ -185,8 +185,9 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
         
     } completion:^(BOOL finished) {
         [self _handleTransitionAnimationCompleted];
+        
+        if (completion) completion();
     }];
-    
 }
 
 
@@ -194,9 +195,9 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 #pragma mark - Additional Privates
 /////////////////////////////////////////////////////////////////////////
 
-/** Swap for live views etc. */
 - (void)_handleTransitionAnimationCompleted
 {
+    // Swap the presented view's snapshot for the real deal
     [_containerView addSubview:_presentingView];
     [_presentingSnapshotView removeFromSuperview];
     _presentingSnapshotView = nil;

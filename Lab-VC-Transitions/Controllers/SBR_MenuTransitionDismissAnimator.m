@@ -36,7 +36,7 @@ static SBR_ControllerFactory *Factory;
     SBR_CompositeGPUFilterAbstract *_instrumentViewFilter;
     SBR_CompositeGPUFilterAbstract *_presentedViewFilter;
     
-    SBR_AnimatedFilterSnapshotView *_targetSnapshotView;
+    SBR_AnimatedFilterSnapshotView *_presentingSnapshotView;
     
     CGFloat _percentTransitioned;
 }
@@ -64,5 +64,13 @@ static SBR_ControllerFactory *Factory;
 {
 }
 
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Public Methods
+/////////////////////////////////////////////////////////////////////////
+
+- (void)dismissWithCompletion:(void (^)(void))completion
+{
+    // First 
+}
 
 @end
