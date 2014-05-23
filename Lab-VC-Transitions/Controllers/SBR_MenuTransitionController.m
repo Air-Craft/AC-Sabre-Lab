@@ -124,6 +124,7 @@ static SBR_ControllerFactory *Factory;
     
     _presentGR.enabled = NO;
     _swipeUpIconView.hidden = NO;
+    [_swipeUpIconView.superview bringSubviewToFront:_swipeUpIconView];
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -133,7 +134,7 @@ static SBR_ControllerFactory *Factory;
 - (void)_handleDismissGesture
 {
     @weakify(self)
-    [_dismissAnimator dismissWithCompletion:^{ @strongify(self);
+    [_presentAnimator dismissWithCompletion:^{ @strongify(self);
         [self _handleDismissComplete];
     }];
 }

@@ -13,7 +13,7 @@
 /////////////////////////////////////////////////////////////////////////
 
 static const CGFloat _SBR_FILTER1_FROM = 1;
-static const CGFloat _SBR_FILTER1_TO = 0.4;
+static const CGFloat _SBR_FILTER1_TO = 0.1;
 static const CGFloat _SBR_FILTER2_FROM = 0;
 static const CGFloat _SBR_FILTER2_TO = 0;
 

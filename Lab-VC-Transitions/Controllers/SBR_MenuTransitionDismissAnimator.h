@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SBR_CompositeGPUFilterAbstract.h"
+#import "SBR_AnimatedFilterSnapshotView.h"
 
 @interface SBR_MenuTransitionDismissAnimator : NSObject
 
@@ -17,6 +18,8 @@
                  presentedViewFilter:(SBR_CompositeGPUFilterAbstract *)presentedViewFilter;
 
 
-- (void)dismissWithCompletion:(void(^)(void))completion;
+- (void)dismissPresentedView:(UIView *)presentedView
+      instrumentSnapshotView:(SBR_AnimatedFilterSnapshotView *)instrumentSnapshotView
+                  completion:(void(^)(void))completion;
 
 @end

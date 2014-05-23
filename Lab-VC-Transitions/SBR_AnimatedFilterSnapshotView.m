@@ -26,7 +26,7 @@
                initDrawCompletion:(void (^)(SBR_AnimatedFilterSnapshotView *view))completion
 {
     // Get the snapshot so we know the frame size. Can't plain `init` a GPUImageView.
-    UIImage *snapshot = [sourceView snapshotImageAfterScreenUpdates:YES];
+    UIImage *snapshot = [sourceView snapshotImageAfterScreenUpdates:NO];
     CGRect f = {0, 0, snapshot.size};
     SBR_AnimatedFilterSnapshotView *me = [[self alloc] initWithFrame:f];
     
@@ -84,11 +84,21 @@
 
 - (void)unfilterWithDuration:(NSTimeInterval)duration
 {
+    [self unfilterWithDuration:duration completion:nil];
+}
+
+//---------------------------------------------------------------------
+
+- (void)unfilterWithDuration:(NSTimeInterval)duration completion:(void (^)(void))completion
+{
     POPBasicAnimation *anim = [POPBasicAnimation easeOutAnimation];
     anim.fromValue = @(1.0);
     anim.toValue = @(0.0);
     anim.duration = duration;
     anim.property = _animProp;
+    [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        if (completion) completion();
+    }];
     [self pop_addAnimation:anim forKey:@"co.air-craft.SBR_AnimatedFilterSnapshotView.unfilterAnim"];
 }
 

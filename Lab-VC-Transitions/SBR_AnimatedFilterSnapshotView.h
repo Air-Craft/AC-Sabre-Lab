@@ -9,6 +9,7 @@
 #import "GPUImageView.h"
 #import "SBR_CompositeGPUFilterAbstract.h"
 
+/** Normally I'm trying to handle process via composition and controllers rather than inheritance and wrapping but POP and GPUImage are so verbose I thought it best to wrap in this short lived case */
 @interface SBR_AnimatedFilterSnapshotView : GPUImageView
 
 + (instancetype)newWithSourceView:(UIView *)sourceView
@@ -22,7 +23,7 @@
 
 - (void)filterWithDuration:(NSTimeInterval)duration;
 - (void)unfilterWithDuration:(NSTimeInterval)duration;
-
+- (void)unfilterWithDuration:(NSTimeInterval)duration completion:(void(^)(void))completion;
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Protected

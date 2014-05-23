@@ -27,6 +27,8 @@ static SBR_ControllerFactory *Factory;
 static const NSTimeInterval _SBR_ANIM_INSTRUMENT_DIM_ALPHA = 0.4;   // in addition to the filter effects
 static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
 
+static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE1_TIME = 0.1;
+static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -50,6 +52,7 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
     SBR_CompositeGPUFilterAbstract *_presentingViewFilter;
     
     SBR_AnimatedFilterSnapshotView *_presentingSnapshotView;
+    SBR_AnimatedFilterSnapshotView *_frozenBGSnapshotView;
     
     CGFloat _percentTransitioned;
 }
@@ -188,6 +191,62 @@ static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
         
         if (completion) completion();
     }];
+}
+
+//---------------------------------------------------------------------
+
+- (void)dismissWithCompletion:(void (^)(void))completion
+{
+    // FADE IN BG
+    [UIView animateWithDuration:_SBR_DISMISS_ANIM_STAGE1_TIME animations:^{
+        _frozenBGSnapshotView.alpha = 1.0;
+    }];
+    
+    // UNFILTER BG
+    [_frozenBGSnapshotView unfilterWithDuration:_SBR_DISMISS_ANIM_STAGE1_TIME completion:^{
+        
+        // Swap out the snapshot for the real thing
+        [_containerView insertSubview:Factory.instrumentVC.view belowSubview:_presentingView];
+        [_frozenBGSnapshotView removeFromSuperview];
+        
+        // Now simultaneously do the panel 3d xform and anim out the
+        // PANEL ANIM
+        [UIView
+         animateWithDuration:_SBR_ANIM_STAGE2_TIME
+         animations:^{
+             Factory.instrumentVC.panelView.layer.transform = [SBR_StyleKit menuTransitionPanelTransformForAmount:0];
+         }];
+        
+        // MENU OUT: FILTER
+        // Swap the menu for the snapshow
+        _presentingSnapshotView = [SBR_AnimatedFilterSnapshotView
+                                   newWithSourceView:_presentingView
+                                   filter:_presentingViewFilter
+                                   initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view) {
+                                       [_containerView addSubview:view];
+                                       [_presentingView removeFromSuperview];
+                                       _presentingView = nil; // no longer needed
+                                   }];
+        [_presentingSnapshotView unfilterWithDuration:_SBR_DISMISS_ANIM_STAGE2_TIME];
+        
+        
+        // MENU OUT: GEOMETRY
+        [UIView
+         animateWithDuration:_SBR_DISMISS_ANIM_STAGE2_TIME
+         animations:^{
+             _presentingSnapshotView.layer.transform = [SBR_StyleKit menuTransitionMenuTransformForAmount:1];
+             _presentingSnapshotView.alpha = 0;
+         }
+         completion:^(BOOL finished) {
+             
+             // Remove the snapshot
+             [_presentingSnapshotView removeFromSuperview];
+             _presentingSnapshotView = nil;
+             
+             if (completion) completion();
+         }];
+        
+    }]; // end unfilter
 }
 
 

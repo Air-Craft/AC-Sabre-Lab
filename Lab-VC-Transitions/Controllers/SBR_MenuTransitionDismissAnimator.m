@@ -24,6 +24,8 @@
 
 static SBR_ControllerFactory *Factory;
 
+static const NSTimeInterval _SBR_DISMISS_ANIM_PHASE1_DURATION = 0.25;
+static const NSTimeInterval _SBR_DISMISS_ANIM_PHASE2_DURATION = 0.25;
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -68,9 +70,11 @@ static SBR_ControllerFactory *Factory;
 #pragma mark - Public Methods
 /////////////////////////////////////////////////////////////////////////
 
-- (void)dismissWithCompletion:(void (^)(void))completion
+- (void)dismissPresentedView:(UIView *)presentedView
+      instrumentSnapshotView:(SBR_AnimatedFilterSnapshotView *)instrumentSnapshotView
+                  completion:(void (^)(void))completion
 {
-    // First 
+    
 }
 
 @end

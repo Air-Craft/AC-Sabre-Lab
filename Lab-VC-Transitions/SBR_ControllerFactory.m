@@ -93,17 +93,19 @@
         SBR_CompositeGPUFilterAbstract *menuFilter = [SBR_MaterializeFilter new];
         SBR_CompositeGPUFilterAbstract *instrumentFilter = [SBR_DimFilter new];
         
-        SBR_MenuTransitionPresentAnimator *presentAnim = [SBR_MenuTransitionPresentAnimator
-                                                          newWithContainerView:self.mainVC.view
-                                                          instrumentViewFilter:instrumentFilter
-                                                          presentingViewFilter:menuFilter];
+        SBR_MenuTransitionPresentAnimator *presentAnim =
+        [SBR_MenuTransitionPresentAnimator newWithContainerView:self.mainVC.view
+                                           instrumentViewFilter:instrumentFilter
+                                           presentingViewFilter:menuFilter];
         
-        SBR_MenuTransitionDismissAnimator *dismissAnim = [SBR_MenuTransitionDismissAnimator newWithContainerView:self.mainVC.view
-                                                                                            instrumentViewFilter:instrumentFilter presentedViewFilter:menuFilter];
+        SBR_MenuTransitionDismissAnimator *dismissAnim =
+        [SBR_MenuTransitionDismissAnimator newWithContainerView:self.mainVC.view
+                                           instrumentViewFilter:instrumentFilter presentedViewFilter:menuFilter];
         
-        _menuTransitionController = [SBR_MenuTransitionController newWithContainerVC:self.mainVC
-                                                                     presentAnimator:presentAnim
-                                                                     dismissAnimator:dismissAnim];
+        _menuTransitionController =
+        [SBR_MenuTransitionController newWithContainerVC:self.mainVC
+                                         presentAnimator:presentAnim
+                                         dismissAnimator:dismissAnim];
     }
     return _menuTransitionController;
 }

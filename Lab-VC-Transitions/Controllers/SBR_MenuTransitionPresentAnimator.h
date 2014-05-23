@@ -22,12 +22,6 @@
                 presentingViewFilter:(SBR_CompositeGPUFilterAbstract *)presentingViewFilter;
 
 
-/////////////////////////////////////////////////////////////////////////
-#pragma mark - Properties
-/////////////////////////////////////////////////////////////////////////
-
-/** Set to the snapshot view equivalent of the instrument view.  Needed by the DismissAnimator */
-@property (nonatomic, readonly) UIView *frozenBGSnapshotView;
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -44,7 +38,8 @@
 /** Finishes the animations with completion callback */
 - (void)finishWithCompletion:(void(^)(void))completion;
 
-
+/** Non-interactive dismiss */
+- (void)dismissWithCompletion:(void(^)(void))completion;
 
 
 @end
