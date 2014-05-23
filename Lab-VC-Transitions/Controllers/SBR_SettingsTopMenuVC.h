@@ -21,11 +21,6 @@ typedef enum {
 #pragma mark -
 /////////////////////////////////////////////////////////////////////////
 
-@interface SBR_MenuNavVC : UIViewController
-
-
-
-+ (instancetype)menuNavVC;
-
+@interface SBR_SettingsTopMenuVC : UIViewController
 
 @end

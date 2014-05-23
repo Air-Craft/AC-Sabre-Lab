@@ -8,11 +8,11 @@
 
 #import "GPUImage.h"
 #import <POP.h>
-#import "SBR_MenuTransitionAnimator.h"
+#import "SBR_ModalTransitionAnimator.h"
 
 #import "SBR_ControllerFactory.h"
 #import "SBR_InstrumentVC.h"
-#import "SBR_MenuNavVC.h"
+#import "SBR_SettingsTopMenuVC.h"
 
 #import "SBR_AnimatedFilterSnapshotView.h"
 
@@ -38,9 +38,9 @@ static const CGFloat _SBR_MENU_ANIM_ANGLE = 90;
 static const CGFloat _SBR_MENU_ANIM_PERSPECTIVE = 200;
 
 /** Timings */
-static const NSTimeInterval _SBR_PRESENT_ANIM_STAGE2_TIME = 0.25;
-static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE1_TIME = 0.1;
-static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
+static const NSTimeInterval _SBR_PRESENT_ANIM_STAGE2_TIME = 1.25;
+static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE1_TIME = 1.1;
+static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 1.15;
 
 
 
@@ -48,7 +48,7 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 #pragma mark -
 /////////////////////////////////////////////////////////////////////////
 
-@interface SBR_MenuTransitionAnimator()
+@interface SBR_ModalTransitionAnimator()
 
 @property (nonatomic) CGFloat animPercent;
 
@@ -58,7 +58,7 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 #pragma mark -
 /////////////////////////////////////////////////////////////////////////
 
-@implementation SBR_MenuTransitionAnimator
+@implementation SBR_ModalTransitionAnimator
 {
     UIView *_containerView;
     UIView *_presentedView;
@@ -80,7 +80,7 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
                 instrumentViewFilter:(SBR_CompositeGPUFilterAbstract *)instrumentViewFilter
                 presentedViewFilter:(SBR_CompositeGPUFilterAbstract *)presentedViewFilter
 {
-    SBR_MenuTransitionAnimator *me = [[self alloc] init];
+    SBR_ModalTransitionAnimator *me = [[self alloc] init];
     if (me) {
         me->_containerView = containerView;
         me->_instrumentViewFilter = instrumentViewFilter;

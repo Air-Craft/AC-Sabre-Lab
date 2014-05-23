@@ -11,7 +11,8 @@
 #import "SBR_InstrumentVC.h"
 #import "SBR_CompositeGPUFilterAbstract.h"
 
-@interface SBR_MenuTransitionAnimator : NSObject
+/** Not the AnimController new to iOS7 but a custom object used specifically by the ModalTransitionController */
+@interface SBR_ModalTransitionAnimator : NSObject
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Life Cycle

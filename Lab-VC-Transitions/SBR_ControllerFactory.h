@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "SBR_MainVC.h"
-#import "SBR_MenuNavVC.h"
-#import "SBR_MenuTransitionController.h"
-#import "SBR_MenuTransitionAnimator.h"
+#import "SBR_SettingsNavVC.h"
+#import "SBR_SettingsTopMenuVC.h"
+#import "SBR_ModalTransitionController.h"
+#import "SBR_ModalTransitionAnimator.h"
 
 #import "SBR_InteractiveSwipeGestureRecognizer.h"
 
@@ -37,8 +38,10 @@
 /////////////////////////////////////////////////////////////////////////
 
 - (SBR_InstrumentVC *)instrumentVC;
-- (SBR_MenuNavVC *)menuNavVC;
-- (SBR_MenuTransitionController *)menuTransitionController;
+- (SBR_SettingsNavVC *)settingsNavVC;
+- (SBR_SettingsTopMenuVC *)settingsTopMenuVC;
+
+- (SBR_ModalTransitionController *)menuTransitionController;
 
 
 

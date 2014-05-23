@@ -6,4 +6,6 @@
 //  Copyright (c) 2014 Air Craft Media Ltd. MIT License.
 //
 
+#import "UIColor+OVColorAdjust.h"
+#import "UIImage+OVGradients.h"
 #import "UIView+OVSnapshot.h"

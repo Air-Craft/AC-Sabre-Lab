@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Air Craft. All rights reserved.
 //
 
-#import "SBR_MenuTransitionController.h"
+#import "SBR_ModalTransitionController.h"
 
 #import "SBR_ControllerFactory.h"
 #import "SBR_InteractiveSwipeGestureRecognizer.h"
@@ -15,10 +15,13 @@
 
 static SBR_ControllerFactory *Factory;
 
-@implementation SBR_MenuTransitionController
+static const NSUInteger _SBR_MODAL_TRANSITION_SWIPE_TOUCHES_REQD  = 1;
+
+
+@implementation SBR_ModalTransitionController
 {
     UIViewController *_containerVC;
-    SBR_MenuTransitionAnimator *_animator;
+    SBR_ModalTransitionAnimator *_animator;
     UIViewController *_presentedVC;
     
     SBR_SwipeUpIconView *_swipeUpIconView;
@@ -30,9 +33,9 @@ static SBR_ControllerFactory *Factory;
 /////////////////////////////////////////////////////////////////////////
 
 + (instancetype)newWithContainerVC:(UIViewController *)containerVC
-                          animator:(SBR_MenuTransitionAnimator *)animator
+                          animator:(SBR_ModalTransitionAnimator *)animator
 {
-    SBR_MenuTransitionController *me = [[self alloc] init];
+    SBR_ModalTransitionController *me = [[self alloc] init];
     if (me) {
         me->_containerVC = containerVC;
         me->_animator = animator;
@@ -50,7 +53,7 @@ static SBR_ControllerFactory *Factory;
     
     // Setup the GR for presentation
     SBR_InteractiveSwipeGestureRecognizer *gr = [[SBR_InteractiveSwipeGestureRecognizer alloc] initWithTarget:self action:@selector(_handlePresentGesture:)];
-    gr.numberOfTouchesRequired = 3;
+    gr.numberOfTouchesRequired = _SBR_MODAL_TRANSITION_SWIPE_TOUCHES_REQD;
     gr.direction = UISwipeGestureRecognizerDirectionDown;
     [_containerVC.view addGestureRecognizer:gr];
     _presentGR = gr;
@@ -75,7 +78,7 @@ static SBR_ControllerFactory *Factory;
 {
     switch (swipe.state) {
 		case UIGestureRecognizerStateBegan:
-            [_animator beginPresentingView:Factory.menuNavVC.view];
+            [_animator beginPresentingView:Factory.settingsNavVC.view];
             break;
             
 		case UIGestureRecognizerStateChanged:
@@ -99,7 +102,7 @@ static SBR_ControllerFactory *Factory;
                 [_animator abortPresentingAndRevert];
             } else {
                 // Don't consider the xsition to have begun until it's certain
-                _presentedVC = Factory.menuNavVC;
+                _presentedVC = Factory.settingsNavVC;
                 [_animator finishPresentingWithCompletion:^{ [self _handlePresentComplete]; }];
                 
                 // Must  be after the animator -end for screenshot method to work

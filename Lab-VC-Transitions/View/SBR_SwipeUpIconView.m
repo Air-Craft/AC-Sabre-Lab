@@ -55,7 +55,7 @@
     anim.fillMode = kCAFillModeForwards;
     anim.removedOnCompletion = NO;
     anim.fromValue = @(1.0);
-    anim.toValue = @(0.4);
+    anim.toValue = @(0.6);
     anim.duration = 0.2;
     anim.repeatCount = HUGE_VALF;
     anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];

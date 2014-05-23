@@ -13,11 +13,14 @@
 @interface SBR_StyleKit : NSObject
 
 + (UIColor *)backgroundColor;
++ (UIColor *)yellowTextColor;
++ (UIColor *)yellowTextHighlightColor;
++ (UIFont *)settingsMenuFont;
 
 + (UIImage *)swipeUpIcon;
-+ (UIImage *)swipeRightIcon;
+//+ (UIImage *)swipeRightIcon;
 
-
-
++ (UIImage *)imageForSettingsMenuGlowingTextButtonWithText:(NSString *)text
+                                               highlighted:(BOOL)highlighted;
 
 @end

@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SBR_InstrumentVC.h"
-#import "SBR_MenuTransitionAnimator.h"
+#import "SBR_ModalTransitionAnimator.h"
 
 
-@interface SBR_MenuTransitionController : NSObject
+@interface SBR_ModalTransitionController : NSObject
 
 + (instancetype)newWithContainerVC:(UIViewController *)containerVC
-                          animator:(SBR_MenuTransitionAnimator *)animator;
+                          animator:(SBR_ModalTransitionAnimator *)animator;
 
 
 

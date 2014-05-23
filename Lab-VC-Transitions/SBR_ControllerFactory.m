@@ -8,16 +8,17 @@
 
 #import "SBR_ControllerFactory.h"
 
-#import "SBR_MenuTransitionAnimator.h"
+#import "SBR_ModalTransitionAnimator.h"
 #import "SBR_DimFilter.h"
 #import "SBR_MaterializeFilter.h"
 
 @implementation SBR_ControllerFactory
 {
     SBR_InstrumentVC *_instrumentVC;
-    SBR_MenuTransitionController *_menuTransitionController;
+    SBR_ModalTransitionController *_menuTransitionController;
     
-    SBR_MenuNavVC *_menuNavVC;
+    SBR_SettingsNavVC *_settingsNavVC;
+    SBR_SettingsTopMenuVC *_settingsTopMenuVC;
 }
     
 /////////////////////////////////////////////////////////////////////////
@@ -57,16 +58,18 @@
     [self menuTransitionController];
 }
 
-/////////////////////////////////////////////////////////////////////////
-#pragma mark - Controllers
-/////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------
 
 - (void)releaseMemory
 {
-    _menuNavVC = nil;
+    _settingsNavVC = nil;
+    _settingsTopMenuVC = nil;
 }
 
-//---------------------------------------------------------------------
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Controllers
+/////////////////////////////////////////////////////////////////////////
 
 - (SBR_InstrumentVC *)instrumentVC
 {
@@ -75,15 +78,29 @@
 
 //---------------------------------------------------------------------
 
-- (SBR_MenuNavVC *)menuNavVC
+- (SBR_SettingsNavVC *)settingsNavVC
 {
-    if (!_menuNavVC) _menuNavVC = [SBR_MenuNavVC menuNavVC];
-    return _menuNavVC;
+    if (!_settingsNavVC) {
+        _settingsNavVC = [[SBR_SettingsNavVC alloc] initWithRootViewController:[self settingsTopMenuVC]];
+        _settingsNavVC.toolbarHidden = YES;
+        _settingsNavVC.navigationBarHidden = YES;
+    }
+    return _settingsNavVC;
 }
 
 //---------------------------------------------------------------------
 
-- (SBR_MenuTransitionController *)menuTransitionController
+- (SBR_SettingsTopMenuVC *)settingsTopMenuVC
+{
+    if (!_settingsTopMenuVC) {
+        _settingsTopMenuVC = [SBR_SettingsTopMenuVC new];
+    }
+    return _settingsTopMenuVC;
+}
+
+//---------------------------------------------------------------------
+
+- (SBR_ModalTransitionController *)menuTransitionController
 {
     NSParameterAssert(self.mainVC);
     
@@ -92,13 +109,13 @@
         SBR_CompositeGPUFilterAbstract *menuFilter = [SBR_MaterializeFilter new];
         SBR_CompositeGPUFilterAbstract *instrumentFilter = [SBR_DimFilter new];
         
-        SBR_MenuTransitionAnimator *animator =
-        [SBR_MenuTransitionAnimator newWithContainerView:self.mainVC.view
+        SBR_ModalTransitionAnimator *animator =
+        [SBR_ModalTransitionAnimator newWithContainerView:self.mainVC.view
                                            instrumentViewFilter:instrumentFilter
                                            presentedViewFilter:menuFilter];
         
         _menuTransitionController =
-        [SBR_MenuTransitionController newWithContainerVC:self.mainVC
+        [SBR_ModalTransitionController newWithContainerVC:self.mainVC
                                          animator:animator];
     }
     return _menuTransitionController;
