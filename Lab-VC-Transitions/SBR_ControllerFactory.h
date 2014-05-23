@@ -10,7 +10,7 @@
 #import "SBR_MainVC.h"
 #import "SBR_MenuNavVC.h"
 #import "SBR_MenuTransitionController.h"
-#import "SBR_MenuTransitionPresentAnimator.h"
+#import "SBR_MenuTransitionAnimator.h"
 
 #import "SBR_InteractiveSwipeGestureRecognizer.h"
 

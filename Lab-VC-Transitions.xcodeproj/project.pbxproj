@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		264FB71557EA48D694453140 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED7B89FF7C34E6CBCFF14A8 /* libPods.a */; };
-		A6395E53192D64D5009AAB72 /* SBR_MenuTransitionPresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B1360E192C7A920011852D /* SBR_MenuTransitionPresentAnimator.m */; };
-		A6395E56192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E55192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m */; };
+		A6395E53192D64D5009AAB72 /* SBR_MenuTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B1360E192C7A920011852D /* SBR_MenuTransitionAnimator.m */; };
 		A6395E5D192DEF24009AAB72 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E5B192DEF24009AAB72 /* EXTScope.m */; };
 		A6395EBA192DEFDE009AAB72 /* NSArray+OVCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E62192DEFDE009AAB72 /* NSArray+OVCore.m */; };
 		A6395EBB192DEFDE009AAB72 /* NSDictionary+OVCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A6395E64192DEFDE009AAB72 /* NSDictionary+OVCore.m */; };
@@ -260,8 +259,6 @@
 /* Begin PBXFileReference section */
 		3ED7B89FF7C34E6CBCFF14A8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA6EA6A91C44963B78286BA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		A6395E54192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MenuTransitionDismissAnimator.h; sourceTree = "<group>"; };
-		A6395E55192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuTransitionDismissAnimator.m; sourceTree = "<group>"; };
 		A6395E5A192DEF24009AAB72 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTScope.h; path = Vendor/libextobjc/extobjc/EXTScope.h; sourceTree = "<group>"; };
 		A6395E5B192DEF24009AAB72 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTScope.m; path = Vendor/libextobjc/extobjc/EXTScope.m; sourceTree = "<group>"; };
 		A6395E5C192DEF24009AAB72 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = metamacros.h; path = Vendor/libextobjc/extobjc/metamacros.h; sourceTree = "<group>"; };
@@ -721,8 +718,8 @@
 		A6B13604192C79ED0011852D /* SBR_MenuDrilldownAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuDrilldownAnimation.m; sourceTree = "<group>"; };
 		A6B13605192C79ED0011852D /* SBR_MenuNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MenuNavVC.h; sourceTree = "<group>"; };
 		A6B13606192C79ED0011852D /* SBR_MenuNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuNavVC.m; sourceTree = "<group>"; };
-		A6B1360D192C7A920011852D /* SBR_MenuTransitionPresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MenuTransitionPresentAnimator.h; sourceTree = "<group>"; };
-		A6B1360E192C7A920011852D /* SBR_MenuTransitionPresentAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuTransitionPresentAnimator.m; sourceTree = "<group>"; };
+		A6B1360D192C7A920011852D /* SBR_MenuTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MenuTransitionAnimator.h; sourceTree = "<group>"; };
+		A6B1360E192C7A920011852D /* SBR_MenuTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuTransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1502,10 +1499,8 @@
 				A6B13606192C79ED0011852D /* SBR_MenuNavVC.m */,
 				A6559117192D44AE002212D5 /* SBR_MenuTransitionController.h */,
 				A6559118192D44AE002212D5 /* SBR_MenuTransitionController.m */,
-				A6B1360D192C7A920011852D /* SBR_MenuTransitionPresentAnimator.h */,
-				A6B1360E192C7A920011852D /* SBR_MenuTransitionPresentAnimator.m */,
-				A6395E54192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.h */,
-				A6395E55192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m */,
+				A6B1360D192C7A920011852D /* SBR_MenuTransitionAnimator.h */,
+				A6B1360E192C7A920011852D /* SBR_MenuTransitionAnimator.m */,
 				A6B13603192C79ED0011852D /* SBR_MenuDrilldownAnimation.h */,
 				A6B13604192C79ED0011852D /* SBR_MenuDrilldownAnimation.m */,
 			);
@@ -1685,7 +1680,7 @@
 				A65590BB192D11D2002212D5 /* GPUImageOpeningFilter.m in Sources */,
 				A6B1360A192C79ED0011852D /* SBR_MainVC.m in Sources */,
 				A65590E4192D11D2002212D5 /* GPUImageThreeInputFilter.m in Sources */,
-				A6395E53192D64D5009AAB72 /* SBR_MenuTransitionPresentAnimator.m in Sources */,
+				A6395E53192D64D5009AAB72 /* SBR_MenuTransitionAnimator.m in Sources */,
 				A65590DB192D11D2002212D5 /* GPUImageSolidColorGenerator.m in Sources */,
 				A65590AF192D11D2002212D5 /* GPUImageMissEtikateFilter.m in Sources */,
 				A6559084192D11D2002212D5 /* GPUImageFASTCornerDetectionFilter.m in Sources */,
@@ -1828,7 +1823,6 @@
 				A6395EC2192DEFDE009AAB72 /* NSArray+OVSelector.m in Sources */,
 				A65590A2192D11D2002212D5 /* GPUImageLevelsFilter.m in Sources */,
 				A65590D6192D11D2002212D5 /* GPUImageSketchFilter.m in Sources */,
-				A6395E56192D68F2009AAB72 /* SBR_MenuTransitionDismissAnimator.m in Sources */,
 				A65590A9192D11D2002212D5 /* GPUImageLuminanceRangeFilter.m in Sources */,
 				A6395EC9192DEFDE009AAB72 /* NSData+OVBase64Encode.m in Sources */,
 				A655909C192D11D2002212D5 /* GPUImageiOSBlurFilter.m in Sources */,

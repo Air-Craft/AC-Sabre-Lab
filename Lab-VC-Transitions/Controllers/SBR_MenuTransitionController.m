@@ -18,8 +18,7 @@ static SBR_ControllerFactory *Factory;
 @implementation SBR_MenuTransitionController
 {
     UIViewController *_containerVC;
-    SBR_MenuTransitionPresentAnimator *_presentAnimator;
-    SBR_MenuTransitionDismissAnimator *_dismissAnimator;
+    SBR_MenuTransitionAnimator *_animator;
     UIViewController *_presentedVC;
     
     SBR_SwipeUpIconView *_swipeUpIconView;
@@ -31,14 +30,12 @@ static SBR_ControllerFactory *Factory;
 /////////////////////////////////////////////////////////////////////////
 
 + (instancetype)newWithContainerVC:(UIViewController *)containerVC
-                   presentAnimator:(SBR_MenuTransitionPresentAnimator *)presentAnimator
-                   dismissAnimator:(SBR_MenuTransitionDismissAnimator *)dismissAnimator
+                          animator:(SBR_MenuTransitionAnimator *)animator
 {
     SBR_MenuTransitionController *me = [[self alloc] init];
     if (me) {
         me->_containerVC = containerVC;
-        me->_presentAnimator = presentAnimator;
-        me->_dismissAnimator = dismissAnimator;
+        me->_animator = animator;
         Factory = [SBR_ControllerFactory sharedInstance];
         [me _setup];
     }
@@ -53,7 +50,7 @@ static SBR_ControllerFactory *Factory;
     
     // Setup the GR for presentation
     SBR_InteractiveSwipeGestureRecognizer *gr = [[SBR_InteractiveSwipeGestureRecognizer alloc] initWithTarget:self action:@selector(_handlePresentGesture:)];
-    gr.numberOfTouchesRequired = 1;
+    gr.numberOfTouchesRequired = 3;
     gr.direction = UISwipeGestureRecognizerDirectionDown;
     [_containerVC.view addGestureRecognizer:gr];
     _presentGR = gr;
@@ -78,11 +75,11 @@ static SBR_ControllerFactory *Factory;
 {
     switch (swipe.state) {
 		case UIGestureRecognizerStateBegan:
-            [_presentAnimator beginTransitionToView:Factory.menuNavVC.view];
+            [_animator beginPresentingView:Factory.menuNavVC.view];
             break;
             
 		case UIGestureRecognizerStateChanged:
-            [_presentAnimator updateWithPercent:swipe.percentCompleted];
+            [_animator updatePresentingWithPercent:swipe.percentCompleted];
             break;
             
         case UIGestureRecognizerStateCancelled:
@@ -94,15 +91,16 @@ static SBR_ControllerFactory *Factory;
             if (swipe.state == UIGestureRecognizerStateRecognized) {
                 abort = NO;
             } else {
-                abort = (swipe.velocity < 100.0 && swipe.percentCompleted <= 0.7);
+//                abort = (swipe.velocity < 100.0 && swipe.percentCompleted <= 0.7);
+                abort = (swipe.percentCompleted < 0.85);
             }
             
             if (abort) {
-                [_presentAnimator abortAndRevert];
+                [_animator abortPresentingAndRevert];
             } else {
                 // Don't consider the xsition to have begun until it's certain
                 _presentedVC = Factory.menuNavVC;
-                [_presentAnimator finishWithCompletion:^{ [self _handlePresentComplete]; }];
+                [_animator finishPresentingWithCompletion:^{ [self _handlePresentComplete]; }];
                 
                 // Must  be after the animator -end for screenshot method to work
                 [_containerVC addChildViewController:_presentedVC];
@@ -134,7 +132,7 @@ static SBR_ControllerFactory *Factory;
 - (void)_handleDismissGesture
 {
     @weakify(self)
-    [_presentAnimator dismissWithCompletion:^{ @strongify(self);
+    [_animator dismissWithCompletion:^{ @strongify(self);
         [self _handleDismissComplete];
     }];
 }

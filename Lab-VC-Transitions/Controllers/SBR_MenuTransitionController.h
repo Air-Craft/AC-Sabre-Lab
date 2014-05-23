@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SBR_InstrumentVC.h"
-#import "SBR_MenuTransitionPresentAnimator.h"
-#import "SBR_MenuTransitionDismissAnimator.h"
-#import "SBR_MainVC.h"
+#import "SBR_MenuTransitionAnimator.h"
 
 
 @interface SBR_MenuTransitionController : NSObject
 
 + (instancetype)newWithContainerVC:(UIViewController *)containerVC
-                   presentAnimator:(SBR_MenuTransitionPresentAnimator *)presentAnimator
-                   dismissAnimator:(SBR_MenuTransitionDismissAnimator *)dismissAnimator;
+                          animator:(SBR_MenuTransitionAnimator *)animator;
 
 
 

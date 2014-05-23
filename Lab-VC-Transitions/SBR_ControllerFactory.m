@@ -8,8 +8,7 @@
 
 #import "SBR_ControllerFactory.h"
 
-#import "SBR_MenuTransitionPresentAnimator.h"
-#import "SBR_MenuTransitionDismissAnimator.h"
+#import "SBR_MenuTransitionAnimator.h"
 #import "SBR_DimFilter.h"
 #import "SBR_MaterializeFilter.h"
 
@@ -93,19 +92,14 @@
         SBR_CompositeGPUFilterAbstract *menuFilter = [SBR_MaterializeFilter new];
         SBR_CompositeGPUFilterAbstract *instrumentFilter = [SBR_DimFilter new];
         
-        SBR_MenuTransitionPresentAnimator *presentAnim =
-        [SBR_MenuTransitionPresentAnimator newWithContainerView:self.mainVC.view
+        SBR_MenuTransitionAnimator *animator =
+        [SBR_MenuTransitionAnimator newWithContainerView:self.mainVC.view
                                            instrumentViewFilter:instrumentFilter
-                                           presentingViewFilter:menuFilter];
-        
-        SBR_MenuTransitionDismissAnimator *dismissAnim =
-        [SBR_MenuTransitionDismissAnimator newWithContainerView:self.mainVC.view
-                                           instrumentViewFilter:instrumentFilter presentedViewFilter:menuFilter];
+                                           presentedViewFilter:menuFilter];
         
         _menuTransitionController =
         [SBR_MenuTransitionController newWithContainerVC:self.mainVC
-                                         presentAnimator:presentAnim
-                                         dismissAnimator:dismissAnim];
+                                         animator:animator];
     }
     return _menuTransitionController;
 }

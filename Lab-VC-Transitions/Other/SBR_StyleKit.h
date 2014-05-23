@@ -18,13 +18,6 @@
 + (UIImage *)swipeRightIcon;
 
 
-/////////////////////////////////////////////////////////////////////////
-#pragma mark - Dervied Values
-/////////////////////////////////////////////////////////////////////////
-+ (CATransform3D)menuTransitionPanelTransformForAmount:(CGFloat)amount;
-
-+ (CATransform3D)menuTransitionMenuTransformForAmount:(CGFloat)amount;
-
 
 
 @end

@@ -8,7 +8,7 @@
 
 #import "GPUImage.h"
 #import <POP.h>
-#import "SBR_MenuTransitionPresentAnimator.h"
+#import "SBR_MenuTransitionAnimator.h"
 
 #import "SBR_ControllerFactory.h"
 #import "SBR_InstrumentVC.h"
@@ -24,17 +24,31 @@
 
 static SBR_ControllerFactory *Factory;
 
-static const NSTimeInterval _SBR_ANIM_INSTRUMENT_DIM_ALPHA = 0.4;   // in addition to the filter effects
-static const NSTimeInterval _SBR_ANIM_STAGE2_TIME = 0.25;
+static const CGFloat _SBR_PANEL_ANIM_Y = 210;
+static const CGFloat _SBR_PANEL_ANIM_Z = 300;
+static const CGFloat _SBR_PANEL_ANIM_ANGLE = 120;
+static const CGFloat _SBR_PANEL_ANIM_PERSPECTIVE = 300;
+static const CGFloat _SBR_ANIM_INSTRUMENT_DIM_ALPHA = 0.4;   // in addition to the filter effects
 
+static const CGFloat _SBR_MENU_ANIM_X = 120;
+static const CGFloat _SBR_MENU_ANIM_Z = 800;
+static const CGFloat _SBR_MENU_ANIM_Z_FROM = 800;
+static const CGFloat _SBR_MENU_ANIM_Z_TO = 100;
+static const CGFloat _SBR_MENU_ANIM_ANGLE = 90;
+static const CGFloat _SBR_MENU_ANIM_PERSPECTIVE = 200;
+
+/** Timings */
+static const NSTimeInterval _SBR_PRESENT_ANIM_STAGE2_TIME = 0.25;
 static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE1_TIME = 0.1;
 static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
+
+
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark -
 /////////////////////////////////////////////////////////////////////////
 
-@interface SBR_MenuTransitionPresentAnimator()
+@interface SBR_MenuTransitionAnimator()
 
 @property (nonatomic) CGFloat animPercent;
 
@@ -44,14 +58,14 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 #pragma mark -
 /////////////////////////////////////////////////////////////////////////
 
-@implementation SBR_MenuTransitionPresentAnimator
+@implementation SBR_MenuTransitionAnimator
 {
     UIView *_containerView;
-    UIView *_presentingView;
+    UIView *_presentedView;
     SBR_CompositeGPUFilterAbstract *_instrumentViewFilter;
-    SBR_CompositeGPUFilterAbstract *_presentingViewFilter;
+    SBR_CompositeGPUFilterAbstract *_presentedViewFilter;
     
-    SBR_AnimatedFilterSnapshotView *_presentingSnapshotView;
+    SBR_AnimatedFilterSnapshotView *_presentedSnapshotView;
     SBR_AnimatedFilterSnapshotView *_frozenBGSnapshotView;
     
     CGFloat _percentTransitioned;
@@ -64,13 +78,13 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 
 + (instancetype)newWithContainerView:(UIView *)containerView
                 instrumentViewFilter:(SBR_CompositeGPUFilterAbstract *)instrumentViewFilter
-                presentingViewFilter:(SBR_CompositeGPUFilterAbstract *)presentingViewFilter
+                presentedViewFilter:(SBR_CompositeGPUFilterAbstract *)presentedViewFilter
 {
-    SBR_MenuTransitionPresentAnimator *me = [[self alloc] init];
+    SBR_MenuTransitionAnimator *me = [[self alloc] init];
     if (me) {
         me->_containerView = containerView;
         me->_instrumentViewFilter = instrumentViewFilter;
-        me->_presentingViewFilter = presentingViewFilter;
+        me->_presentedViewFilter = presentedViewFilter;
         Factory = [SBR_ControllerFactory sharedInstance];
         [me _setup];
     }
@@ -88,32 +102,32 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 #pragma mark - Public Methods
 /////////////////////////////////////////////////////////////////////////
 
-- (void)beginTransitionToView:(UIView *)presentingView
+- (void)beginPresentingView:(UIView *)presentedView
 {
-    _presentingView = presentingView;
+    _presentedView = presentedView;
 }
 
 //---------------------------------------------------------------------
 
-- (void)updateWithPercent:(CGFloat)percent
+- (void)updatePresentingWithPercent:(CGFloat)percent
 {
     _percentTransitioned = percent;
     
     // Move the panel down in 3D
-    Factory.instrumentVC.panelView.layer.transform = [SBR_StyleKit menuTransitionPanelTransformForAmount:percent];
+    Factory.instrumentVC.panelView.layer.transform = [self _panelTransformForAmount:percent];
 }
 
 //---------------------------------------------------------------------
 
-- (void)abortAndRevert
+- (void)abortPresentingAndRevert
 {
     if (_percentTransitioned == 0) return;
     
     // Panel either animated the rest of the way down or back to the original position
-    CATransform3D panelTransform = [SBR_StyleKit menuTransitionPanelTransformForAmount:0];
+    CATransform3D panelTransform = [self _panelTransformForAmount:0];
     
     [UIView
-     animateWithDuration:_SBR_ANIM_STAGE2_TIME * (1 - _percentTransitioned)
+     animateWithDuration:_SBR_PRESENT_ANIM_STAGE2_TIME * (1 - _percentTransitioned)
      animations:^{
          [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
          Factory.instrumentVC.panelView.layer.transform = panelTransform;
@@ -122,17 +136,17 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 
 //---------------------------------------------------------------------
 
-- (void)finishWithCompletion:(void (^)(void))completion
+- (void)finishPresentingWithCompletion:(void (^)(void))completion
 {
     /////////////////////////////////////////
     // PANEL DOWN COMPLETION
     /////////////////////////////////////////
     [UIView
-     animateWithDuration:_SBR_ANIM_STAGE2_TIME * (1 - _percentTransitioned)
+     animateWithDuration:_SBR_PRESENT_ANIM_STAGE2_TIME * (1 - _percentTransitioned)
      animations:^{
         
          [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-         CATransform3D transform = [SBR_StyleKit menuTransitionPanelTransformForAmount:1];
+         CATransform3D transform = [self _panelTransformForAmount:1];
          Factory.instrumentVC.panelView.layer.transform = transform;
         
      } completion:^(BOOL finished) {
@@ -146,9 +160,9 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
             filter:_instrumentViewFilter
             initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view){
                 [Factory.instrumentVC.view removeFromSuperview];
-                [_containerView insertSubview:view belowSubview:_presentingSnapshotView];
+                [_containerView insertSubview:view belowSubview:_presentedSnapshotView];
                 
-                NSTimeInterval dur = _SBR_ANIM_STAGE2_TIME * _percentTransitioned;
+                NSTimeInterval dur = _SBR_PRESENT_ANIM_STAGE2_TIME * _percentTransitioned;
                 [view filterWithDuration:dur];
                 
                 // Also fade the view
@@ -166,25 +180,25 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
     // MENU: FILTER ANIM
     /////////////////////////////////////////
     
-    _presentingSnapshotView = [SBR_AnimatedFilterSnapshotView newWithSourceView:_presentingView filter:_presentingViewFilter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view){
+    _presentedSnapshotView = [SBR_AnimatedFilterSnapshotView newWithSourceView:_presentedView filter:_presentedViewFilter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view){
     }];
-    [_containerView addSubview:_presentingSnapshotView];
+    [_containerView addSubview:_presentedSnapshotView];
     
-    [_presentingSnapshotView filterWithDuration:_SBR_ANIM_STAGE2_TIME];
+    [_presentedSnapshotView filterWithDuration:_SBR_PRESENT_ANIM_STAGE2_TIME];
    
     
     /////////////////////////////////////////
     // MENU: CA ANIMS
     /////////////////////////////////////////
-    _presentingSnapshotView.layer.transform = [SBR_StyleKit menuTransitionMenuTransformForAmount:1];
-    _presentingSnapshotView.alpha = 0.0;
+    _presentedSnapshotView.layer.transform = [self _presentedViewTransformForAmount:1];
+    _presentedSnapshotView.alpha = 0.0;
     
-    [UIView animateWithDuration:_SBR_ANIM_STAGE2_TIME animations:^{
+    [UIView animateWithDuration:_SBR_PRESENT_ANIM_STAGE2_TIME animations:^{
         // ANIMATION: ANGLE-PAN IN
         [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
         
-        _presentingSnapshotView.alpha = 1.0;
-        _presentingSnapshotView.layer.transform = [SBR_StyleKit menuTransitionMenuTransformForAmount:0];
+        _presentedSnapshotView.alpha = 1.0;
+        _presentedSnapshotView.layer.transform = [self _presentedViewTransformForAmount:0];
         
     } completion:^(BOOL finished) {
         [self _handleTransitionAnimationCompleted];
@@ -206,42 +220,42 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
     [_frozenBGSnapshotView unfilterWithDuration:_SBR_DISMISS_ANIM_STAGE1_TIME completion:^{
         
         // Swap out the snapshot for the real thing
-        [_containerView insertSubview:Factory.instrumentVC.view belowSubview:_presentingView];
+        [_containerView insertSubview:Factory.instrumentVC.view belowSubview:_presentedView];
         [_frozenBGSnapshotView removeFromSuperview];
         
         // Now simultaneously do the panel 3d xform and anim out the
         // PANEL ANIM
         [UIView
-         animateWithDuration:_SBR_ANIM_STAGE2_TIME
+         animateWithDuration:_SBR_PRESENT_ANIM_STAGE2_TIME
          animations:^{
-             Factory.instrumentVC.panelView.layer.transform = [SBR_StyleKit menuTransitionPanelTransformForAmount:0];
+             Factory.instrumentVC.panelView.layer.transform = [self _panelTransformForAmount:0];
          }];
         
         // MENU OUT: FILTER
         // Swap the menu for the snapshow
-        _presentingSnapshotView = [SBR_AnimatedFilterSnapshotView
-                                   newWithSourceView:_presentingView
-                                   filter:_presentingViewFilter
+        _presentedSnapshotView = [SBR_AnimatedFilterSnapshotView
+                                   newWithSourceView:_presentedView
+                                   filter:_presentedViewFilter
                                    initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view) {
                                        [_containerView addSubview:view];
-                                       [_presentingView removeFromSuperview];
-                                       _presentingView = nil; // no longer needed
+                                       [_presentedView removeFromSuperview];
+                                       _presentedView = nil; // no longer needed
                                    }];
-        [_presentingSnapshotView unfilterWithDuration:_SBR_DISMISS_ANIM_STAGE2_TIME];
+        [_presentedSnapshotView unfilterWithDuration:_SBR_DISMISS_ANIM_STAGE2_TIME];
         
         
         // MENU OUT: GEOMETRY
         [UIView
          animateWithDuration:_SBR_DISMISS_ANIM_STAGE2_TIME
          animations:^{
-             _presentingSnapshotView.layer.transform = [SBR_StyleKit menuTransitionMenuTransformForAmount:1];
-             _presentingSnapshotView.alpha = 0;
+             _presentedSnapshotView.layer.transform = [self _presentedViewTransformForAmount:1];
+             _presentedSnapshotView.alpha = 0;
          }
          completion:^(BOOL finished) {
              
              // Remove the snapshot
-             [_presentingSnapshotView removeFromSuperview];
-             _presentingSnapshotView = nil;
+             [_presentedSnapshotView removeFromSuperview];
+             _presentedSnapshotView = nil;
              
              if (completion) completion();
          }];
@@ -257,9 +271,35 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 - (void)_handleTransitionAnimationCompleted
 {
     // Swap the presented view's snapshot for the real deal
-    [_containerView addSubview:_presentingView];
-    [_presentingSnapshotView removeFromSuperview];
-    _presentingSnapshotView = nil;
+    [_containerView addSubview:_presentedView];
+    [_presentedSnapshotView removeFromSuperview];
+    _presentedSnapshotView = nil;
 }
+
+//---------------------------------------------------------------------
+
+/** 0 = untransformed, 1 = full transform  */
+- (CATransform3D)_panelTransformForAmount:(CGFloat)amount
+{
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DTranslate(transform, 0, _SBR_PANEL_ANIM_Y * amount, _SBR_PANEL_ANIM_Z * amount);
+    transform.m34 = -1.0 / _SBR_PANEL_ANIM_PERSPECTIVE;
+    transform = CATransform3DRotate(transform, _SBR_PANEL_ANIM_ANGLE * amount * M_PI / 180.0f, 1, 0, 0);
+    return transform;
+}
+
+//---------------------------------------------------------------------
+
+- (CATransform3D)_presentedViewTransformForAmount:(CGFloat)amount
+{
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DTranslate(transform, _SBR_MENU_ANIM_X * amount, 0, _SBR_MENU_ANIM_Z*(1-amount)+1);
+    transform.m34 = -1.0 / _SBR_MENU_ANIM_PERSPECTIVE;
+    transform = CATransform3DRotate(transform, -_SBR_MENU_ANIM_ANGLE * amount * M_PI / 180.0f, 0, 1, 0);
+    return transform;
+    
+}
+
+
 
 @end

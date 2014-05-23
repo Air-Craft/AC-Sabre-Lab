@@ -11,7 +11,7 @@
 #import "SBR_InstrumentVC.h"
 #import "SBR_CompositeGPUFilterAbstract.h"
 
-@interface SBR_MenuTransitionPresentAnimator : NSObject
+@interface SBR_MenuTransitionAnimator : NSObject
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Life Cycle
@@ -19,24 +19,24 @@
 
 + (instancetype)newWithContainerView:(UIView *)containerView
                 instrumentViewFilter:(SBR_CompositeGPUFilterAbstract *)instrumentViewFilter
-                presentingViewFilter:(SBR_CompositeGPUFilterAbstract *)presentingViewFilter;
-
-
+                 presentedViewFilter:(SBR_CompositeGPUFilterAbstract *)presentedViewFilter;
 
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Public Methods
 /////////////////////////////////////////////////////////////////////////
 
-- (void)beginTransitionToView:(UIView *)presentingView;
+/** Interactive presentation */
+- (void)beginPresentingView:(UIView *)presentedView;
 
-- (void)updateWithPercent:(CGFloat)percent;
+/** Update interactive presentation */
+- (void)updatePresentingWithPercent:(CGFloat)percent;
 
 /** Cancel the transition and revert back to previous state */
-- (void)abortAndRevert;
+- (void)abortPresentingAndRevert;
 
 /** Finishes the animations with completion callback */
-- (void)finishWithCompletion:(void(^)(void))completion;
+- (void)finishPresentingWithCompletion:(void(^)(void))completion;
 
 /** Non-interactive dismiss */
 - (void)dismissWithCompletion:(void(^)(void))completion;
