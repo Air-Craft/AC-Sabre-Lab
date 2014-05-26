@@ -6,19 +6,23 @@
 //  Copyright (c) 2014 Air Craft. All rights reserved.
 //
 
-#import "SBR_ControllerFactory.h"
+#import "SBR_Factory.h"
 
 #import "SBR_ModalTransitionAnimator.h"
 #import "SBR_DimFilter.h"
 #import "SBR_MaterializeFilter.h"
 
-@implementation SBR_ControllerFactory
+@implementation SBR_Factory
 {
     SBR_InstrumentVC *_instrumentVC;
     SBR_ModalTransitionController *_menuTransitionController;
     
     SBR_SettingsNavVC *_settingsNavVC;
     SBR_SettingsTopMenuVC *_settingsTopMenuVC;
+    
+    MPerformanceThread *_controlThread;
+    IMMotionAnalyzer *_motionAnalyzer;
+    
 }
     
 /////////////////////////////////////////////////////////////////////////
@@ -126,8 +130,28 @@
 }
 
 
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Other Objects
+/////////////////////////////////////////////////////////////////////////
+
+- (MPerformanceThread *)controlThread
+{
+    if (!_controlThread) {
+        _controlThread = [MPerformanceThread new];
+        _controlThread.timingResolution = 0.01;
+    }
+    return _controlThread;
+}
 
 //---------------------------------------------------------------------
 
+- (IMMotionAnalyzer *)motionAnalyzer
+{
+    if (!_motionAnalyzer) {
+        _motionAnalyzer = [[IMMotionAnalyzer alloc] initWithPollingInterval:0.01 oversamplingRatio:1.0 attitudeReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical controlThread:(id<IMControlThreadProtocol>)self.controlThread];
+    }
+    
+    return _motionAnalyzer;
+}
 
 @end

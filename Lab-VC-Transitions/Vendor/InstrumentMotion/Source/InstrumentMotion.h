@@ -12,6 +12,8 @@
  \ingroup   InstrumentMotion
  \brief     Public header file - to be used externally, by the client, only.
  */
+#import "IMControlThreadProtocol.h"
+
 #import "IMDefs.h"
 #import "IMFunctions.h"
 #import "IMMotionObserverProtocol.h"

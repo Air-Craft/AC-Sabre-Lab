@@ -10,7 +10,7 @@
 #import <POP.h>
 #import "SBR_ModalTransitionAnimator.h"
 
-#import "SBR_ControllerFactory.h"
+#import "SBR_Factory.h"
 #import "SBR_InstrumentVC.h"
 #import "SBR_SettingsTopMenuVC.h"
 
@@ -22,7 +22,7 @@
 #pragma mark - Consts
 /////////////////////////////////////////////////////////////////////////
 
-static SBR_ControllerFactory *Factory;
+static SBR_Factory *Factory;
 
 static const CGFloat _SBR_PANEL_ANIM_Y = 210;
 static const CGFloat _SBR_PANEL_ANIM_Z = 300;
@@ -85,7 +85,7 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
         me->_containerView = containerView;
         me->_instrumentViewFilter = instrumentViewFilter;
         me->_presentedViewFilter = presentedViewFilter;
-        Factory = [SBR_ControllerFactory sharedInstance];
+        Factory = [SBR_Factory sharedInstance];
         [me _setup];
     }
     return me;

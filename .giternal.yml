@@ -10,6 +10,10 @@ InstrumentMotion:
   repo: git@github.com:Club15CC/InstrumentMotion.git
   path: Lab-VC-Transitions/Vendor/
 
+Marshmallows:
+  repo: git@github.com:Club15CC/Marshmallows.git
+  path: Lab-VC-Transitions/Vendor/
+
 libextobjc:
   repo: git@github.com:jspahrsummers/libextobjc.git
   path: Lab-VC-Transitions/Vendor/

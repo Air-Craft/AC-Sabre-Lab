@@ -239,7 +239,7 @@
 		A6559115192D3F1D002212D5 /* temp-beams.png in Resources */ = {isa = PBXBuildFile; fileRef = A6559111192D3F1D002212D5 /* temp-beams.png */; };
 		A6559116192D3F1D002212D5 /* temp-beams@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6559112192D3F1D002212D5 /* temp-beams@2x.png */; };
 		A6559119192D44AE002212D5 /* SBR_ModalTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6559118192D44AE002212D5 /* SBR_ModalTransitionController.m */; };
-		A655911C192D4573002212D5 /* SBR_ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A655911B192D4573002212D5 /* SBR_ControllerFactory.m */; };
+		A655911C192D4573002212D5 /* SBR_Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = A655911B192D4573002212D5 /* SBR_Factory.m */; };
 		A6B13609192C79ED0011852D /* SBR_InstrumentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B135FF192C79ED0011852D /* SBR_InstrumentVC.m */; };
 		A6B1360A192C79ED0011852D /* SBR_MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B13601192C79ED0011852D /* SBR_MainVC.m */; };
 		A6B1360C192C79ED0011852D /* SBR_SettingsTopMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B13606192C79ED0011852D /* SBR_SettingsTopMenuVC.m */; };
@@ -266,6 +266,19 @@
 		A6D2552C1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6D2551E1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.mm */; };
 		A6D2552D1933DDCA00BD72D3 /* InstrumentMotionDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255211933DDCA00BD72D3 /* InstrumentMotionDebug.m */; };
 		A6D2552E1933DDCA00BD72D3 /* RunningAverageAggregator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6D255221933DDCA00BD72D3 /* RunningAverageAggregator.cpp */; };
+		A6D255311933E0AC00BD72D3 /* SBR_SettingsTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255301933E0AC00BD72D3 /* SBR_SettingsTestVC.m */; };
+		A6D2553D1933E90E00BD72D3 /* MCAtomicType.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6D255351933E90E00BD72D3 /* MCAtomicType.mm */; };
+		A6D2553E1933E90E00BD72D3 /* MCMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255371933E90E00BD72D3 /* MCMainThreadProxy.m */; };
+		A6D2553F1933E90E00BD72D3 /* MCThreadProxyAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255391933E90E00BD72D3 /* MCThreadProxyAbstract.m */; };
+		A6D255401933E90E00BD72D3 /* MPerformanceThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6D2553B1933E90E00BD72D3 /* MPerformanceThread.mm */; };
+		A6D255551933ED2E00BD72D3 /* MStrongKeyMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255451933ED2E00BD72D3 /* MStrongKeyMutableDictionary.m */; };
+		A6D255561933ED2E00BD72D3 /* MWeakKeyMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255471933ED2E00BD72D3 /* MWeakKeyMutableDictionary.m */; };
+		A6D255571933ED2E00BD72D3 /* NSArray+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255491933ED2E00BD72D3 /* NSArray+Marshmallows.m */; };
+		A6D255581933ED2E00BD72D3 /* NSDate+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D2554C1933ED2E00BD72D3 /* NSDate+Marshmallows.m */; };
+		A6D255591933ED2E00BD72D3 /* NSError+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D2554E1933ED2E00BD72D3 /* NSError+Marshmallows.m */; };
+		A6D2555A1933ED2E00BD72D3 /* NSInvocation+MMBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255501933ED2E00BD72D3 /* NSInvocation+MMBlocks.m */; };
+		A6D2555B1933ED2E00BD72D3 /* NSString+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255521933ED2E00BD72D3 /* NSString+Marshmallows.m */; };
+		A6D2555C1933ED2E00BD72D3 /* NSURL+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255541933ED2E00BD72D3 /* NSURL+Marshmallows.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -730,8 +743,8 @@
 		A6559112192D3F1D002212D5 /* temp-beams@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temp-beams@2x.png"; sourceTree = "<group>"; };
 		A6559117192D44AE002212D5 /* SBR_ModalTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_ModalTransitionController.h; sourceTree = "<group>"; };
 		A6559118192D44AE002212D5 /* SBR_ModalTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_ModalTransitionController.m; sourceTree = "<group>"; };
-		A655911A192D4573002212D5 /* SBR_ControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBR_ControllerFactory.h; path = "Lab-VC-Transitions/SBR_ControllerFactory.h"; sourceTree = SOURCE_ROOT; };
-		A655911B192D4573002212D5 /* SBR_ControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBR_ControllerFactory.m; path = "Lab-VC-Transitions/SBR_ControllerFactory.m"; sourceTree = SOURCE_ROOT; };
+		A655911A192D4573002212D5 /* SBR_Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBR_Factory.h; path = "Lab-VC-Transitions/SBR_Factory.h"; sourceTree = SOURCE_ROOT; };
+		A655911B192D4573002212D5 /* SBR_Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBR_Factory.m; path = "Lab-VC-Transitions/SBR_Factory.m"; sourceTree = SOURCE_ROOT; };
 		A6B135FE192C79ED0011852D /* SBR_InstrumentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_InstrumentVC.h; sourceTree = "<group>"; };
 		A6B135FF192C79ED0011852D /* SBR_InstrumentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_InstrumentVC.m; sourceTree = "<group>"; };
 		A6B13600192C79ED0011852D /* SBR_MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MainVC.h; sourceTree = "<group>"; };
@@ -792,6 +805,36 @@
 		A6D255211933DDCA00BD72D3 /* InstrumentMotionDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstrumentMotionDebug.m; sourceTree = "<group>"; };
 		A6D255221933DDCA00BD72D3 /* RunningAverageAggregator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunningAverageAggregator.cpp; sourceTree = "<group>"; };
 		A6D255231933DDCA00BD72D3 /* RunningAverageAggregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningAverageAggregator.h; sourceTree = "<group>"; };
+		A6D2552F1933E0AC00BD72D3 /* SBR_SettingsTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_SettingsTestVC.h; sourceTree = "<group>"; };
+		A6D255301933E0AC00BD72D3 /* SBR_SettingsTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_SettingsTestVC.m; sourceTree = "<group>"; };
+		A6D255331933E90E00BD72D3 /* MarshmallowConcurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarshmallowConcurrency.h; sourceTree = "<group>"; };
+		A6D255341933E90E00BD72D3 /* MCAtomicType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAtomicType.h; sourceTree = "<group>"; };
+		A6D255351933E90E00BD72D3 /* MCAtomicType.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MCAtomicType.mm; sourceTree = "<group>"; };
+		A6D255361933E90E00BD72D3 /* MCMainThreadProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMainThreadProxy.h; sourceTree = "<group>"; };
+		A6D255371933E90E00BD72D3 /* MCMainThreadProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMainThreadProxy.m; sourceTree = "<group>"; };
+		A6D255381933E90E00BD72D3 /* MCThreadProxyAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCThreadProxyAbstract.h; sourceTree = "<group>"; };
+		A6D255391933E90E00BD72D3 /* MCThreadProxyAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCThreadProxyAbstract.m; sourceTree = "<group>"; };
+		A6D2553A1933E90E00BD72D3 /* MPerformanceThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPerformanceThread.h; sourceTree = "<group>"; };
+		A6D2553B1933E90E00BD72D3 /* MPerformanceThread.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MPerformanceThread.mm; sourceTree = "<group>"; };
+		A6D2553C1933E90E00BD72D3 /* MThreadProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MThreadProtocol.h; sourceTree = "<group>"; };
+		A6D255431933ED2E00BD72D3 /* MarshmallowCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarshmallowCocoa.h; sourceTree = "<group>"; };
+		A6D255441933ED2E00BD72D3 /* MStrongKeyMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStrongKeyMutableDictionary.h; sourceTree = "<group>"; };
+		A6D255451933ED2E00BD72D3 /* MStrongKeyMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStrongKeyMutableDictionary.m; sourceTree = "<group>"; };
+		A6D255461933ED2E00BD72D3 /* MWeakKeyMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWeakKeyMutableDictionary.h; sourceTree = "<group>"; };
+		A6D255471933ED2E00BD72D3 /* MWeakKeyMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWeakKeyMutableDictionary.m; sourceTree = "<group>"; };
+		A6D255481933ED2E00BD72D3 /* NSArray+Marshmallows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Marshmallows.h"; sourceTree = "<group>"; };
+		A6D255491933ED2E00BD72D3 /* NSArray+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Marshmallows.m"; sourceTree = "<group>"; };
+		A6D2554A1933ED2E00BD72D3 /* NSArray+NSDictionary+Subscripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSDictionary+Subscripting.h"; sourceTree = "<group>"; };
+		A6D2554B1933ED2E00BD72D3 /* NSDate+Marshmallows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Marshmallows.h"; sourceTree = "<group>"; };
+		A6D2554C1933ED2E00BD72D3 /* NSDate+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Marshmallows.m"; sourceTree = "<group>"; };
+		A6D2554D1933ED2E00BD72D3 /* NSError+Marshmallows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Marshmallows.h"; sourceTree = "<group>"; };
+		A6D2554E1933ED2E00BD72D3 /* NSError+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Marshmallows.m"; sourceTree = "<group>"; };
+		A6D2554F1933ED2E00BD72D3 /* NSInvocation+MMBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+MMBlocks.h"; sourceTree = "<group>"; };
+		A6D255501933ED2E00BD72D3 /* NSInvocation+MMBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+MMBlocks.m"; sourceTree = "<group>"; };
+		A6D255511933ED2E00BD72D3 /* NSString+Marshmallows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Marshmallows.h"; sourceTree = "<group>"; };
+		A6D255521933ED2E00BD72D3 /* NSString+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Marshmallows.m"; sourceTree = "<group>"; };
+		A6D255531933ED2E00BD72D3 /* NSURL+Marshmallows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Marshmallows.h"; sourceTree = "<group>"; };
+		A6D255541933ED2E00BD72D3 /* NSURL+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Marshmallows.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1117,13 +1160,13 @@
 		A63C6DA5192A23BF0041D4D4 /* Lab-VC-Transitions */ = {
 			isa = PBXGroup;
 			children = (
-				A655911A192D4573002212D5 /* SBR_ControllerFactory.h */,
-				A655911B192D4573002212D5 /* SBR_ControllerFactory.m */,
-				A6B135F8192C79ED0011852D /* Controllers */,
 				A63C6DAE192A23C00041D4D4 /* ACAppDelegate.h */,
 				A63C6DAF192A23C00041D4D4 /* ACAppDelegate.m */,
 				A63C6DB1192A23C00041D4D4 /* Main.storyboard */,
 				A63C6DB7192A23C00041D4D4 /* Images.xcassets */,
+				A655911A192D4573002212D5 /* SBR_Factory.h */,
+				A655911B192D4573002212D5 /* SBR_Factory.m */,
+				A6B135F8192C79ED0011852D /* Controllers */,
 				A63C6DA6192A23C00041D4D4 /* Supporting Files */,
 				A63C7073192C06300041D4D4 /* Categories */,
 				A6C01D7E192F9189002BAFF4 /* Model */,
@@ -1553,6 +1596,7 @@
 		A6559104192D11D8002212D5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A6D255411933E91100BD72D3 /* Marshmallows */,
 				A6558F03192D11D1002212D5 /* GPUImage */,
 				A6395EDD192DEFE2009AAB72 /* Overline */,
 				A6D255051933DDCA00BD72D3 /* InstrumentMotion */,
@@ -1593,6 +1637,8 @@
 				A6B13606192C79ED0011852D /* SBR_SettingsTopMenuVC.m */,
 				A6CA7DB019309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.h */,
 				A6CA7DB119309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m */,
+				A6D2552F1933E0AC00BD72D3 /* SBR_SettingsTestVC.h */,
+				A6D255301933E0AC00BD72D3 /* SBR_SettingsTestVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1660,6 +1706,59 @@
 			);
 			name = InstrumentMotion;
 			path = Vendor/InstrumentMotion/Source;
+			sourceTree = "<group>";
+		};
+		A6D255321933E90E00BD72D3 /* MarshmallowConcurrency */ = {
+			isa = PBXGroup;
+			children = (
+				A6D255331933E90E00BD72D3 /* MarshmallowConcurrency.h */,
+				A6D255341933E90E00BD72D3 /* MCAtomicType.h */,
+				A6D255351933E90E00BD72D3 /* MCAtomicType.mm */,
+				A6D255361933E90E00BD72D3 /* MCMainThreadProxy.h */,
+				A6D255371933E90E00BD72D3 /* MCMainThreadProxy.m */,
+				A6D255381933E90E00BD72D3 /* MCThreadProxyAbstract.h */,
+				A6D255391933E90E00BD72D3 /* MCThreadProxyAbstract.m */,
+				A6D2553A1933E90E00BD72D3 /* MPerformanceThread.h */,
+				A6D2553B1933E90E00BD72D3 /* MPerformanceThread.mm */,
+				A6D2553C1933E90E00BD72D3 /* MThreadProtocol.h */,
+			);
+			name = MarshmallowConcurrency;
+			path = Vendor/Marshmallows/Source/MarshmallowConcurrency;
+			sourceTree = "<group>";
+		};
+		A6D255411933E91100BD72D3 /* Marshmallows */ = {
+			isa = PBXGroup;
+			children = (
+				A6D255421933ED2E00BD72D3 /* MarshmallowCocoa */,
+				A6D255321933E90E00BD72D3 /* MarshmallowConcurrency */,
+			);
+			name = Marshmallows;
+			sourceTree = "<group>";
+		};
+		A6D255421933ED2E00BD72D3 /* MarshmallowCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				A6D255431933ED2E00BD72D3 /* MarshmallowCocoa.h */,
+				A6D255441933ED2E00BD72D3 /* MStrongKeyMutableDictionary.h */,
+				A6D255451933ED2E00BD72D3 /* MStrongKeyMutableDictionary.m */,
+				A6D255461933ED2E00BD72D3 /* MWeakKeyMutableDictionary.h */,
+				A6D255471933ED2E00BD72D3 /* MWeakKeyMutableDictionary.m */,
+				A6D255481933ED2E00BD72D3 /* NSArray+Marshmallows.h */,
+				A6D255491933ED2E00BD72D3 /* NSArray+Marshmallows.m */,
+				A6D2554A1933ED2E00BD72D3 /* NSArray+NSDictionary+Subscripting.h */,
+				A6D2554B1933ED2E00BD72D3 /* NSDate+Marshmallows.h */,
+				A6D2554C1933ED2E00BD72D3 /* NSDate+Marshmallows.m */,
+				A6D2554D1933ED2E00BD72D3 /* NSError+Marshmallows.h */,
+				A6D2554E1933ED2E00BD72D3 /* NSError+Marshmallows.m */,
+				A6D2554F1933ED2E00BD72D3 /* NSInvocation+MMBlocks.h */,
+				A6D255501933ED2E00BD72D3 /* NSInvocation+MMBlocks.m */,
+				A6D255511933ED2E00BD72D3 /* NSString+Marshmallows.h */,
+				A6D255521933ED2E00BD72D3 /* NSString+Marshmallows.m */,
+				A6D255531933ED2E00BD72D3 /* NSURL+Marshmallows.h */,
+				A6D255541933ED2E00BD72D3 /* NSURL+Marshmallows.m */,
+			);
+			name = MarshmallowCocoa;
+			path = Vendor/Marshmallows/Source/MarshmallowCocoa;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1810,6 +1909,8 @@
 				A65590BA192D11D2002212D5 /* GPUImageOpacityFilter.m in Sources */,
 				A65590EF192D11D2002212D5 /* GPUImageTwoPassTextureSamplingFilter.m in Sources */,
 				A6395ED2192DEFDE009AAB72 /* NSSet+OVEnumeration.m in Sources */,
+				A6D2553E1933E90E00BD72D3 /* MCMainThreadProxy.m in Sources */,
+				A6D255581933ED2E00BD72D3 /* NSDate+Marshmallows.m in Sources */,
 				A6395ED8192DEFDE009AAB72 /* NSString+OVRegularExpression.m in Sources */,
 				A6CA7DB219309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m in Sources */,
 				A655910A192D3E1A002212D5 /* SBR_SwipeUpIconView.m in Sources */,
@@ -1818,6 +1919,7 @@
 				A65590E2192D11D2002212D5 /* GPUImageTextureInput.m in Sources */,
 				A65590A8192D11D2002212D5 /* GPUImageLowPassFilter.m in Sources */,
 				A6395ECC192DEFDE009AAB72 /* NSDictionary+OVEnumeration.m in Sources */,
+				A6D255571933ED2E00BD72D3 /* NSArray+Marshmallows.m in Sources */,
 				A65590DF192D11D2002212D5 /* GPUImageStretchDistortionFilter.m in Sources */,
 				A65590F0192D11D2002212D5 /* GPUImageUIElement.m in Sources */,
 				A65590B8192D11D2002212D5 /* GPUImageNonMaximumSuppressionFilter.m in Sources */,
@@ -1837,7 +1939,8 @@
 				A655906A192D11D2002212D5 /* GPUImageCGAColorspaceFilter.m in Sources */,
 				A655908C192D11D2002212D5 /* GPUImageGaussianBlurPositionFilter.m in Sources */,
 				A6559066192D11D2002212D5 /* GPUImageBrightnessFilter.m in Sources */,
-				A655911C192D4573002212D5 /* SBR_ControllerFactory.m in Sources */,
+				A655911C192D4573002212D5 /* SBR_Factory.m in Sources */,
+				A6D255311933E0AC00BD72D3 /* SBR_SettingsTestVC.m in Sources */,
 				A65590BB192D11D2002212D5 /* GPUImageOpeningFilter.m in Sources */,
 				A6B1360A192C79ED0011852D /* SBR_MainVC.m in Sources */,
 				A65590E4192D11D2002212D5 /* GPUImageThreeInputFilter.m in Sources */,
@@ -1894,6 +1997,7 @@
 				A65590C5192D11D2002212D5 /* GPUImagePolkaDotFilter.m in Sources */,
 				A65590C2192D11D2002212D5 /* GPUImagePixellatePositionFilter.m in Sources */,
 				A6559069192D11D2002212D5 /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
+				A6D255551933ED2E00BD72D3 /* MStrongKeyMutableDictionary.m in Sources */,
 				A655906D192D11D2002212D5 /* GPUImageClosingFilter.m in Sources */,
 				A6B13609192C79ED0011852D /* SBR_InstrumentVC.m in Sources */,
 				A6395ECF192DEFDE009AAB72 /* NSNull+OVNatural.m in Sources */,
@@ -1922,9 +2026,12 @@
 				A6395E5D192DEF24009AAB72 /* EXTScope.m in Sources */,
 				A65590B6192D11D2002212D5 /* GPUImageMultiplyBlendFilter.m in Sources */,
 				A6559085192D11D2002212D5 /* GPUImageFilter.m in Sources */,
+				A6D2555C1933ED2E00BD72D3 /* NSURL+Marshmallows.m in Sources */,
 				A6395ED5192DEFDE009AAB72 /* NSString+OVDebugging.m in Sources */,
+				A6D2553D1933E90E00BD72D3 /* MCAtomicType.mm in Sources */,
 				A6559067192D11D2002212D5 /* GPUImageBuffer.m in Sources */,
 				A6395ECA192DEFDE009AAB72 /* NSDate+OVComponents.m in Sources */,
+				A6D2553F1933E90E00BD72D3 /* MCThreadProxyAbstract.m in Sources */,
 				A65590C9192D11D2002212D5 /* GPUImageRawDataOutput.m in Sources */,
 				A65590D4192D11D2002212D5 /* GPUImageShiTomasiFeatureDetectionFilter.m in Sources */,
 				A65590EC192D11D2002212D5 /* GPUImageTwoInputCrossTextureSamplingFilter.m in Sources */,
@@ -1954,10 +2061,12 @@
 				A6395ED3192DEFDE009AAB72 /* NSString+OVBase64Encode.m in Sources */,
 				A6395EC0192DEFDE009AAB72 /* NSArray+OVRandom.m in Sources */,
 				A6559092192D11D2002212D5 /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
+				A6D2555B1933ED2E00BD72D3 /* NSString+Marshmallows.m in Sources */,
 				A6559076192D11D2002212D5 /* GPUImageCrosshairGenerator.m in Sources */,
 				A655907E192D11D2002212D5 /* GPUImageDivideBlendFilter.m in Sources */,
 				A655909B192D11D2002212D5 /* GPUImageHueFilter.m in Sources */,
 				A65590E5192D11D2002212D5 /* GPUImageThresholdEdgeDetectionFilter.m in Sources */,
+				A6D2555A1933ED2E00BD72D3 /* NSInvocation+MMBlocks.m in Sources */,
 				A655907D192D11D2002212D5 /* GPUImageDissolveBlendFilter.m in Sources */,
 				A65590E9192D11D2002212D5 /* GPUImageToneCurveFilter.m in Sources */,
 				A6395ED7192DEFDE009AAB72 /* NSString+OVJSON.m in Sources */,
@@ -2002,6 +2111,7 @@
 				A65590F2192D11D2002212D5 /* GPUImageVideoCamera.m in Sources */,
 				A65590AC192D11D2002212D5 /* GPUImageLuminosityBlendFilter.m in Sources */,
 				A6B1360C192C79ED0011852D /* SBR_SettingsTopMenuVC.m in Sources */,
+				A6D255561933ED2E00BD72D3 /* MWeakKeyMutableDictionary.m in Sources */,
 				A65590F4192D11D2002212D5 /* GPUImageVoronoiConsumerFilter.m in Sources */,
 				A65590DA192D11D2002212D5 /* GPUImageSoftLightBlendFilter.m in Sources */,
 				A655910E192D3ED0002212D5 /* SBR_StyleKit.m in Sources */,
@@ -2015,6 +2125,7 @@
 				A65590B5192D11D2002212D5 /* GPUImageMovieComposition.m in Sources */,
 				A6CA7DBF19329B15003E025C /* SBR_BlurOutFilter.m in Sources */,
 				A65590B2192D11D2002212D5 /* GPUImageMotionBlurFilter.m in Sources */,
+				A6D255401933E90E00BD72D3 /* MPerformanceThread.mm in Sources */,
 				A65590D1192D11D2002212D5 /* GPUImageScreenBlendFilter.m in Sources */,
 				A655909F192D11D2002212D5 /* GPUImageKuwaharaRadius3Filter.m in Sources */,
 				A65590A3192D11D2002212D5 /* GPUImageLightenBlendFilter.m in Sources */,
@@ -2032,6 +2143,7 @@
 				A65590FA192D11D2002212D5 /* GPUImageMovieWriter.m in Sources */,
 				A65590CF192D11D2002212D5 /* GPUImageSaturationBlendFilter.m in Sources */,
 				A6559072192D11D2002212D5 /* GPUImageColorMatrixFilter.m in Sources */,
+				A6D255591933ED2E00BD72D3 /* NSError+Marshmallows.m in Sources */,
 				A65590F6192D11D2002212D5 /* GPUImageWhiteBalanceFilter.m in Sources */,
 				A65590AD192D11D2002212D5 /* GPUImageMaskFilter.m in Sources */,
 				A655908F192D11D2002212D5 /* GPUImageGrayscaleFilter.m in Sources */,

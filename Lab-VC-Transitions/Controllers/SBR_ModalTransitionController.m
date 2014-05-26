@@ -8,12 +8,12 @@
 
 #import "SBR_ModalTransitionController.h"
 
-#import "SBR_ControllerFactory.h"
+#import "SBR_Factory.h"
 #import "SBR_InteractiveSwipeGestureRecognizer.h"
 
 #import "SBR_SwipeUpIconView.h"
 
-static SBR_ControllerFactory *Factory;
+static SBR_Factory *Factory;
 
 static const NSUInteger _SBR_MODAL_TRANSITION_SWIPE_TOUCHES_REQD  = 1;
 
@@ -39,7 +39,7 @@ static const NSUInteger _SBR_MODAL_TRANSITION_SWIPE_TOUCHES_REQD  = 1;
     if (me) {
         me->_containerVC = containerVC;
         me->_animator = animator;
-        Factory = [SBR_ControllerFactory sharedInstance];
+        Factory = [SBR_Factory sharedInstance];
         [me _setup];
     }
     return me;

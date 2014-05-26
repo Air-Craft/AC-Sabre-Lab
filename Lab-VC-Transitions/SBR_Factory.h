@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "InstrumentMotion.h"
+#import "MarshmallowConcurrency.h"
+
 #import "SBR_MainVC.h"
 #import "SBR_SettingsNavVC.h"
 #import "SBR_SettingsTopMenuVC.h"
@@ -21,7 +24,7 @@
 /////////////////////////////////////////////////////////////////////////
 
 /** One purpose and it's not DI or IOC etc. It's just to keep everything as flat as is prudent without cluttering up VC inits with construction code */
-@interface SBR_ControllerFactory : NSObject
+@interface SBR_Factory : NSObject
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Life Cycle
@@ -32,9 +35,10 @@
 /** Need this to be set before we can do much else */
 @property (nonatomic, weak) SBR_MainVC *mainVC;
 
+- (void)releaseMemory;
 
 /////////////////////////////////////////////////////////////////////////
-#pragma mark - Controller
+#pragma mark - Controllers
 /////////////////////////////////////////////////////////////////////////
 
 - (SBR_InstrumentVC *)instrumentVC;
@@ -43,8 +47,12 @@
 
 - (SBR_ModalTransitionController *)menuTransitionController;
 
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Other Objects
+/////////////////////////////////////////////////////////////////////////
 
+- (MPerformanceThread *)controlThread;
+- (IMMotionAnalyzer *)motionAnalyzer;
 
-- (void)releaseMemory;
 
 @end
