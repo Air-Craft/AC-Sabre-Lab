@@ -38,9 +38,9 @@ static const CGFloat _SBR_MENU_ANIM_ANGLE = 90;
 static const CGFloat _SBR_MENU_ANIM_PERSPECTIVE = 200;
 
 /** Timings */
-static const NSTimeInterval _SBR_PRESENT_ANIM_STAGE2_TIME = 1.25;
-static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE1_TIME = 1.1;
-static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 1.15;
+static const NSTimeInterval _SBR_PRESENT_ANIM_STAGE2_TIME = 0.25;
+static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE1_TIME = 0.1;
+static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 0.15;
 
 
 

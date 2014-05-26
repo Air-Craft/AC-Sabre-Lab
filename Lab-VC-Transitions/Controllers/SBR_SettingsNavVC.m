@@ -40,7 +40,9 @@
     // Link up the touch and the slide GR.  Use a tap rather than the ControlEvent to prevent double triggers on slide
     
     [_swipeRightButton bk_addEventHandler:^(id sender) {
-        NSLog(@"******* TODO: Swipe Right tapped *******");;
+        
+        [self popViewControllerAnimated:YES];
+        
     } forControlEvents:UIControlEventTouchUpInside];
     SBR_InteractiveSwipeGestureRecognizer *gr = [[SBR_InteractiveSwipeGestureRecognizer alloc] initWithTarget:self action:@selector(_handleRightSwipeUpdate:)];
     gr.numberOfTouchesRequired = 1;
@@ -49,6 +51,7 @@
     gr.targetDistance = self.view.width / 2.0;
 }
 
+//---------------------------------------------------------------------
 
 - (void)_handleRightSwipeUpdate:(SBR_InteractiveSwipeGestureRecognizer *)swipe
 {
@@ -102,7 +105,9 @@
 /** Check the stack depth and update nav controls */
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    
+    // Check the stack and show/hide the pop swipe icon accordingly
+    _swipeRightButton.hidden = (self.viewControllers.count < 2);
+    [self.view bringSubviewToFront:_swipeRightButton];
 }
 
 //---------------------------------------------------------------------

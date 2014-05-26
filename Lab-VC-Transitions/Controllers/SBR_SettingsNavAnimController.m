@@ -11,6 +11,17 @@
 #import "SBR_BlurOutFilter.h"
 #import "SBR_MaterializeFilter.h"
 
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Defs
+/////////////////////////////////////////////////////////////////////////
+
+static const CGFloat _SBR_SHRINK_SCALE = 0.7;      // Initial scale for incoming w/ push or final scale for outgoing w/ pop
+static const CGFloat _SBR_ANIM_DURATION = 0.4;
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark -
+/////////////////////////////////////////////////////////////////////////
+
 @implementation SBR_SettingsNavAnimController
 {
     SBR_CompositeGPUFilterAbstract *_filter;
@@ -20,7 +31,7 @@
 {
     self = [super init];
     if (self) {
-        _filter = [SBR_MaterializeFilter new];
+        _filter = [SBR_BlurOutFilter new];
     }
     return self;
 }
@@ -36,7 +47,8 @@
     UIView *contView = [transitionCtx containerView];
     UIViewController *fromVC = [transitionCtx viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [transitionCtx viewControllerForKey:UITransitionContextToViewControllerKey];
-    NSTimeInterval duration = [self transitionDuration:transitionCtx];
+    NSTimeInterval duration = _SBR_ANIM_DURATION; //[self transitionDuration:transitionCtx];
+    CGAffineTransform shrinkTransform = CGAffineTransformMakeScale(_SBR_SHRINK_SCALE, _SBR_SHRINK_SCALE);
     
     /////////////////////////////////////////
     // PUSH ANIMATION
@@ -53,7 +65,7 @@
         __block SBR_AnimatedFilterSnapshotView *toViewSnapshot = [SBR_AnimatedFilterSnapshotView newWithSourceView:toVC.view filter:_filter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view) {
         
             // Also fade and shrink the destination
-            toViewSnapshot.transform = CGAffineTransformMakeScale(0.7, 0.7);
+            toViewSnapshot.transform = shrinkTransform;
             toViewSnapshot.alpha = 0.0;
             
             [contView addSubview:toViewSnapshot];
@@ -67,17 +79,20 @@
                  toViewSnapshot.transform = CGAffineTransformIdentity;
                  toViewSnapshot.alpha = 1.0;
                  
-                 fromVC.view.x -= contView.width/2;
+                 fromVC.view.x -= contView.width;
                  fromVC.view.alpha = 0.0;
-                 fromVC.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
+                 fromVC.view.transform = shrinkTransform;
                  
              } completion:^(BOOL finished) {
                  // Swap the snapshot view
                  [toViewSnapshot removeFromSuperview];
                  [contView addSubview:toVC.view];
                  
-                 [transitionCtx completeTransition:YES];
+                 // Clean up the from View
+                 fromVC.view.transform = CGAffineTransformIdentity;
+                 fromVC.view.origin = CGPointZero;
                  
+                 [transitionCtx completeTransition:YES];
              }];
             
         }]; // END SBR_AnimatedFilterSnapshotView new...
@@ -89,22 +104,44 @@
     /////////////////////////////////////////
 
     } else if (self.operation == UINavigationControllerOperationPop) {
-//        //Add 'to' view to the hierarchy
-//        [containerView insertSubview:toViewController.view belowSubview:fromViewController.view];
-//        
-//        //Scale the 'from' view down until it disappears
-//        [UIView animateWithDuration:[self transitionDuration:transitionCtx] animations:^{
-//            fromViewController.view.transform = CGAffineTransformMakeScale(0.0, 0.0);
-//        } completion:^(BOOL finished) {
-//            [transitionCtx completeTransition:YES];
-//        }];
+        
+        // Grab snapshot of the fromView
+        _filter.filterAmount = 0;
+        __block SBR_AnimatedFilterSnapshotView *fromViewSnapshot = [SBR_AnimatedFilterSnapshotView newWithSourceView:fromVC.view filter:_filter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view) {
+            
+            // Swap out the fromView with the snapshot and prep the toVC view thats coming back
+            [contView addSubview:fromViewSnapshot];
+            [fromVC.view removeFromSuperview];
+            toVC.view.y = 0;
+            toVC.view.x = -contView.width;
+            toVC.view.transform = CGAffineTransformMakeScale(_SBR_SHRINK_SCALE, _SBR_SHRINK_SCALE);
+            toVC.view.alpha = 0;
+            [contView addSubview:toVC.view];
+            
+            // Do the anims...
+            [fromViewSnapshot filterWithDuration:duration];
+            [UIView
+             animateWithDuration:duration
+             animations:^{
+                 fromViewSnapshot.alpha = 0.0;
+                 fromViewSnapshot.transform = shrinkTransform;
+                 
+                 toVC.view.transform = CGAffineTransformIdentity;
+                 toVC.view.x = 0;
+                 toVC.view.alpha = 1;
+             }
+             completion:^(BOOL finished) {
+                 [fromViewSnapshot removeFromSuperview];
+                 [transitionCtx  completeTransition:YES];
+             }];
+        }]; // END Snapshot init draw
     }
 }
 
 //---------------------------------------------------------------------
 
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionCtx {
-    return 0.4;
+    return _SBR_ANIM_DURATION;
 }
 
 //---------------------------------------------------------------------

@@ -26,7 +26,7 @@
                initDrawCompletion:(void (^)(SBR_AnimatedFilterSnapshotView *view))completion
 {
     // Get the snapshot so we know the frame size. Can't plain `init` a GPUImageView.
-    UIImage *snapshot = [sourceView renderAsImage];
+    UIImage *snapshot = [sourceView snapshotImageAfterScreenUpdates:YES];
     CGRect f = {0, 0, snapshot.size};
     SBR_AnimatedFilterSnapshotView *me = [[self alloc] initWithFrame:f];
     

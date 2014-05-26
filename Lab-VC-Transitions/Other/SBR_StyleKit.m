@@ -83,10 +83,10 @@ static NSMutableDictionary *_cache;
 
 + (UIImage *)swipeRightIcon
 {
-    return [self cached:@"icon-swipe" orInit:^id{
+    return [self cached:@"icon-swipe-right" orInit:^id{
         
         // Rotate the swip icon
-        return [[UIImage imageNamed:@"icon-swipe"] imageRotatedByRadians:M_PI_2];
+        return [[UIImage imageNamed:@"icon-swipe"] imageRotatedByRadians:-M_PI_2];
     }];
 }
 
@@ -95,7 +95,7 @@ static NSMutableDictionary *_cache;
 + (UIButton *)swipeRightIconButton
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[self swipeUpIcon] forState:UIControlStateNormal];
+    [btn setImage:[self swipeRightIcon] forState:UIControlStateNormal];
     btn.size = CGSizeMake(44, 44);
     return btn;
 }

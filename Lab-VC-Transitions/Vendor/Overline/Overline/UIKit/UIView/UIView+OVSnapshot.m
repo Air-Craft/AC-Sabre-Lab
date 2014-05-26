@@ -15,7 +15,7 @@
     UIImage *snapshotImage;
     UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
     {
-        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+        [self.layer.presentationLayer renderInContext:UIGraphicsGetCurrentContext()];
         snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
     }
     UIGraphicsEndImageContext();
@@ -30,6 +30,7 @@
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         return [self renderAsImage];
     } else {
+        
         UIImage *snapshotImage;
         UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
         {

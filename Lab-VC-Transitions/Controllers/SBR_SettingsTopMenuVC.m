@@ -81,6 +81,11 @@ static const CGFloat _SBR_MENU_LINE_SPACE = 30;
     [music bk_addEventHandler:^(id sender) {
         @strongify(self);
         UIViewController *vc = [SBR_SettingsMIDIConnectionsVC new];
+        
+        // This needs to be primed or it wont work in the UINavVC context for some reason
+        UIImage *wtf = [vc.view snapshotImageAfterScreenUpdates:YES];
+        wtf = nil;
+
         [self.navigationController pushViewController:vc animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
 }
