@@ -11,7 +11,11 @@
 
 @interface UIView (OVSnapshot)
 
-/** Returns a UIImage snapshot rather than a UIView one */
+
+/** Similar to snapshot... but uses the old <iOS7 layer renderInContext paradigm. */
+- (UIImage *)renderAsImage;
+
+/** Returns a UIImage snapshot using the new iOS7 `drawViewHierarchyInRect:...` method. Falls back to `renderAsImage` for <ios7.0 */
 - (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates;
 
 @end

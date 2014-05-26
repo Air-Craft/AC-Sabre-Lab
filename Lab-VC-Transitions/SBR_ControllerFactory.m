@@ -80,10 +80,14 @@
 
 - (SBR_SettingsNavVC *)settingsNavVC
 {
+//    NSParameterAssert(_mainVC);
+    
     if (!_settingsNavVC) {
         _settingsNavVC = [[SBR_SettingsNavVC alloc] initWithRootViewController:[self settingsTopMenuVC]];
         _settingsNavVC.toolbarHidden = YES;
         _settingsNavVC.navigationBarHidden = YES;
+        _settingsNavVC.view.frame = _mainVC.view.frame;
+        
     }
     return _settingsNavVC;
 }

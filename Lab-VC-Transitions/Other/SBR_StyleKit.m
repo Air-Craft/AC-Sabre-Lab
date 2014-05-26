@@ -12,6 +12,8 @@
 #pragma mark - Consts
 /////////////////////////////////////////////////////////////////////////
 
+static NSMutableDictionary *_cache;
+
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -19,6 +21,39 @@
 
 
 @implementation SBR_StyleKit
+
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Life Cycle
+/////////////////////////////////////////////////////////////////////////
+
++ (void)initialize
+{
+    _cache = [NSMutableDictionary dictionary];
+}
+
+//---------------------------------------------------------------------
+
++ (void)flushCache
+{
+    [_cache removeAllObjects];
+}
+
+//---------------------------------------------------------------------
+
++ (id)cached:(NSString *)objName orInit:(id (^)(void))initBlock
+{
+    id obj = _cache[objName];
+    if (!obj) {
+        obj = initBlock();
+        _cache[objName] = obj;
+    }
+    return obj;
+}
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Colors, Fonts
+/////////////////////////////////////////////////////////////////////////
 
 + (UIColor *)backgroundColor
 {
@@ -31,7 +66,6 @@
 + (UIColor *)yellowTextHighlightColor { return [UIColor colorWithHue:0.162 saturation:0.378 brightness:0.5 alpha:1]; }
 + (UIFont *)settingsMenuFont { return [UIFont fontWithName:@"OCRAStd" size:20.0]; }
 
-//---------------------------------------------------------------------
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -40,7 +74,30 @@
 
 + (UIImage *)swipeUpIcon
 {
-    return [UIImage imageNamed:@"icon-swipe"];
+    return [self cached:@"icon-swipe" orInit:^id{
+        return [UIImage imageNamed:@"icon-swipe"];
+    }];
+}
+
+//---------------------------------------------------------------------
+
++ (UIImage *)swipeRightIcon
+{
+    return [self cached:@"icon-swipe" orInit:^id{
+        
+        // Rotate the swip icon
+        return [[UIImage imageNamed:@"icon-swipe"] imageRotatedByRadians:M_PI_2];
+    }];
+}
+
+//---------------------------------------------------------------------
+
++ (UIButton *)swipeRightIconButton
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[self swipeUpIcon] forState:UIControlStateNormal];
+    btn.size = CGSizeMake(44, 44);
+    return btn;
 }
 
 //---------------------------------------------------------------------

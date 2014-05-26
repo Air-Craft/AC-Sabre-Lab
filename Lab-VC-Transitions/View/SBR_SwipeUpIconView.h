@@ -10,9 +10,6 @@
 
 @interface SBR_SwipeUpIconView : UIView
 
-+ (instancetype)newSwipeUpIconView;
-
 @property (nonatomic, copy) void (^userDidTriggerWithGesture)();
-
 
 @end

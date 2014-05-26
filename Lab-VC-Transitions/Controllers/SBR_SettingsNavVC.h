@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBR_SettingsNavVC : UINavigationController
+
+/** Unlike MainVC this will be the transition controller as well.  It's AnimController is the official iOS7 kind but we'll handle gestures here. */
+@interface SBR_SettingsNavVC : UINavigationController <UINavigationControllerDelegate>
 
 @end

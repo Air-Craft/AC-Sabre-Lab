@@ -8,6 +8,7 @@
 
 #import "SBR_SettingsTopMenuVC.h"
 #import "SBR_SettingsMenuButton.h"
+#import "SBR_SettingsMIDIConnectionsVC.h"
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Consts
@@ -74,6 +75,14 @@ static const CGFloat _SBR_MENU_LINE_SPACE = 30;
     CGRect f4 = {drawAt, help.frame.size};
     help.frame = f4;
     [self.view addSubview:help];
+
+    // Link up
+    @weakify(self);
+    [music bk_addEventHandler:^(id sender) {
+        @strongify(self);
+        UIViewController *vc = [SBR_SettingsMIDIConnectionsVC new];
+        [self.navigationController pushViewController:vc animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
 }
 
 

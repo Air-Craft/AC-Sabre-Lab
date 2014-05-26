@@ -8,4 +8,6 @@
 
 #import "UIColor+OVColorAdjust.h"
 #import "UIImage+OVGradients.h"
+#import "UIImage+OVTransforms.h"
+#import "UIView+OVPositioning.h"
 #import "UIView+OVSnapshot.h"

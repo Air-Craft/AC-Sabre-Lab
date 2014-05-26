@@ -242,7 +242,6 @@
 		A655911C192D4573002212D5 /* SBR_ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A655911B192D4573002212D5 /* SBR_ControllerFactory.m */; };
 		A6B13609192C79ED0011852D /* SBR_InstrumentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B135FF192C79ED0011852D /* SBR_InstrumentVC.m */; };
 		A6B1360A192C79ED0011852D /* SBR_MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B13601192C79ED0011852D /* SBR_MainVC.m */; };
-		A6B1360B192C79ED0011852D /* SBR_MenuDrilldownAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B13604192C79ED0011852D /* SBR_MenuDrilldownAnimation.m */; };
 		A6B1360C192C79ED0011852D /* SBR_SettingsTopMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B13606192C79ED0011852D /* SBR_SettingsTopMenuVC.m */; };
 		A6C01D77192F821D002BAFF4 /* SBR_SettingsNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C01D76192F821D002BAFF4 /* SBR_SettingsNavVC.m */; };
 		A6C01D7D192F9181002BAFF4 /* SBR_LabelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C01D7C192F9181002BAFF4 /* SBR_LabelAttributes.m */; };
@@ -251,6 +250,11 @@
 		A6C01D86192FF065002BAFF4 /* SBR_SettingsMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C01D85192FF065002BAFF4 /* SBR_SettingsMenuButton.m */; };
 		A6C01D8919300255002BAFF4 /* UIImage+OVGradients.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C01D8819300255002BAFF4 /* UIImage+OVGradients.m */; };
 		A6C01D8C19300687002BAFF4 /* UIColor+OVColorAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C01D8B19300687002BAFF4 /* UIColor+OVColorAdjust.m */; };
+		A6CA7DB219309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CA7DB119309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m */; };
+		A6CA7DB31930A349003E025C /* SBR_SettingsNavAnimController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B13604192C79ED0011852D /* SBR_SettingsNavAnimController.m */; };
+		A6CA7DB91930AE90003E025C /* UIImage+OVTransforms.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CA7DB81930AE90003E025C /* UIImage+OVTransforms.m */; };
+		A6CA7DBC19327FCD003E025C /* UIView+OVPositioning.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CA7DBB19327FCD003E025C /* UIView+OVPositioning.m */; };
+		A6CA7DBF19329B15003E025C /* SBR_BlurOutFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CA7DBE19329B15003E025C /* SBR_BlurOutFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -721,8 +725,8 @@
 		A6B135FF192C79ED0011852D /* SBR_InstrumentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_InstrumentVC.m; sourceTree = "<group>"; };
 		A6B13600192C79ED0011852D /* SBR_MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MainVC.h; sourceTree = "<group>"; };
 		A6B13601192C79ED0011852D /* SBR_MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MainVC.m; sourceTree = "<group>"; };
-		A6B13603192C79ED0011852D /* SBR_MenuDrilldownAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_MenuDrilldownAnimation.h; sourceTree = "<group>"; };
-		A6B13604192C79ED0011852D /* SBR_MenuDrilldownAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_MenuDrilldownAnimation.m; sourceTree = "<group>"; };
+		A6B13603192C79ED0011852D /* SBR_SettingsNavAnimController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_SettingsNavAnimController.h; sourceTree = "<group>"; };
+		A6B13604192C79ED0011852D /* SBR_SettingsNavAnimController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_SettingsNavAnimController.m; sourceTree = "<group>"; };
 		A6B13605192C79ED0011852D /* SBR_SettingsTopMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_SettingsTopMenuVC.h; sourceTree = "<group>"; };
 		A6B13606192C79ED0011852D /* SBR_SettingsTopMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_SettingsTopMenuVC.m; sourceTree = "<group>"; };
 		A6B1360D192C7A920011852D /* SBR_ModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_ModalTransitionAnimator.h; sourceTree = "<group>"; };
@@ -739,6 +743,14 @@
 		A6C01D8819300255002BAFF4 /* UIImage+OVGradients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+OVGradients.m"; path = "UIKit/UIImage/UIImage+OVGradients.m"; sourceTree = "<group>"; };
 		A6C01D8A19300687002BAFF4 /* UIColor+OVColorAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+OVColorAdjust.h"; path = "UIKit/UIColor/UIColor+OVColorAdjust.h"; sourceTree = "<group>"; };
 		A6C01D8B19300687002BAFF4 /* UIColor+OVColorAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+OVColorAdjust.m"; path = "UIKit/UIColor/UIColor+OVColorAdjust.m"; sourceTree = "<group>"; };
+		A6CA7DB019309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_SettingsMIDIConnectionsVC.h; sourceTree = "<group>"; };
+		A6CA7DB119309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_SettingsMIDIConnectionsVC.m; sourceTree = "<group>"; };
+		A6CA7DB71930AE90003E025C /* UIImage+OVTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+OVTransforms.h"; path = "UIKit/UIImage/UIImage+OVTransforms.h"; sourceTree = "<group>"; };
+		A6CA7DB81930AE90003E025C /* UIImage+OVTransforms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+OVTransforms.m"; path = "UIKit/UIImage/UIImage+OVTransforms.m"; sourceTree = "<group>"; };
+		A6CA7DBA19327FCD003E025C /* UIView+OVPositioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+OVPositioning.h"; path = "UIKit/UIView/UIView+OVPositioning.h"; sourceTree = "<group>"; };
+		A6CA7DBB19327FCD003E025C /* UIView+OVPositioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+OVPositioning.m"; path = "UIKit/UIView/UIView+OVPositioning.m"; sourceTree = "<group>"; };
+		A6CA7DBD19329B15003E025C /* SBR_BlurOutFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBR_BlurOutFilter.h; path = Other/SBR_BlurOutFilter.h; sourceTree = "<group>"; };
+		A6CA7DBE19329B15003E025C /* SBR_BlurOutFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBR_BlurOutFilter.m; path = Other/SBR_BlurOutFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1002,6 +1014,8 @@
 			children = (
 				A6C01D8719300255002BAFF4 /* UIImage+OVGradients.h */,
 				A6C01D8819300255002BAFF4 /* UIImage+OVGradients.m */,
+				A6CA7DB71930AE90003E025C /* UIImage+OVTransforms.h */,
+				A6CA7DB81930AE90003E025C /* UIImage+OVTransforms.m */,
 			);
 			name = UIImage;
 			sourceTree = "<group>";
@@ -1021,6 +1035,8 @@
 			children = (
 				A6395EE4192DF556009AAB72 /* UIView+OVSnapshot.h */,
 				A6395EE5192DF556009AAB72 /* UIView+OVSnapshot.m */,
+				A6CA7DBA19327FCD003E025C /* UIView+OVPositioning.h */,
+				A6CA7DBB19327FCD003E025C /* UIView+OVPositioning.m */,
 			);
 			name = UIView;
 			sourceTree = "<group>";
@@ -1069,9 +1085,9 @@
 				A63C6DB7192A23C00041D4D4 /* Images.xcassets */,
 				A63C6DA6192A23C00041D4D4 /* Supporting Files */,
 				A63C7073192C06300041D4D4 /* Categories */,
-				A63C706F192BC88D0041D4D4 /* Other */,
 				A6C01D7E192F9189002BAFF4 /* Model */,
 				A655910B192D3E30002212D5 /* View */,
+				A63C706F192BC88D0041D4D4 /* Other */,
 				A63C6DDB192A5F850041D4D4 /* Media */,
 				A6559104192D11D8002212D5 /* Vendor */,
 			);
@@ -1138,6 +1154,8 @@
 				A6395EEF192E2116009AAB72 /* SBR_MaterializeFilter.m */,
 				A6395EF1192E25ED009AAB72 /* SBR_DimFilter.h */,
 				A6395EF2192E25ED009AAB72 /* SBR_DimFilter.m */,
+				A6CA7DBD19329B15003E025C /* SBR_BlurOutFilter.h */,
+				A6CA7DBE19329B15003E025C /* SBR_BlurOutFilter.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -1521,16 +1539,18 @@
 				A6B13601192C79ED0011852D /* SBR_MainVC.m */,
 				A6B135FE192C79ED0011852D /* SBR_InstrumentVC.h */,
 				A6B135FF192C79ED0011852D /* SBR_InstrumentVC.m */,
-				A6C01D75192F821D002BAFF4 /* SBR_SettingsNavVC.h */,
-				A6C01D76192F821D002BAFF4 /* SBR_SettingsNavVC.m */,
-				A6B13605192C79ED0011852D /* SBR_SettingsTopMenuVC.h */,
-				A6B13606192C79ED0011852D /* SBR_SettingsTopMenuVC.m */,
 				A6559117192D44AE002212D5 /* SBR_ModalTransitionController.h */,
 				A6559118192D44AE002212D5 /* SBR_ModalTransitionController.m */,
 				A6B1360D192C7A920011852D /* SBR_ModalTransitionAnimator.h */,
 				A6B1360E192C7A920011852D /* SBR_ModalTransitionAnimator.m */,
-				A6B13603192C79ED0011852D /* SBR_MenuDrilldownAnimation.h */,
-				A6B13604192C79ED0011852D /* SBR_MenuDrilldownAnimation.m */,
+				A6C01D75192F821D002BAFF4 /* SBR_SettingsNavVC.h */,
+				A6C01D76192F821D002BAFF4 /* SBR_SettingsNavVC.m */,
+				A6B13603192C79ED0011852D /* SBR_SettingsNavAnimController.h */,
+				A6B13604192C79ED0011852D /* SBR_SettingsNavAnimController.m */,
+				A6B13605192C79ED0011852D /* SBR_SettingsTopMenuVC.h */,
+				A6B13606192C79ED0011852D /* SBR_SettingsTopMenuVC.m */,
+				A6CA7DB019309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.h */,
+				A6CA7DB119309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1711,6 +1731,7 @@
 				A65590EF192D11D2002212D5 /* GPUImageTwoPassTextureSamplingFilter.m in Sources */,
 				A6395ED2192DEFDE009AAB72 /* NSSet+OVEnumeration.m in Sources */,
 				A6395ED8192DEFDE009AAB72 /* NSString+OVRegularExpression.m in Sources */,
+				A6CA7DB219309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m in Sources */,
 				A655910A192D3E1A002212D5 /* SBR_SwipeUpIconView.m in Sources */,
 				A6C01D8C19300687002BAFF4 /* UIColor+OVColorAdjust.m in Sources */,
 				A65590E2192D11D2002212D5 /* GPUImageTextureInput.m in Sources */,
@@ -1815,7 +1836,6 @@
 				A6559077192D11D2002212D5 /* GPUImageCrosshatchFilter.m in Sources */,
 				A6395E5D192DEF24009AAB72 /* EXTScope.m in Sources */,
 				A65590B6192D11D2002212D5 /* GPUImageMultiplyBlendFilter.m in Sources */,
-				A6B1360B192C79ED0011852D /* SBR_MenuDrilldownAnimation.m in Sources */,
 				A6559085192D11D2002212D5 /* GPUImageFilter.m in Sources */,
 				A6395ED5192DEFDE009AAB72 /* NSString+OVDebugging.m in Sources */,
 				A6559067192D11D2002212D5 /* GPUImageBuffer.m in Sources */,
@@ -1826,6 +1846,7 @@
 				A6559075192D11D2002212D5 /* GPUImageCropFilter.m in Sources */,
 				A655909D192D11D2002212D5 /* GPUImageJFAVoronoiFilter.m in Sources */,
 				A6395EC3192DEFDE009AAB72 /* NSArray+OVShorthand.m in Sources */,
+				A6CA7DB91930AE90003E025C /* UIImage+OVTransforms.m in Sources */,
 				A65590DC192D11D2002212D5 /* GPUImageSourceOverBlendFilter.m in Sources */,
 				A65590BC192D11D2002212D5 /* GPUImageOutput.m in Sources */,
 				A6395EC5192DEFDE009AAB72 /* NSArray+OVSubArray.m in Sources */,
@@ -1840,6 +1861,7 @@
 				A655906E192D11D2002212D5 /* GPUImageColorBlendFilter.m in Sources */,
 				A6559093192D11D2002212D5 /* GPUImageHazeFilter.m in Sources */,
 				A6395ED9192DEFDE009AAB72 /* NSString+OVShorthand.m in Sources */,
+				A6CA7DB31930A349003E025C /* SBR_SettingsNavAnimController.m in Sources */,
 				A65590A5192D11D2002212D5 /* GPUImageLineGenerator.m in Sources */,
 				A6395EC4192DEFDE009AAB72 /* NSArray+OVSorting.m in Sources */,
 				A6395ED1192DEFDE009AAB72 /* NSObject+Equals.m in Sources */,
@@ -1902,6 +1924,7 @@
 				A6559074192D11D2002212D5 /* GPUImageContrastFilter.m in Sources */,
 				A65590AA192D11D2002212D5 /* GPUImageLuminanceThresholdFilter.m in Sources */,
 				A65590B5192D11D2002212D5 /* GPUImageMovieComposition.m in Sources */,
+				A6CA7DBF19329B15003E025C /* SBR_BlurOutFilter.m in Sources */,
 				A65590B2192D11D2002212D5 /* GPUImageMotionBlurFilter.m in Sources */,
 				A65590D1192D11D2002212D5 /* GPUImageScreenBlendFilter.m in Sources */,
 				A655909F192D11D2002212D5 /* GPUImageKuwaharaRadius3Filter.m in Sources */,
@@ -1909,6 +1932,7 @@
 				A65590AB192D11D2002212D5 /* GPUImageLuminosity.m in Sources */,
 				A65590E8192D11D2002212D5 /* GPUImageTiltShiftFilter.m in Sources */,
 				A6395EED192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m in Sources */,
+				A6CA7DBC19327FCD003E025C /* UIView+OVPositioning.m in Sources */,
 				A6559071192D11D2002212D5 /* GPUImageColorInvertFilter.m in Sources */,
 				A65590E0192D11D2002212D5 /* GPUImageSubtractBlendFilter.m in Sources */,
 				A6395EC6192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m in Sources */,

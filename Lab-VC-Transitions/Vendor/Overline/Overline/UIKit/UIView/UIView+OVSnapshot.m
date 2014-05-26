@@ -10,12 +10,12 @@
 
 @implementation UIView (OVSnapshot)
 
-- (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates
+- (UIImage *)renderAsImage
 {
     UIImage *snapshotImage;
     UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
     {
-        [self drawViewHierarchyInRect:self.frame afterScreenUpdates:afterUpdates];
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
         snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
     }
     UIGraphicsEndImageContext();
@@ -23,4 +23,22 @@
     return snapshotImage;
 }
 
+//---------------------------------------------------------------------
+
+- (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates
+{
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        return [self renderAsImage];
+    } else {
+        UIImage *snapshotImage;
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
+        {
+            [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:afterUpdates];
+            snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
+        }
+        UIGraphicsEndImageContext();
+        
+        return snapshotImage;
+    }
+}
 @end

@@ -12,13 +12,19 @@
 /** Factory for colors images and drawing assets */
 @interface SBR_StyleKit : NSObject
 
++ (void)flushCache;
++ (id)cached:(NSString *)objName orInit:(id(^)(void))initBlock;
+
 + (UIColor *)backgroundColor;
 + (UIColor *)yellowTextColor;
 + (UIColor *)yellowTextHighlightColor;
 + (UIFont *)settingsMenuFont;
 
 + (UIImage *)swipeUpIcon;
-//+ (UIImage *)swipeRightIcon;
++ (UIImage *)swipeRightIcon;
+
++ (UIButton *)swipeRightIconButton;
+
 
 + (UIImage *)imageForSettingsMenuGlowingTextButtonWithText:(NSString *)text
                                                highlighted:(BOOL)highlighted;

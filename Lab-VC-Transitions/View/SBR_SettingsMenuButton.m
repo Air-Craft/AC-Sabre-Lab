@@ -25,6 +25,7 @@
         [me setImage:normal forState:UIControlStateNormal];
         [me setImage:highlighted forState:UIControlStateHighlighted];
         CGRect f = {0, 0, normal.size};
+        f.size.height = 44;
         me.frame = f;
     }
     return me;

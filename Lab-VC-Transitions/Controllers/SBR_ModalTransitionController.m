@@ -59,7 +59,7 @@ static const NSUInteger _SBR_MODAL_TRANSITION_SWIPE_TOUCHES_REQD  = 1;
     _presentGR = gr;
     
     // Create and hide the swipe up icon for dismissing.  Also link up it's gesture recognisers but disable them
-    _swipeUpIconView = [SBR_SwipeUpIconView newSwipeUpIconView];
+    _swipeUpIconView = [SBR_SwipeUpIconView new];
     _swipeUpIconView.center = CGPointMake(_containerVC.view.frame.size.width/2,
                                           _containerVC.view.frame.size.height - _swipeUpIconView.frame.size.height - 10);
     _swipeUpIconView.hidden = YES;

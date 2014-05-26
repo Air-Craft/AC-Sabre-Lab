@@ -16,7 +16,7 @@
 #pragma mark - Life Cycle
 /////////////////////////////////////////////////////////////////////////
 
-+ (instancetype)newSwipeUpIconView
++ (instancetype)new
 {
     SBR_SwipeUpIconView *me = [[self alloc] init];
     if (me) {
@@ -36,7 +36,7 @@
     self.opaque = NO;
     self.backgroundColor = [UIColor clearColor];
     UIImageView *imgV = [[UIImageView alloc] initWithImage:[SBR_StyleKit swipeUpIcon]];
-    self.frame = CGRectMake(0, 0, imgV.image.size.width, imgV.image.size.height);
+    self.frame = CGRectMake(0, 0, 44, 44);  // needs to be bigger than the image
     [self addSubview:imgV];
     
     // Set a looped animation
