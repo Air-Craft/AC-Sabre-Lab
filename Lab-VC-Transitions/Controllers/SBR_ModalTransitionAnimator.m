@@ -180,11 +180,12 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 1.15;
     // MENU: FILTER ANIM
     /////////////////////////////////////////
     
+    _presentedViewFilter.filterAmount = 1.0;
     _presentedSnapshotView = [SBR_AnimatedFilterSnapshotView newWithSourceView:_presentedView filter:_presentedViewFilter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view){
     }];
     [_containerView addSubview:_presentedSnapshotView];
     
-    [_presentedSnapshotView filterWithDuration:_SBR_PRESENT_ANIM_STAGE2_TIME];
+    [_presentedSnapshotView unfilterWithDuration:_SBR_PRESENT_ANIM_STAGE2_TIME];
    
     
     /////////////////////////////////////////
@@ -233,6 +234,7 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 1.15;
         
         // MENU OUT: FILTER
         // Swap the menu for the snapshow
+        _presentedViewFilter.filterAmount = 0.0;
         _presentedSnapshotView = [SBR_AnimatedFilterSnapshotView
                                    newWithSourceView:_presentedView
                                    filter:_presentedViewFilter
@@ -241,7 +243,7 @@ static const NSTimeInterval _SBR_DISMISS_ANIM_STAGE2_TIME = 1.15;
                                        [_presentedView removeFromSuperview];
                                        _presentedView = nil; // no longer needed
                                    }];
-        [_presentedSnapshotView unfilterWithDuration:_SBR_DISMISS_ANIM_STAGE2_TIME];
+        [_presentedSnapshotView filterWithDuration:_SBR_DISMISS_ANIM_STAGE2_TIME];
         
         
         // MENU OUT: GEOMETRY

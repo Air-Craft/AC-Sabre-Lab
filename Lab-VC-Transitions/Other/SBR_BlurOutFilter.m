@@ -12,8 +12,8 @@
 #pragma mark - Consts
 /////////////////////////////////////////////////////////////////////////
 
-static const CGFloat _SBR_FILTER1_FROM = 0;
-static const CGFloat _SBR_FILTER1_TO = 10;
+static const CGFloat _SBR_FILTER1_FROM = 0.001;
+static const CGFloat _SBR_FILTER1_TO = 0.1;
 //static const CGFloat _SBR_FILTER2_FROM = 0.1;
 //static const CGFloat _SBR_FILTER2_TO = 0.00001;
 
@@ -25,7 +25,7 @@ static const CGFloat _SBR_FILTER1_TO = 10;
 @implementation SBR_BlurOutFilter
 
 {
-    GPUImageGaussianBlurFilter *_filter1;
+    GPUImagePixellateFilter *_filter1;
 //    GPUImagePixellateFilter *_filter2;
 }
 
@@ -33,8 +33,8 @@ static const CGFloat _SBR_FILTER1_TO = 10;
 {
     self = [super init];
     if (self) {
-        _filter1 = [[GPUImageGaussianBlurFilter alloc] init];
-        [_filter1 setBlurRadiusInPixels:_SBR_FILTER1_FROM];
+        _filter1 = [[GPUImagePixellateFilter alloc] init];
+        _filter1.fractionalWidthOfAPixel = _SBR_FILTER1_FROM;
         
 //        _filter2 = [[GPUImagePixellateFilter alloc] init];
 //        [_filter1 addTarget:_filter2];
@@ -58,7 +58,7 @@ static const CGFloat _SBR_FILTER1_TO = 10;
     _filterAmount = filterAmount;
     
     // Linear Map to our ranges
-    _filter1.blurRadiusInPixels =
+    _filter1.fractionalWidthOfAPixel =
     filterAmount * (_SBR_FILTER1_TO - _SBR_FILTER1_FROM) + _SBR_FILTER1_FROM;
     
 //    _filter2.fractionalWidthOfAPixel =

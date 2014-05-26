@@ -9,17 +9,18 @@
 #import "SBR_SettingsNavAnimController.h"
 #import "SBR_AnimatedFilterSnapshotView.h"
 #import "SBR_BlurOutFilter.h"
+#import "SBR_MaterializeFilter.h"
 
 @implementation SBR_SettingsNavAnimController
 {
-    SBR_BlurOutFilter *_filter;
+    SBR_CompositeGPUFilterAbstract *_filter;
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _filter = [SBR_BlurOutFilter new];
+        _filter = [SBR_MaterializeFilter new];
     }
     return self;
 }
@@ -48,25 +49,27 @@
         // TEST!
         
         // Grab a snapshot of the destination so we can do gpu fxs
-        _filter.filterAmount = 0;
-        SBR_AnimatedFilterSnapshotView *toViewSnapshot = [SBR_AnimatedFilterSnapshotView newWithSourceView:toVC.view filter:_filter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view) {
+        _filter.filterAmount = 1;
+        __block SBR_AnimatedFilterSnapshotView *toViewSnapshot = [SBR_AnimatedFilterSnapshotView newWithSourceView:toVC.view filter:_filter initDrawCompletion:^(SBR_AnimatedFilterSnapshotView *view) {
         
             // Also fade and shrink the destination
             toViewSnapshot.transform = CGAffineTransformMakeScale(0.7, 0.7);
-            toViewSnapshot.alpha = 1.0;
-            
+            toViewSnapshot.alpha = 0.0;
             
             [contView addSubview:toViewSnapshot];
             
             // Animate it all in while panning/fading the fromView as well
-//            [toViewSnapshot unfilterWithDuration:duration];
+            [toViewSnapshot unfilterWithDuration:duration];
             [UIView
              animateWithDuration:duration
              animations:^{
                  
                  toViewSnapshot.transform = CGAffineTransformIdentity;
                  toViewSnapshot.alpha = 1.0;
-                 fromVC.view.x -= contView.width;
+                 
+                 fromVC.view.x -= contView.width/2;
+                 fromVC.view.alpha = 0.0;
+                 fromVC.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
                  
              } completion:^(BOOL finished) {
                  // Swap the snapshot view
@@ -101,7 +104,7 @@
 //---------------------------------------------------------------------
 
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionCtx {
-    return 1.4;
+    return 0.4;
 }
 
 //---------------------------------------------------------------------

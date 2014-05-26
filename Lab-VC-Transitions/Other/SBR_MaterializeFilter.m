@@ -12,10 +12,10 @@
 #pragma mark - Consts
 /////////////////////////////////////////////////////////////////////////
 
-static const CGFloat _SBR_FILTER1_FROM = 20;
-static const CGFloat _SBR_FILTER1_TO = 0;
-static const CGFloat _SBR_FILTER2_FROM = 0.1;
-static const CGFloat _SBR_FILTER2_TO = 0.00001;
+static const CGFloat _SBR_FILTER1_FROM = 0;
+static const CGFloat _SBR_FILTER1_TO = 20;
+static const CGFloat _SBR_FILTER2_FROM = 0.00001;
+static const CGFloat _SBR_FILTER2_TO = 0.1;
 
 
 /////////////////////////////////////////////////////////////////////////
