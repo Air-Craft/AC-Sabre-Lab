@@ -73,7 +73,7 @@
 - (void)filterWithDuration:(NSTimeInterval)duration
 {
     POPBasicAnimation *anim = [POPBasicAnimation easeOutAnimation];
-    anim.fromValue = @(0.0);
+    anim.fromValue = @(_filter.filterAmount);
     anim.toValue = @(1.0);
     anim.duration = duration;
     anim.property = _animProp;
@@ -92,7 +92,7 @@
 - (void)unfilterWithDuration:(NSTimeInterval)duration completion:(void (^)(void))completion
 {
     POPBasicAnimation *anim = [POPBasicAnimation easeOutAnimation];
-    anim.fromValue = @(1.0);
+    anim.fromValue = @(_filter.filterAmount);
     anim.toValue = @(0.0);
     anim.duration = duration;
     anim.property = _animProp;
@@ -102,9 +102,16 @@
     [self pop_addAnimation:anim forKey:@"co.air-craft.SBR_AnimatedFilterSnapshotView.unfilterAnim"];
 }
 
+//---------------------------------------------------------------------
+
+- (void)setFilterAmountAndUpdate:(CGFloat)filterAmount
+{
+    [self _updateForFilterAmount:filterAmount];
+}
+
 
 /////////////////////////////////////////////////////////////////////////
-#pragma mark - Protected
+#pragma mark - Additional Privates
 /////////////////////////////////////////////////////////////////////////
 
 - (void)_updateForFilterAmount:(CGFloat)filterAmount

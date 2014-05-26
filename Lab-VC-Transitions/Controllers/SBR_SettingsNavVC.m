@@ -12,6 +12,14 @@
 #import "SBR_InteractiveSwipeGestureRecognizer.h"
 
 /////////////////////////////////////////////////////////////////////////
+#pragma mark - Constants
+/////////////////////////////////////////////////////////////////////////
+
+static const CGFloat _SBR_SWIPE_RIGHT_INIT_X = 0;
+static const CGFloat _SBR_SWIPE_RIGHT_DISTANCE_PERCENT = 0.3;
+
+
+/////////////////////////////////////////////////////////////////////////
 #pragma mark -
 /////////////////////////////////////////////////////////////////////////
 
@@ -32,23 +40,22 @@
     
     // Create the slide-to-pop control and hide
     _swipeRightButton = [SBR_StyleKit swipeRightIconButton];
-    _swipeRightButton.hidden = YES;
+    _swipeRightButton.alpha = 0.0;
     [self.view addSubview:_swipeRightButton];
-    _swipeRightButton.x = 0;
+    _swipeRightButton.x = _SBR_SWIPE_RIGHT_INIT_X;
     [_swipeRightButton setBottomMargin:44];
     
     // Link up the touch and the slide GR.  Use a tap rather than the ControlEvent to prevent double triggers on slide
     
     [_swipeRightButton bk_addEventHandler:^(id sender) {
-        
         [self popViewControllerAnimated:YES];
-        
     } forControlEvents:UIControlEventTouchUpInside];
     SBR_InteractiveSwipeGestureRecognizer *gr = [[SBR_InteractiveSwipeGestureRecognizer alloc] initWithTarget:self action:@selector(_handleRightSwipeUpdate:)];
     gr.numberOfTouchesRequired = 1;
     gr.direction = UISwipeGestureRecognizerDirectionRight;
     gr.thresholdDistance = 0;
-    gr.targetDistance = self.view.width / 2.0;
+    gr.targetDistance = _SBR_SWIPE_RIGHT_DISTANCE_PERCENT * self.view.width;
+    [_swipeRightButton addGestureRecognizer:gr];
 }
 
 //---------------------------------------------------------------------
@@ -67,6 +74,10 @@
 		// CHANGED: Report percentage to the animCon
         case UIGestureRecognizerStateChanged:
             [_animController updateWithPercent:swipe.percentCompleted];
+            
+            // Update the control too
+            _swipeRightButton.x = _SBR_SWIPE_RIGHT_INIT_X + swipe.percentCompleted * _SBR_SWIPE_RIGHT_DISTANCE_PERCENT * self.view.width;
+            _swipeRightButton.alpha = 1.0 - swipe.percentCompleted;
             break;
             
             
@@ -75,11 +86,15 @@
         case UIGestureRecognizerStateFailed:
         {
             BOOL abort = (swipe.percentCompleted < 0.75) && (swipe.velocity < 500);
-            if (abort)
+            if (abort) {
                 [_animController abort];
-            else
+                _swipeRightButton.alpha = 1.0;
+                _swipeRightButton.x = _SBR_SWIPE_RIGHT_INIT_X;
+                [self _updateSwipeRightButtonVisibilty];
+            } else
                 [_animController finishWithCompletion:^{
-                    ;
+                    _swipeRightButton.x = _SBR_SWIPE_RIGHT_INIT_X;
+                    [self _updateSwipeRightButtonVisibilty];
                 }];
             break;
         }
@@ -87,10 +102,13 @@
         // ENDED/SUCCESS: Complete the animation/transition
         case UIGestureRecognizerStateEnded:
         //case UIGestureRecognizerStateRecognized:  // same as "Ended"
+        {
             [_animController finishWithCompletion:^{
-                ;
+                _swipeRightButton.x = _SBR_SWIPE_RIGHT_INIT_X;
+                [self _updateSwipeRightButtonVisibilty];
             }];
             break;
+        }
             
         default:
         case UIGestureRecognizerStatePossible:
@@ -102,12 +120,25 @@
 #pragma mark - Delegate Fulfillment
 /////////////////////////////////////////////////////////////////////////
 
-/** Check the stack depth and update nav controls */
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [self _updateSwipeRightButtonVisibilty];
+}
+
+//---------------------------------------------------------------------
+
+- (void)_updateSwipeRightButtonVisibilty
+{
+    [self.view bringSubviewToFront:_swipeRightButton];
+    [UIView animateWithDuration:0.25 animations:^{
+        _swipeRightButton.alpha = (self.viewControllers.count > 1) ? 1.0 : 0.0;
+    }];
+}
+
+//---------------------------------------------------------------------
+
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    // Check the stack and show/hide the pop swipe icon accordingly
-    _swipeRightButton.hidden = (self.viewControllers.count < 2);
-    [self.view bringSubviewToFront:_swipeRightButton];
 }
 
 //---------------------------------------------------------------------

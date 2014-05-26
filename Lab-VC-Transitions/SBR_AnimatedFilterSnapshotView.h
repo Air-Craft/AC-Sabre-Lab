@@ -25,14 +25,8 @@
 - (void)unfilterWithDuration:(NSTimeInterval)duration;
 - (void)unfilterWithDuration:(NSTimeInterval)duration completion:(void(^)(void))completion;
 
-/////////////////////////////////////////////////////////////////////////
-#pragma mark - Protected
-/////////////////////////////////////////////////////////////////////////
-
-/** @protected
-    Override to tap into the animation to perform additional operations 
- */
-- (void)_updateForFilterAmount:(CGFloat)filterAmount;
+/** Update without animation */
+- (void)setFilterAmountAndUpdate:(CGFloat)filterAmount;
 
 
 @end
