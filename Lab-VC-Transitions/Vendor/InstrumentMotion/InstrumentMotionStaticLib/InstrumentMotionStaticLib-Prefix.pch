@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'InstrumentMotionStaticLib' target in the 'InstrumentMotionStaticLib' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

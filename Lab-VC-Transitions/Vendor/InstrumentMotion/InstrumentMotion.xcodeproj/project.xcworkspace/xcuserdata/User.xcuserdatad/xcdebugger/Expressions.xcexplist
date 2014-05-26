@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[IMNevilleInterpolator interpolatedYAtX:]:IMNevilleInterpolator.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "(double [3])C">
+            </PersistentString>
+            <PersistentString
+               value = "(double [3])D">
+            </PersistentString>
+            <PersistentString
+               value = "x">
+            </PersistentString>
+            <PersistentString
+               value = "self-&gt;x">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -6,6 +6,10 @@ GPUImage:
   repo: git@github.com:BradLarson/GPUImage.git
   path: Lab-VC-Transitions/Vendor/
 
+InstrumentMotion:
+  repo: git@github.com:Club15CC/InstrumentMotion.git
+  path: Lab-VC-Transitions/Vendor/
+
 libextobjc:
   repo: git@github.com:jspahrsummers/libextobjc.git
   path: Lab-VC-Transitions/Vendor/

@@ -255,6 +255,17 @@
 		A6CA7DB91930AE90003E025C /* UIImage+OVTransforms.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CA7DB81930AE90003E025C /* UIImage+OVTransforms.m */; };
 		A6CA7DBC19327FCD003E025C /* UIView+OVPositioning.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CA7DBB19327FCD003E025C /* UIView+OVPositioning.m */; };
 		A6CA7DBF19329B15003E025C /* SBR_BlurOutFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CA7DBE19329B15003E025C /* SBR_BlurOutFilter.m */; };
+		A6D255241933DDCA00BD72D3 /* IMAttitudeZoneDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255071933DDCA00BD72D3 /* IMAttitudeZoneDetector.m */; };
+		A6D255251933DDCA00BD72D3 /* IMDefs.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D2550C1933DDCA00BD72D3 /* IMDefs.m */; };
+		A6D255261933DDCA00BD72D3 /* IMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D2550E1933DDCA00BD72D3 /* IMFunctions.m */; };
+		A6D255271933DDCA00BD72D3 /* IMHitShakeDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255101933DDCA00BD72D3 /* IMHitShakeDetector.m */; };
+		A6D255281933DDCA00BD72D3 /* IMMotionAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255131933DDCA00BD72D3 /* IMMotionAnalyzer.m */; };
+		A6D255291933DDCA00BD72D3 /* IMMotionData.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255151933DDCA00BD72D3 /* IMMotionData.m */; };
+		A6D2552A1933DDCA00BD72D3 /* IMNevilleInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255191933DDCA00BD72D3 /* IMNevilleInterpolator.m */; };
+		A6D2552B1933DDCA00BD72D3 /* IMPluckDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D2551B1933DDCA00BD72D3 /* IMPluckDetector.m */; };
+		A6D2552C1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6D2551E1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.mm */; };
+		A6D2552D1933DDCA00BD72D3 /* InstrumentMotionDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255211933DDCA00BD72D3 /* InstrumentMotionDebug.m */; };
+		A6D2552E1933DDCA00BD72D3 /* RunningAverageAggregator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6D255221933DDCA00BD72D3 /* RunningAverageAggregator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -751,6 +762,36 @@
 		A6CA7DBB19327FCD003E025C /* UIView+OVPositioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+OVPositioning.m"; path = "UIKit/UIView/UIView+OVPositioning.m"; sourceTree = "<group>"; };
 		A6CA7DBD19329B15003E025C /* SBR_BlurOutFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBR_BlurOutFilter.h; path = Other/SBR_BlurOutFilter.h; sourceTree = "<group>"; };
 		A6CA7DBE19329B15003E025C /* SBR_BlurOutFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBR_BlurOutFilter.m; path = Other/SBR_BlurOutFilter.m; sourceTree = "<group>"; };
+		A6D255061933DDCA00BD72D3 /* IMAttitudeZoneDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAttitudeZoneDetector.h; sourceTree = "<group>"; };
+		A6D255071933DDCA00BD72D3 /* IMAttitudeZoneDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAttitudeZoneDetector.m; sourceTree = "<group>"; };
+		A6D255081933DDCA00BD72D3 /* IMAttitudeZoneDetectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAttitudeZoneDetectorDelegate.h; sourceTree = "<group>"; };
+		A6D255091933DDCA00BD72D3 /* IMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConfig.h; sourceTree = "<group>"; };
+		A6D2550A1933DDCA00BD72D3 /* IMControlThreadProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMControlThreadProtocol.h; sourceTree = "<group>"; };
+		A6D2550B1933DDCA00BD72D3 /* IMDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDefs.h; sourceTree = "<group>"; };
+		A6D2550C1933DDCA00BD72D3 /* IMDefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDefs.m; sourceTree = "<group>"; };
+		A6D2550D1933DDCA00BD72D3 /* IMFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMFunctions.h; sourceTree = "<group>"; };
+		A6D2550E1933DDCA00BD72D3 /* IMFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMFunctions.m; sourceTree = "<group>"; };
+		A6D2550F1933DDCA00BD72D3 /* IMHitShakeDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHitShakeDetector.h; sourceTree = "<group>"; };
+		A6D255101933DDCA00BD72D3 /* IMHitShakeDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHitShakeDetector.m; sourceTree = "<group>"; };
+		A6D255111933DDCA00BD72D3 /* IMHitShakeDetectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHitShakeDetectorDelegate.h; sourceTree = "<group>"; };
+		A6D255121933DDCA00BD72D3 /* IMMotionAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMotionAnalyzer.h; sourceTree = "<group>"; };
+		A6D255131933DDCA00BD72D3 /* IMMotionAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMotionAnalyzer.m; sourceTree = "<group>"; };
+		A6D255141933DDCA00BD72D3 /* IMMotionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMotionData.h; sourceTree = "<group>"; };
+		A6D255151933DDCA00BD72D3 /* IMMotionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMotionData.m; sourceTree = "<group>"; };
+		A6D255161933DDCA00BD72D3 /* IMMotionDetectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMotionDetectorProtocol.h; sourceTree = "<group>"; };
+		A6D255171933DDCA00BD72D3 /* IMMotionObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMotionObserverProtocol.h; sourceTree = "<group>"; };
+		A6D255181933DDCA00BD72D3 /* IMNevilleInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNevilleInterpolator.h; sourceTree = "<group>"; };
+		A6D255191933DDCA00BD72D3 /* IMNevilleInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNevilleInterpolator.m; sourceTree = "<group>"; };
+		A6D2551A1933DDCA00BD72D3 /* IMPluckDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPluckDetector.h; sourceTree = "<group>"; };
+		A6D2551B1933DDCA00BD72D3 /* IMPluckDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPluckDetector.m; sourceTree = "<group>"; };
+		A6D2551C1933DDCA00BD72D3 /* IMPluckDetectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPluckDetectorDelegate.h; sourceTree = "<group>"; };
+		A6D2551D1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTimeAveragedMagnitudeDetector.h; sourceTree = "<group>"; };
+		A6D2551E1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IMTimeAveragedMagnitudeDetector.mm; sourceTree = "<group>"; };
+		A6D2551F1933DDCA00BD72D3 /* InstrumentMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentMotion.h; sourceTree = "<group>"; };
+		A6D255201933DDCA00BD72D3 /* InstrumentMotionDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentMotionDebug.h; sourceTree = "<group>"; };
+		A6D255211933DDCA00BD72D3 /* InstrumentMotionDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstrumentMotionDebug.m; sourceTree = "<group>"; };
+		A6D255221933DDCA00BD72D3 /* RunningAverageAggregator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunningAverageAggregator.cpp; sourceTree = "<group>"; };
+		A6D255231933DDCA00BD72D3 /* RunningAverageAggregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningAverageAggregator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1512,9 +1553,10 @@
 		A6559104192D11D8002212D5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				A6395EDD192DEFE2009AAB72 /* Overline */,
-				A6395E5E192DEF28009AAB72 /* libextobjc */,
 				A6558F03192D11D1002212D5 /* GPUImage */,
+				A6395EDD192DEFE2009AAB72 /* Overline */,
+				A6D255051933DDCA00BD72D3 /* InstrumentMotion */,
+				A6395E5E192DEF28009AAB72 /* libextobjc */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -1580,6 +1622,44 @@
 				A6C01D8B19300687002BAFF4 /* UIColor+OVColorAdjust.m */,
 			);
 			name = UIColor;
+			sourceTree = "<group>";
+		};
+		A6D255051933DDCA00BD72D3 /* InstrumentMotion */ = {
+			isa = PBXGroup;
+			children = (
+				A6D2551F1933DDCA00BD72D3 /* InstrumentMotion.h */,
+				A6D255061933DDCA00BD72D3 /* IMAttitudeZoneDetector.h */,
+				A6D255071933DDCA00BD72D3 /* IMAttitudeZoneDetector.m */,
+				A6D255081933DDCA00BD72D3 /* IMAttitudeZoneDetectorDelegate.h */,
+				A6D255091933DDCA00BD72D3 /* IMConfig.h */,
+				A6D2550A1933DDCA00BD72D3 /* IMControlThreadProtocol.h */,
+				A6D2550B1933DDCA00BD72D3 /* IMDefs.h */,
+				A6D2550C1933DDCA00BD72D3 /* IMDefs.m */,
+				A6D2550D1933DDCA00BD72D3 /* IMFunctions.h */,
+				A6D2550E1933DDCA00BD72D3 /* IMFunctions.m */,
+				A6D2550F1933DDCA00BD72D3 /* IMHitShakeDetector.h */,
+				A6D255101933DDCA00BD72D3 /* IMHitShakeDetector.m */,
+				A6D255111933DDCA00BD72D3 /* IMHitShakeDetectorDelegate.h */,
+				A6D255121933DDCA00BD72D3 /* IMMotionAnalyzer.h */,
+				A6D255131933DDCA00BD72D3 /* IMMotionAnalyzer.m */,
+				A6D255141933DDCA00BD72D3 /* IMMotionData.h */,
+				A6D255151933DDCA00BD72D3 /* IMMotionData.m */,
+				A6D255161933DDCA00BD72D3 /* IMMotionDetectorProtocol.h */,
+				A6D255171933DDCA00BD72D3 /* IMMotionObserverProtocol.h */,
+				A6D255181933DDCA00BD72D3 /* IMNevilleInterpolator.h */,
+				A6D255191933DDCA00BD72D3 /* IMNevilleInterpolator.m */,
+				A6D2551A1933DDCA00BD72D3 /* IMPluckDetector.h */,
+				A6D2551B1933DDCA00BD72D3 /* IMPluckDetector.m */,
+				A6D2551C1933DDCA00BD72D3 /* IMPluckDetectorDelegate.h */,
+				A6D2551D1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.h */,
+				A6D2551E1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.mm */,
+				A6D255201933DDCA00BD72D3 /* InstrumentMotionDebug.h */,
+				A6D255211933DDCA00BD72D3 /* InstrumentMotionDebug.m */,
+				A6D255221933DDCA00BD72D3 /* RunningAverageAggregator.cpp */,
+				A6D255231933DDCA00BD72D3 /* RunningAverageAggregator.h */,
+			);
+			name = InstrumentMotion;
+			path = Vendor/InstrumentMotion/Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1734,6 +1814,7 @@
 				A6CA7DB219309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m in Sources */,
 				A655910A192D3E1A002212D5 /* SBR_SwipeUpIconView.m in Sources */,
 				A6C01D8C19300687002BAFF4 /* UIColor+OVColorAdjust.m in Sources */,
+				A6D255291933DDCA00BD72D3 /* IMMotionData.m in Sources */,
 				A65590E2192D11D2002212D5 /* GPUImageTextureInput.m in Sources */,
 				A65590A8192D11D2002212D5 /* GPUImageLowPassFilter.m in Sources */,
 				A6395ECC192DEFDE009AAB72 /* NSDictionary+OVEnumeration.m in Sources */,
@@ -1742,6 +1823,7 @@
 				A65590B8192D11D2002212D5 /* GPUImageNonMaximumSuppressionFilter.m in Sources */,
 				A65590B4192D11D2002212D5 /* GPUImageMovie.m in Sources */,
 				A65590A6192D11D2002212D5 /* GPUImageLocalBinaryPatternFilter.m in Sources */,
+				A6D2552D1933DDCA00BD72D3 /* InstrumentMotionDebug.m in Sources */,
 				A6395ED0192DEFDE009AAB72 /* NSNumber+OVEquals.m in Sources */,
 				A6559065192D11D2002212D5 /* GPUImageBoxBlurFilter.m in Sources */,
 				A65590C6192D11D2002212D5 /* GPUImagePosterizeFilter.m in Sources */,
@@ -1788,6 +1870,7 @@
 				A6395ECB192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m in Sources */,
 				A6559087192D11D2002212D5 /* GPUImageFilterPipeline.m in Sources */,
 				A6395EDC192DEFDE009AAB72 /* NSURL+OVDirectories.m in Sources */,
+				A6D255251933DDCA00BD72D3 /* IMDefs.m in Sources */,
 				A65590D9192D11D2002212D5 /* GPUImageSoftEleganceFilter.m in Sources */,
 				A655905E192D11D2002212D5 /* GPUImageAdaptiveThresholdFilter.m in Sources */,
 				A655908D192D11D2002212D5 /* GPUImageGaussianSelectiveBlurFilter.m in Sources */,
@@ -1822,6 +1905,7 @@
 				A65590CD192D11D2002212D5 /* GPUImageRGBFilter.m in Sources */,
 				A65590C1192D11D2002212D5 /* GPUImagePixellateFilter.m in Sources */,
 				A655906F192D11D2002212D5 /* GPUImageColorBurnBlendFilter.m in Sources */,
+				A6D2552A1933DDCA00BD72D3 /* IMNevilleInterpolator.m in Sources */,
 				A6395EC1192DEFDE009AAB72 /* NSArray+OVReverse.m in Sources */,
 				A6395ECD192DEFDE009AAB72 /* NSDictionary+OVPath.m in Sources */,
 				A6395EF6192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.m in Sources */,
@@ -1829,6 +1913,7 @@
 				A6C01D8919300255002BAFF4 /* UIImage+OVGradients.m in Sources */,
 				A6559095192D11D2002212D5 /* GPUImageHighPassFilter.m in Sources */,
 				A6559096192D11D2002212D5 /* GPUImageHistogramFilter.m in Sources */,
+				A6D2552E1933DDCA00BD72D3 /* RunningAverageAggregator.cpp in Sources */,
 				A6559080192D11D2002212D5 /* GPUImageErosionFilter.m in Sources */,
 				A65590BF192D11D2002212D5 /* GPUImagePerlinNoiseFilter.m in Sources */,
 				A65590F3192D11D2002212D5 /* GPUImageVignetteFilter.m in Sources */,
@@ -1857,6 +1942,7 @@
 				A65590DD192D11D2002212D5 /* GPUImageSphereRefractionFilter.m in Sources */,
 				A6C01D86192FF065002BAFF4 /* SBR_SettingsMenuButton.m in Sources */,
 				A6559086192D11D2002212D5 /* GPUImageFilterGroup.m in Sources */,
+				A6D2552C1933DDCA00BD72D3 /* IMTimeAveragedMagnitudeDetector.mm in Sources */,
 				A65590C3192D11D2002212D5 /* GPUImagePoissonBlendFilter.m in Sources */,
 				A655906E192D11D2002212D5 /* GPUImageColorBlendFilter.m in Sources */,
 				A6559093192D11D2002212D5 /* GPUImageHazeFilter.m in Sources */,
@@ -1894,6 +1980,7 @@
 				A6559082192D11D2002212D5 /* GPUImageExposureFilter.m in Sources */,
 				A6395ED6192DEFDE009AAB72 /* NSString+OVHash.m in Sources */,
 				A655907F192D11D2002212D5 /* GPUImageEmbossFilter.m in Sources */,
+				A6D255271933DDCA00BD72D3 /* IMHitShakeDetector.m in Sources */,
 				A6559063192D11D2002212D5 /* GPUImageAverageLuminanceThresholdFilter.m in Sources */,
 				A655905C192D11D2002212D5 /* GPUImage3x3ConvolutionFilter.m in Sources */,
 				A6C01D77192F821D002BAFF4 /* SBR_SettingsNavVC.m in Sources */,
@@ -1902,7 +1989,9 @@
 				A6559081192D11D2002212D5 /* GPUImageExclusionBlendFilter.m in Sources */,
 				A6395EF0192E2116009AAB72 /* SBR_MaterializeFilter.m in Sources */,
 				A65590F9192D11D2002212D5 /* GPUImageContext.m in Sources */,
+				A6D2552B1933DDCA00BD72D3 /* IMPluckDetector.m in Sources */,
 				A65590CB192D11D2002212D5 /* GPUImageRGBDilationFilter.m in Sources */,
+				A6D255241933DDCA00BD72D3 /* IMAttitudeZoneDetector.m in Sources */,
 				A65590B1192D11D2002212D5 /* GPUImageMosaicFilter.m in Sources */,
 				A6395EC2192DEFDE009AAB72 /* NSArray+OVSelector.m in Sources */,
 				A65590A2192D11D2002212D5 /* GPUImageLevelsFilter.m in Sources */,
@@ -1931,6 +2020,7 @@
 				A65590A3192D11D2002212D5 /* GPUImageLightenBlendFilter.m in Sources */,
 				A65590AB192D11D2002212D5 /* GPUImageLuminosity.m in Sources */,
 				A65590E8192D11D2002212D5 /* GPUImageTiltShiftFilter.m in Sources */,
+				A6D255261933DDCA00BD72D3 /* IMFunctions.m in Sources */,
 				A6395EED192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m in Sources */,
 				A6CA7DBC19327FCD003E025C /* UIView+OVPositioning.m in Sources */,
 				A6559071192D11D2002212D5 /* GPUImageColorInvertFilter.m in Sources */,
@@ -1938,6 +2028,7 @@
 				A6395EC6192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m in Sources */,
 				A6559060192D11D2002212D5 /* GPUImageAlphaBlendFilter.m in Sources */,
 				A655906B192D11D2002212D5 /* GPUImageChromaKeyBlendFilter.m in Sources */,
+				A6D255281933DDCA00BD72D3 /* IMMotionAnalyzer.m in Sources */,
 				A65590FA192D11D2002212D5 /* GPUImageMovieWriter.m in Sources */,
 				A65590CF192D11D2002212D5 /* GPUImageSaturationBlendFilter.m in Sources */,
 				A6559072192D11D2002212D5 /* GPUImageColorMatrixFilter.m in Sources */,
