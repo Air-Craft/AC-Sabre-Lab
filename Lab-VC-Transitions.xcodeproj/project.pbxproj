@@ -279,6 +279,9 @@
 		A6D2555A1933ED2E00BD72D3 /* NSInvocation+MMBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255501933ED2E00BD72D3 /* NSInvocation+MMBlocks.m */; };
 		A6D2555B1933ED2E00BD72D3 /* NSString+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255521933ED2E00BD72D3 /* NSString+Marshmallows.m */; };
 		A6D2555C1933ED2E00BD72D3 /* NSURL+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255541933ED2E00BD72D3 /* NSURL+Marshmallows.m */; };
+		D650770A193500520020E283 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = D6507709193500520020E283 /* StyleKitName.m */; };
+		D650770F193503060020E283 /* MarshmallowMathFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = D650770D193503060020E283 /* MarshmallowMathFunctions.c */; };
+		D6B24FEB1934F8A000FD04FE /* SBR_CircularCalibrationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B24FEA1934F8A000FD04FE /* SBR_CircularCalibrationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -835,6 +838,13 @@
 		A6D255521933ED2E00BD72D3 /* NSString+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Marshmallows.m"; sourceTree = "<group>"; };
 		A6D255531933ED2E00BD72D3 /* NSURL+Marshmallows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Marshmallows.h"; sourceTree = "<group>"; };
 		A6D255541933ED2E00BD72D3 /* NSURL+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Marshmallows.m"; sourceTree = "<group>"; };
+		D6507708193500520020E283 /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKitName.h; sourceTree = SOURCE_ROOT; };
+		D6507709193500520020E283 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKitName.m; sourceTree = SOURCE_ROOT; };
+		D650770C193503060020E283 /* MarshmallowMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarshmallowMath.h; sourceTree = "<group>"; };
+		D650770D193503060020E283 /* MarshmallowMathFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MarshmallowMathFunctions.c; sourceTree = "<group>"; };
+		D650770E193503060020E283 /* MarshmallowMathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarshmallowMathFunctions.h; sourceTree = "<group>"; };
+		D6B24FE91934F8A000FD04FE /* SBR_CircularCalibrationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_CircularCalibrationView.h; sourceTree = "<group>"; };
+		D6B24FEA1934F8A000FD04FE /* SBR_CircularCalibrationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_CircularCalibrationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1639,6 +1649,10 @@
 				A6CA7DB119309EC1003E025C /* SBR_SettingsMIDIConnectionsVC.m */,
 				A6D2552F1933E0AC00BD72D3 /* SBR_SettingsTestVC.h */,
 				A6D255301933E0AC00BD72D3 /* SBR_SettingsTestVC.m */,
+				D6B24FE91934F8A000FD04FE /* SBR_CircularCalibrationView.h */,
+				D6B24FEA1934F8A000FD04FE /* SBR_CircularCalibrationView.m */,
+				D6507708193500520020E283 /* StyleKitName.h */,
+				D6507709193500520020E283 /* StyleKitName.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1729,6 +1743,7 @@
 		A6D255411933E91100BD72D3 /* Marshmallows */ = {
 			isa = PBXGroup;
 			children = (
+				D650770B193503060020E283 /* MarshmallowMath */,
 				A6D255421933ED2E00BD72D3 /* MarshmallowCocoa */,
 				A6D255321933E90E00BD72D3 /* MarshmallowConcurrency */,
 			);
@@ -1759,6 +1774,17 @@
 			);
 			name = MarshmallowCocoa;
 			path = Vendor/Marshmallows/Source/MarshmallowCocoa;
+			sourceTree = "<group>";
+		};
+		D650770B193503060020E283 /* MarshmallowMath */ = {
+			isa = PBXGroup;
+			children = (
+				D650770C193503060020E283 /* MarshmallowMath.h */,
+				D650770D193503060020E283 /* MarshmallowMathFunctions.c */,
+				D650770E193503060020E283 /* MarshmallowMathFunctions.h */,
+			);
+			name = MarshmallowMath;
+			path = Vendor/Marshmallows/Source/MarshmallowMath;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1969,6 +1995,7 @@
 				A65590DE192D11D2002212D5 /* GPUImageStillCamera.m in Sources */,
 				A65590EE192D11D2002212D5 /* GPUImageTwoPassFilter.m in Sources */,
 				A65590EA192D11D2002212D5 /* GPUImageToonFilter.m in Sources */,
+				D650770A193500520020E283 /* StyleKitName.m in Sources */,
 				A65590F1192D11D2002212D5 /* GPUImageUnsharpMaskFilter.m in Sources */,
 				A6395ECB192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m in Sources */,
 				A6559087192D11D2002212D5 /* GPUImageFilterPipeline.m in Sources */,
@@ -2015,6 +2042,7 @@
 				A6395EF6192E2870009AAB72 /* SBR_AnimatedFilterSnapshotView.m in Sources */,
 				A6559073192D11D2002212D5 /* GPUImageColorPackingFilter.m in Sources */,
 				A6C01D8919300255002BAFF4 /* UIImage+OVGradients.m in Sources */,
+				D650770F193503060020E283 /* MarshmallowMathFunctions.c in Sources */,
 				A6559095192D11D2002212D5 /* GPUImageHighPassFilter.m in Sources */,
 				A6559096192D11D2002212D5 /* GPUImageHistogramFilter.m in Sources */,
 				A6D2552E1933DDCA00BD72D3 /* RunningAverageAggregator.cpp in Sources */,
@@ -2063,6 +2091,7 @@
 				A6559092192D11D2002212D5 /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
 				A6D2555B1933ED2E00BD72D3 /* NSString+Marshmallows.m in Sources */,
 				A6559076192D11D2002212D5 /* GPUImageCrosshairGenerator.m in Sources */,
+				D6B24FEB1934F8A000FD04FE /* SBR_CircularCalibrationView.m in Sources */,
 				A655907E192D11D2002212D5 /* GPUImageDivideBlendFilter.m in Sources */,
 				A655909B192D11D2002212D5 /* GPUImageHueFilter.m in Sources */,
 				A65590E5192D11D2002212D5 /* GPUImageThresholdEdgeDetectionFilter.m in Sources */,
@@ -2292,6 +2321,7 @@
 				INFOPLIST_FILE = "Lab-VC-Transitions/Lab-VC-Transitions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2458FC7B-213D-4DB2-AF24-EE6B1C850DDD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2307,6 +2337,7 @@
 				INFOPLIST_FILE = "Lab-VC-Transitions/Lab-VC-Transitions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2458FC7B-213D-4DB2-AF24-EE6B1C850DDD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

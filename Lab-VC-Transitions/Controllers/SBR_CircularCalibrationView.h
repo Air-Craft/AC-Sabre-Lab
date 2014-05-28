@@ -1,0 +1,16 @@
+//
+//  SBR_CircularCalibrationView.h
+//  Lab-VC-Transitions
+//
+//  Created by Chris Mitchelmore on 27/05/2014.
+//  Copyright (c) 2014 Air Craft. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface SBR_CircularCalibrationView : UIView
+
+@property (nonatomic) CGFloat maximum;
+@property (nonatomic) CGFloat minimum;
+
+@end

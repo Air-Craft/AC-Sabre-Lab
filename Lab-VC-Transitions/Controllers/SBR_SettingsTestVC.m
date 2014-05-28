@@ -11,6 +11,8 @@
 #import "SBR_Factory.h"
 #import "SBR_StyleKit.h"
 
+#import "SBR_CircularCalibrationView.h"
+
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Defs
 /////////////////////////////////////////////////////////////////////////
@@ -28,6 +30,7 @@ static SBR_Factory *Factory;
     MPerformanceThread *_controlThread;
     
     UILabel *_thing;
+    SBR_CircularCalibrationView *_calibrator;
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -62,12 +65,17 @@ static SBR_Factory *Factory;
     [self.view addSubview:_thing];
     _thing.centerX = self.view.width/2;
     
-
+    
+    
     /////////////////////////////////////////
     // MOTION ANALYZER SETUP
     /////////////////////////////////////////
     
     [_motionAnalyzer addMotionObserver:self];
+    
+    _calibrator = [[SBR_CircularCalibrationView alloc] initWithFrame:CGRectMake(60, 60, 200, 200)];
+    [self.view addSubview:_calibrator];
+    
 }
 
 //---------------------------------------------------------------------
@@ -96,12 +104,12 @@ static SBR_Factory *Factory;
 
 - (void)handleMotionUpdateForData:(IMMotionSampleSet)current previousData:(IMMotionSampleSet)previous
 {
-    _thing.centerY = (1 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * (self.view.height - _thing.height);
-    _thing.centerX = (1 - (current.attitude.pos.roll + M_PI_2) / (M_PI)) * (self.view.width - _thing.width);
+    _calibrator.maximum = (1 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 180;
+    _calibrator.minimum = (1 - (current.attitude.pos.roll + M_PI_2) / (M_PI)) * 180;
     
-    CGFloat p = -current.attitude.pos.pitch / M_PI_2;// + M_PI_2;  p = (p > M_PI_2) ? p-M_PI : p;
-    CGFloat r = -current.attitude.pos.roll / M_PI_2;
-    _thing.transform = CGAffineTransformMakeRotation(atan(p / (r+0.00001)) + M_PI_2);
+//    CGFloat p = -current.attitude.pos.pitch / M_PI_2;// + M_PI_2;  p = (p > M_PI_2) ? p-M_PI : p;
+//    CGFloat r = -current.attitude.pos.roll / M_PI_2;
+//    _thing.transform = CGAffineTransformMakeRotation(atan(p / (r+0.00001)) + M_PI_2);
 }
 
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CF58EEC0-CEFD-4307-B9B1-673AFF171F3D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Lab-VC-Transitions</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5C082AC7-6E08-4067-8E15-1B7432CE90E8</key>
+		<string>ssh://github.com/Club15CC/AC-Sabre-Lab.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Lab-VC-Transitions.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5C082AC7-6E08-4067-8E15-1B7432CE90E8</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Club15CC/AC-Sabre-Lab.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5C082AC7-6E08-4067-8E15-1B7432CE90E8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5C082AC7-6E08-4067-8E15-1B7432CE90E8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AC-Sabre-Lab</string>
+		</dict>
+	</array>
+</dict>
+</plist>
