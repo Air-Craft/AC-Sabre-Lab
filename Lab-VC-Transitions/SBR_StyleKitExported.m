@@ -9,16 +9,14 @@
 //
 
 #import "SBR_StyleKitExported.h"
-#import "SBR_StyleKit.h"
 
 
 @implementation SBR_StyleKitExported
 
 #pragma mark Initialization
-static UIImage *calibrateString;
+
 + (void)initialize
 {
-    calibrateString = [SBR_StyleKit imageForSettingsMenuGlowingTextButtonWithText:NSLocalizedString(@"Calibrate", nil) highlighted:NO];
 }
 
 #pragma mark Drawing Methods
@@ -37,6 +35,7 @@ static UIImage *calibrateString;
 
     //// Image Declarations
     UIImage* gestureIcon = [UIImage imageNamed: @"gestureIcon"];
+    UIImage* calibrateString = [UIImage imageNamed: @"calibrateString"];
 
     //// Variable Declarations
     CGFloat minExcludedEnd = maximum;
@@ -46,16 +45,12 @@ static UIImage *calibrateString;
     CGFloat maxExcludedEnd = excludeMaximum - 90;
     CGFloat maxExcludedOutline = excludeMaximum;
     CGFloat gap = 5;
-    CGFloat minExcludedEndRed = excludeMinimum - (90 + gap);
+    CGFloat minExcludedEndRed = excludeMinimum - 90 + gap;
     CGFloat minExcludedOutlineRed = minExcludedEndRed + 90;
     CGFloat maxExcludedEndRed = gap + excludeMaximum;
-    CGFloat scale = (MIN(frame.size.width,frame.size.height))/200.0;
+
     //// Group
     {
-        CGContextSaveGState(context);
-        CGContextTranslateCTM(context, CGRectGetMinX(frame) + 8.19, CGRectGetMinY(frame) + 7.4);
-        CGContextScaleCTM(context, scale, scale);
-        
         //// Background Drawing
         CGContextSaveGState(context);
         CGContextTranslateCTM(context, CGRectGetMinX(frame) + 8.2, CGRectGetMinY(frame) + 7.4);
@@ -255,20 +250,26 @@ static UIImage *calibrateString;
 
 
         //// Dive Icon Drawing
-        CGRect diveIconRect = CGRectMake(CGRectGetMinX(frame) + 60, CGRectGetMinY(frame) + 60, 80, 80);
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, CGRectGetMinX(frame) + 51, CGRectGetMinY(frame) + 49);
+        CGContextScaleCTM(context, 0.5, 0.5);
+
+        CGRect diveIconRect = CGRectMake(0, 0, 200, 200);
         UIBezierPath* diveIconPath = [UIBezierPath bezierPathWithRect: diveIconRect];
         CGContextSaveGState(context);
         [diveIconPath addClip];
-        [gestureIcon drawInRect: diveIconRect];
+        [gestureIcon drawInRect: CGRectMake(floor(CGRectGetMinX(diveIconRect) + 0.5), floor(CGRectGetMinY(diveIconRect) + 0.5), gestureIcon.size.width, gestureIcon.size.height)];
         CGContextRestoreGState(context);
-        
-        
+
+        CGContextRestoreGState(context);
+
+
         //// Calibrate Message Drawing
-        CGRect calibrateMessageRect = CGRectMake(CGRectGetMinX(frame) + 60, CGRectGetMinY(frame) + 140, 141, 28);
+        CGRect calibrateMessageRect = CGRectMake(CGRectGetMinX(frame) + 51, CGRectGetMinY(frame) + 149, 100, 20);
         UIBezierPath* calibrateMessagePath = [UIBezierPath bezierPathWithRect: calibrateMessageRect];
         CGContextSaveGState(context);
         [calibrateMessagePath addClip];
-        [calibrateString drawInRect: calibrateMessageRect];
+        [calibrateString drawInRect: CGRectMake(floor(CGRectGetMinX(calibrateMessageRect) + 0.5), floor(CGRectGetMinY(calibrateMessageRect) + 0.5), calibrateString.size.width, calibrateString.size.height)];
         CGContextRestoreGState(context);
     }
 }

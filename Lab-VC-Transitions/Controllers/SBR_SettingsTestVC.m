@@ -70,17 +70,15 @@ static SBR_Factory *Factory;
     /////////////////////////////////////////
     // MOTION ANALYZER SETUP
     /////////////////////////////////////////
-    
     [_motionAnalyzer addMotionObserver:self];
     
-    _calibrator = [[SBR_CircularCalibrationView alloc] initWithFrame:CGRectMake(60, 60, 200, 200)];
+    _calibrator = [[SBR_CircularCalibrationView alloc] initWithFrame:CGRectMake(20, 60, 280, 280)];
     [self.view addSubview:_calibrator];
     UIButton *excluded = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    excluded.frame = CGRectMake(0, 0, 100, 50);
+    excluded.frame = CGRectMake(110, self.view.frame.size.height-50, 100, 50);
     [excluded setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [excluded setTitle:@"Excluded" forState:UIControlStateNormal];
     [excluded addTarget:self action:@selector(_toggleExcluded) forControlEvents:UIControlEventTouchUpInside];
-    excluded.center = self.view.center;
     [self.view addSubview:excluded];
     
     
@@ -111,11 +109,13 @@ static SBR_Factory *Factory;
 #pragma mark - Private API
 /////////////////////////////////////////////////////////////////////////
 
-
+static CGFloat min = 0;
+static CGFloat max = 0;
 - (void)_toggleExcluded
 {
-    static BOOL show = YES;
+    static BOOL show = NO;
     show = !show;
+    min = max = 0;
     _calibrator.showExcluded = show;
 }
 
@@ -126,14 +126,21 @@ static SBR_Factory *Factory;
 
 - (void)handleMotionUpdateForData:(IMMotionSampleSet)current previousData:(IMMotionSampleSet)previous
 {
+
+    CGFloat pitch = (0.5 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 360;
+    max = pitch > max ? pitch : max;
+    min = pitch < min ? pitch : min;
+    CGFloat mx = 90+ (max * -1);
+    CGFloat mn = 90+ (min * -1);
+
     if ( _calibrator.showExcluded ){
-        _calibrator.excludeMaximum = (1 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 180;
-        _calibrator.excludeMinimum = (1 - (current.attitude.pos.roll + M_PI_2) / (M_PI)) * 180;
+        _calibrator.excludeMaximum = mx;
+        _calibrator.excludeMinimum = mn;
         _calibrator.minimum = 270;
         _calibrator.maximum = 0;
     }else{
-        _calibrator.excludeMinimum = (1 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 180;
-        _calibrator.minimum = (1 - (current.attitude.pos.roll + M_PI_2) / (M_PI)) * 180;
+        _calibrator.excludeMinimum = mx;
+        _calibrator.minimum = mn;
     }
     
 //    CGFloat p = -current.attitude.pos.pitch / M_PI_2;// + M_PI_2;  p = (p > M_PI_2) ? p-M_PI : p;

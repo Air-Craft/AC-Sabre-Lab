@@ -109,7 +109,7 @@ static NSMutableDictionary *_cache;
     return [self _glowingTextWithText:text
                                  font:[self settingsMenuFont]
                                 color:color
-                            alignment:NSTextAlignmentLeft
+                            alignment:NSTextAlignmentCenter
                             maskWidth:250];
 }
 
