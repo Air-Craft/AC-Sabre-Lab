@@ -7,24 +7,23 @@
 //
 
 #import "SBR_CircularCalibrationView.h"
-#import "StyleKitName.h"
+#import "SBR_StyleKitExported.h"
 
 
-@implementation SBR_CircularCalibrationView 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        _maximum = 0;
-        _minimum = 90;
-    }
-    return self;
-}
+@implementation SBR_CircularCalibrationView
+
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Properties
+/////////////////////////////////////////////////////////////////////////
+
 - (void)setMaximum:(CGFloat)maximum
 {
     _maximum = maximum;
     [self setNeedsDisplay];
 }
+
+//---------------------------------------------------------------------
 
 - (void)setMinimum:(CGFloat)minimum
 {
@@ -32,12 +31,47 @@
     [self setNeedsDisplay];
 }
 
+//---------------------------------------------------------------------
+
+- (void)setExcludeMaximum:(CGFloat)excludeMaximum
+{
+    _excludeMaximum = excludeMaximum;
+    [self setNeedsDisplay];
+}
+
+//---------------------------------------------------------------------
+
+- (void)setExcludeMinimum:(CGFloat)excludeMinimum
+{
+    _excludeMinimum = excludeMinimum;
+    [self setNeedsDisplay];
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Life Cycle
+/////////////////////////////////////////////////////////////////////////
+
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _maximum = 2;
+        _minimum = 191;
+        _excludeMaximum = 60;
+        _excludeMinimum = 144;
+    }
+    return self;
+}
+
+//---------------------------------------------------------------------
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    [StyleKitName drawCircularCalibratorWithFrame:rect minAngle:_minimum maxAngle:_maximum];
+    [SBR_StyleKitExported drawCircularCalibratorWithFrame:rect maximum:_maximum minimum:_minimum showExluded:_showExcluded excludeMinimum:_excludeMinimum excludeMaximum:_excludeMaximum];
 }
-
 
 @end

@@ -75,6 +75,14 @@ static SBR_Factory *Factory;
     
     _calibrator = [[SBR_CircularCalibrationView alloc] initWithFrame:CGRectMake(60, 60, 200, 200)];
     [self.view addSubview:_calibrator];
+    UIButton *excluded = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    excluded.frame = CGRectMake(0, 0, 100, 50);
+    [excluded setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [excluded setTitle:@"Excluded" forState:UIControlStateNormal];
+    [excluded addTarget:self action:@selector(_toggleExcluded) forControlEvents:UIControlEventTouchUpInside];
+    excluded.center = self.view.center;
+    [self.view addSubview:excluded];
+    
     
 }
 
@@ -98,14 +106,35 @@ static SBR_Factory *Factory;
     [_motionAnalyzer disengage];
 }
 
+
+/////////////////////////////////////////////////////////////////////////
+#pragma mark - Private API
+/////////////////////////////////////////////////////////////////////////
+
+
+- (void)_toggleExcluded
+{
+    static BOOL show = YES;
+    show = !show;
+    _calibrator.showExcluded = show;
+}
+
+
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - IMMotionObserverProtocol
 /////////////////////////////////////////////////////////////////////////
 
 - (void)handleMotionUpdateForData:(IMMotionSampleSet)current previousData:(IMMotionSampleSet)previous
 {
-    _calibrator.maximum = (1 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 180;
-    _calibrator.minimum = (1 - (current.attitude.pos.roll + M_PI_2) / (M_PI)) * 180;
+    if ( _calibrator.showExcluded ){
+        _calibrator.excludeMaximum = (1 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 180;
+        _calibrator.excludeMinimum = (1 - (current.attitude.pos.roll + M_PI_2) / (M_PI)) * 180;
+        _calibrator.minimum = 270;
+        _calibrator.maximum = 0;
+    }else{
+        _calibrator.excludeMinimum = (1 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 180;
+        _calibrator.minimum = (1 - (current.attitude.pos.roll + M_PI_2) / (M_PI)) * 180;
+    }
     
 //    CGFloat p = -current.attitude.pos.pitch / M_PI_2;// + M_PI_2;  p = (p > M_PI_2) ? p-M_PI : p;
 //    CGFloat r = -current.attitude.pos.roll / M_PI_2;

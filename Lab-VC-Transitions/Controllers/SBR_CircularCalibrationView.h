@@ -12,5 +12,7 @@
 
 @property (nonatomic) CGFloat maximum;
 @property (nonatomic) CGFloat minimum;
-
+@property (nonatomic) CGFloat excludeMaximum;
+@property (nonatomic) CGFloat excludeMinimum;
+@property (nonatomic) BOOL showExcluded;
 @end

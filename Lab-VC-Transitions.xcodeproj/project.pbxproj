@@ -279,9 +279,9 @@
 		A6D2555A1933ED2E00BD72D3 /* NSInvocation+MMBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255501933ED2E00BD72D3 /* NSInvocation+MMBlocks.m */; };
 		A6D2555B1933ED2E00BD72D3 /* NSString+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255521933ED2E00BD72D3 /* NSString+Marshmallows.m */; };
 		A6D2555C1933ED2E00BD72D3 /* NSURL+Marshmallows.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D255541933ED2E00BD72D3 /* NSURL+Marshmallows.m */; };
-		D650770A193500520020E283 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = D6507709193500520020E283 /* StyleKitName.m */; };
 		D650770F193503060020E283 /* MarshmallowMathFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = D650770D193503060020E283 /* MarshmallowMathFunctions.c */; };
 		D6B24FEB1934F8A000FD04FE /* SBR_CircularCalibrationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B24FEA1934F8A000FD04FE /* SBR_CircularCalibrationView.m */; };
+		D6D8DA271938EF1B0012A222 /* SBR_StyleKitExported.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D8DA261938EF1B0012A222 /* SBR_StyleKitExported.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -838,13 +838,13 @@
 		A6D255521933ED2E00BD72D3 /* NSString+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Marshmallows.m"; sourceTree = "<group>"; };
 		A6D255531933ED2E00BD72D3 /* NSURL+Marshmallows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Marshmallows.h"; sourceTree = "<group>"; };
 		A6D255541933ED2E00BD72D3 /* NSURL+Marshmallows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Marshmallows.m"; sourceTree = "<group>"; };
-		D6507708193500520020E283 /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKitName.h; sourceTree = SOURCE_ROOT; };
-		D6507709193500520020E283 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKitName.m; sourceTree = SOURCE_ROOT; };
 		D650770C193503060020E283 /* MarshmallowMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarshmallowMath.h; sourceTree = "<group>"; };
 		D650770D193503060020E283 /* MarshmallowMathFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MarshmallowMathFunctions.c; sourceTree = "<group>"; };
 		D650770E193503060020E283 /* MarshmallowMathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarshmallowMathFunctions.h; sourceTree = "<group>"; };
 		D6B24FE91934F8A000FD04FE /* SBR_CircularCalibrationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_CircularCalibrationView.h; sourceTree = "<group>"; };
 		D6B24FEA1934F8A000FD04FE /* SBR_CircularCalibrationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_CircularCalibrationView.m; sourceTree = "<group>"; };
+		D6D8DA251938EF1B0012A222 /* SBR_StyleKitExported.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBR_StyleKitExported.h; sourceTree = "<group>"; };
+		D6D8DA261938EF1B0012A222 /* SBR_StyleKitExported.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBR_StyleKitExported.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1651,8 +1651,8 @@
 				A6D255301933E0AC00BD72D3 /* SBR_SettingsTestVC.m */,
 				D6B24FE91934F8A000FD04FE /* SBR_CircularCalibrationView.h */,
 				D6B24FEA1934F8A000FD04FE /* SBR_CircularCalibrationView.m */,
-				D6507708193500520020E283 /* StyleKitName.h */,
-				D6507709193500520020E283 /* StyleKitName.m */,
+				D6D8DA251938EF1B0012A222 /* SBR_StyleKitExported.h */,
+				D6D8DA261938EF1B0012A222 /* SBR_StyleKitExported.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1995,7 +1995,6 @@
 				A65590DE192D11D2002212D5 /* GPUImageStillCamera.m in Sources */,
 				A65590EE192D11D2002212D5 /* GPUImageTwoPassFilter.m in Sources */,
 				A65590EA192D11D2002212D5 /* GPUImageToonFilter.m in Sources */,
-				D650770A193500520020E283 /* StyleKitName.m in Sources */,
 				A65590F1192D11D2002212D5 /* GPUImageUnsharpMaskFilter.m in Sources */,
 				A6395ECB192DEFDE009AAB72 /* NSDateFormatter+OVShorthand.m in Sources */,
 				A6559087192D11D2002212D5 /* GPUImageFilterPipeline.m in Sources */,
@@ -2163,6 +2162,7 @@
 				A6D255261933DDCA00BD72D3 /* IMFunctions.m in Sources */,
 				A6395EED192E20A3009AAB72 /* SBR_CompositeGPUFilterAbstract.m in Sources */,
 				A6CA7DBC19327FCD003E025C /* UIView+OVPositioning.m in Sources */,
+				D6D8DA271938EF1B0012A222 /* SBR_StyleKitExported.m in Sources */,
 				A6559071192D11D2002212D5 /* GPUImageColorInvertFilter.m in Sources */,
 				A65590E0192D11D2002212D5 /* GPUImageSubtractBlendFilter.m in Sources */,
 				A6395EC6192DEFDE009AAB72 /* NSMutableArray+OVShorthand.m in Sources */,
