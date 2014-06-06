@@ -72,7 +72,7 @@ static SBR_Factory *Factory;
     /////////////////////////////////////////
     [_motionAnalyzer addMotionObserver:self];
     
-    _calibrator = [[SBR_CircularCalibrationView alloc] initWithFrame:CGRectMake(20, 60, 280, 280)];
+    _calibrator = [[SBR_CircularCalibrationView alloc] initWithFrame:CGRectMake(70, 60, 180, 180)];
     [self.view addSubview:_calibrator];
     UIButton *excluded = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     excluded.frame = CGRectMake(110, self.view.frame.size.height-50, 100, 50);
@@ -80,6 +80,9 @@ static SBR_Factory *Factory;
     [excluded setTitle:@"Excluded" forState:UIControlStateNormal];
     [excluded addTarget:self action:@selector(_toggleExcluded) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:excluded];
+    UIColor* backgroundColor = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.067 alpha: 1];
+
+    self.view.backgroundColor = backgroundColor;
     
     
 }
