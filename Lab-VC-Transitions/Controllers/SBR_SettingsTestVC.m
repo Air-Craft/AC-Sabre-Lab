@@ -76,10 +76,15 @@ static SBR_Factory *Factory;
     [self.view addSubview:_calibrator];
     UIButton *excluded = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     excluded.frame = CGRectMake(110, self.view.frame.size.height-50, 100, 50);
-    [excluded setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [excluded setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [excluded setTitle:@"Excluded" forState:UIControlStateNormal];
     [excluded addTarget:self action:@selector(_toggleExcluded) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:excluded];
+    
+    UISwitch *alignmentSwitch = [[UISwitch alloc] init];
+    [alignmentSwitch addTarget:self action:@selector(_toggleOrientation) forControlEvents:UIControlEventValueChanged];
+    alignmentSwitch.frame = CGRectMake(110, self.view.frame.size.height-100, 100, 50);
+    [self.view addSubview:alignmentSwitch];
     UIColor* backgroundColor = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.067 alpha: 1];
 
     self.view.backgroundColor = backgroundColor;
@@ -120,6 +125,13 @@ static CGFloat max = 0;
     show = !show;
     min = max = 0;
     _calibrator.showExcluded = show;
+}
+
+- (void)_toggleOrientation
+{
+    static SBRWidgetOrientation o = SBRWidgetOrientationLeft;
+    o = o == SBRWidgetOrientationLeft ?  SBRWidgetOrientationRight : SBRWidgetOrientationLeft;
+    _calibrator.orientation = o;
 }
 
 

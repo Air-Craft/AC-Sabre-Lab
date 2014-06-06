@@ -10,10 +10,13 @@
 
 #import <Foundation/Foundation.h>
 
-
+typedef NS_ENUM(NSUInteger, SBRWidgetOrientation) {
+    SBRWidgetOrientationLeft,
+    SBRWidgetOrientationRight
+};
 @interface SBR_StyleKitExported : NSObject
 
 // Drawing Methods
-+ (void)drawCircularCalibratorWithFrame: (CGRect)frame maximum: (CGFloat)maximum minimum: (CGFloat)minimum showExluded: (BOOL)showExluded excludeMinimum: (CGFloat)excludeMinimum excludeMaximum: (CGFloat)excludeMaximum;
++ (void)drawCircularCalibratorWithFrame: (CGRect)frame maximum: (CGFloat)maximum minimum: (CGFloat)minimum showExluded: (BOOL)showExluded excludeMinimum: (CGFloat)excludeMinimum excludeMaximum: (CGFloat)excludeMaximum alignment:(SBRWidgetOrientation)orientation;
 
 @end

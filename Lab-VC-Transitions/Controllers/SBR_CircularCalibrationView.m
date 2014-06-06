@@ -47,6 +47,14 @@
     [self setNeedsDisplay];
 }
 
+//---------------------------------------------------------------------
+
+- (void)setOrientation:(SBRWidgetOrientation)orientation
+{
+    _orientation = orientation;
+    [self setNeedsDisplay];
+}
+
 
 /////////////////////////////////////////////////////////////////////////
 #pragma mark - Life Cycle
@@ -71,7 +79,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    [SBR_StyleKitExported drawCircularCalibratorWithFrame:rect maximum:_maximum minimum:_minimum showExluded:_showExcluded excludeMinimum:_excludeMinimum excludeMaximum:_excludeMaximum];
+    [SBR_StyleKitExported drawCircularCalibratorWithFrame:rect maximum:_maximum minimum:_minimum showExluded:_showExcluded excludeMinimum:_excludeMinimum excludeMaximum:_excludeMaximum alignment:_orientation];
 }
 
 @end

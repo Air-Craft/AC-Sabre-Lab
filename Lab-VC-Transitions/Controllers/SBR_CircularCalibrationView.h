@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SBR_StyleKitExported.h"
 
 @interface SBR_CircularCalibrationView : UIView
 
@@ -15,4 +16,5 @@
 @property (nonatomic) CGFloat excludeMaximum;
 @property (nonatomic) CGFloat excludeMinimum;
 @property (nonatomic) BOOL showExcluded;
+@property (nonatomic) SBRWidgetOrientation orientation;
 @end

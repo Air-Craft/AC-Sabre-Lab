@@ -23,9 +23,9 @@ static UIImage *calibrateString;
 
 #pragma mark Drawing Methods
 
-+ (void)drawCircularCalibratorWithFrame: (CGRect)frame maximum: (CGFloat)maximum minimum: (CGFloat)minimum showExluded: (BOOL)showExluded excludeMinimum: (CGFloat)excludeMinimum excludeMaximum: (CGFloat)excludeMaximum;
++ (void)drawCircularCalibratorWithFrame: (CGRect)frame maximum: (CGFloat)maximum minimum: (CGFloat)minimum showExluded: (BOOL)showExluded excludeMinimum: (CGFloat)excludeMinimum excludeMaximum: (CGFloat)excludeMaximum alignment:(SBRWidgetOrientation)orientation;
 {
-    CGFloat offset = -90;
+    CGFloat offset = orientation == SBRWidgetOrientationLeft ? -90 : 90;
     maximum += offset;
     minimum += offset;
     excludeMinimum += offset;
