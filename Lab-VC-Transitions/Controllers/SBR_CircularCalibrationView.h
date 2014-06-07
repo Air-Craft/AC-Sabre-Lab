@@ -11,10 +11,13 @@
 
 @interface SBR_CircularCalibrationView : UIView
 
+//Should the excluded zone be visable. If not then exclude min/max are not needed.
+@property (nonatomic) BOOL showExcluded;
+//The maximum end
 @property (nonatomic) CGFloat maximum;
 @property (nonatomic) CGFloat minimum;
 @property (nonatomic) CGFloat excludeMaximum;
 @property (nonatomic) CGFloat excludeMinimum;
-@property (nonatomic) BOOL showExcluded;
+
 @property (nonatomic) SBRWidgetOrientation orientation;
 @end

@@ -44,7 +44,7 @@ static UIColor* excludeInlineColor;
 
 + (void)drawCircularCalibratorWithFrame: (CGRect)frame maximum: (CGFloat)maximum minimum: (CGFloat)minimum showExluded: (BOOL)showExluded excludeMinimum: (CGFloat)excludeMinimum excludeMaximum: (CGFloat)excludeMaximum alignment:(SBRWidgetOrientation)orientation;
 {
-    CGFloat offset = orientation == SBRWidgetOrientationLeft ? -90 : 90;
+    CGFloat offset = orientation == SBRWidgetOrientationLeft ? 90 : -90;
     maximum += offset;
     minimum += offset;
     excludeMinimum += offset;

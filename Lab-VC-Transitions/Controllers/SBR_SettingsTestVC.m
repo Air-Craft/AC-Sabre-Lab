@@ -85,9 +85,9 @@ static SBR_Factory *Factory;
     [alignmentSwitch addTarget:self action:@selector(_toggleOrientation) forControlEvents:UIControlEventValueChanged];
     alignmentSwitch.frame = CGRectMake(110, self.view.frame.size.height-100, 100, 50);
     [self.view addSubview:alignmentSwitch];
-    UIColor* backgroundColor = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.067 alpha: 1];
 
-    self.view.backgroundColor = backgroundColor;
+
+    self.view.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
     
     
 }
@@ -127,10 +127,10 @@ static CGFloat max = 0;
     _calibrator.showExcluded = show;
 }
 
+static SBRWidgetOrientation o = SBRWidgetOrientationRight;
 - (void)_toggleOrientation
 {
-    static SBRWidgetOrientation o = SBRWidgetOrientationLeft;
-    o = o == SBRWidgetOrientationLeft ?  SBRWidgetOrientationRight : SBRWidgetOrientationLeft;
+    o = o == SBRWidgetOrientationLeft ? SBRWidgetOrientationRight : SBRWidgetOrientationLeft;
     _calibrator.orientation = o;
 }
 
@@ -141,8 +141,8 @@ static CGFloat max = 0;
 
 - (void)handleMotionUpdateForData:(IMMotionSampleSet)current previousData:(IMMotionSampleSet)previous
 {
-
-    CGFloat pitch = (0.5 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 360;
+    CGFloat direction = o == SBRWidgetOrientationLeft ? -180 : 180;
+    CGFloat pitch = (0.5 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * direction;
     max = pitch > max ? pitch : max;
     min = pitch < min ? pitch : min;
     CGFloat mx = 90 + (max * -1);
@@ -151,7 +151,7 @@ static CGFloat max = 0;
     if ( _calibrator.showExcluded ){
         _calibrator.excludeMaximum = mx;
         _calibrator.excludeMinimum = mn;
-        _calibrator.minimum = 270;
+        _calibrator.minimum = 180;
         _calibrator.maximum = 0;
     }else{
         _calibrator.excludeMinimum = mx;

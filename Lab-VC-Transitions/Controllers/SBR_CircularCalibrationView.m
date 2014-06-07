@@ -17,6 +17,7 @@
 #pragma mark - Properties
 /////////////////////////////////////////////////////////////////////////
 
+
 - (void)setMaximum:(CGFloat)maximum
 {
     _maximum = maximum;
@@ -69,6 +70,7 @@
         _minimum = 191;
         _excludeMaximum = 60;
         _excludeMinimum = 144;
+        _orientation = SBRWidgetOrientationRight;
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
