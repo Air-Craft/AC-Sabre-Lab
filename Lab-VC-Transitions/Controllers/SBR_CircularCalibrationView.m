@@ -69,6 +69,7 @@
         _minimum = 191;
         _excludeMaximum = 60;
         _excludeMinimum = 144;
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

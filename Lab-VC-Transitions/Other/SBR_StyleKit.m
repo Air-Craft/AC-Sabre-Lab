@@ -141,7 +141,7 @@ static NSMutableDictionary *_cache;
     CGRect f = lbl.frame;
     f.size.height *= 2.0;
     lbl.frame = f;
-    CGSize size = { maskWidth, lbl.frame.size.height };
+    CGSize size = lbl.frame.size;
     
     lbl.layer.shadowRadius = 4;
     lbl.layer.shadowColor = color.CGColor;

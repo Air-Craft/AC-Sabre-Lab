@@ -15,10 +15,29 @@
 @implementation SBR_StyleKitExported
 
 #pragma mark Initialization
+//// Image Declarations
 static UIImage *calibrateString;
+static UIImage* gestureIcon;
+//// Sizes
+static CGFloat gap = 2;
+static CGFloat glowWidth = 9;
+static CGFloat lineWidth = 1;
+static CGFloat endLength = 15;
+//// Color Declarations
+static UIColor* outlineColor;
+static UIColor* inlineColor;
+static UIColor* backgroundColor;
+static UIColor* excludeOutlineColor;
+static UIColor* excludeInlineColor;
 + (void)initialize
 {
-    calibrateString = [SBR_StyleKit imageForSettingsMenuGlowingTextButtonWithText:NSLocalizedString(@"Calibrate", nil) highlighted:NO];
+    calibrateString = [SBR_StyleKit imageForSettingsMenuGlowingTextButtonWithText:NSLocalizedString(@"CALIBRATE", nil) highlighted:NO];
+    gestureIcon = [UIImage imageNamed: @"gestureIcon"];
+    outlineColor = [UIColor colorWithRed: 0.129 green: 0.675 blue: 0.988 alpha: 1];
+    inlineColor = [UIColor colorWithRed: 0.133 green: 0.216 blue: 0.231 alpha: 1];
+    backgroundColor = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.067 alpha: 1];
+    excludeOutlineColor = [UIColor colorWithRed: 0.915 green: 0.363 blue: 0.363 alpha: 1];
+    excludeInlineColor = [UIColor colorWithRed: 0.371 green: 0.249 blue: 0.249 alpha: 1];
 }
 
 #pragma mark Drawing Methods
@@ -34,16 +53,8 @@ static UIImage *calibrateString;
     //// General Declarations
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    //// Color Declarations
-    UIColor* outlineColor = [UIColor colorWithRed: 0.129 green: 0.675 blue: 0.988 alpha: 1];
-    UIColor* inlineColor = [UIColor colorWithRed: 0.133 green: 0.216 blue: 0.231 alpha: 1];
-    UIColor* backgroundColor = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.067 alpha: 1];
-    UIColor* excludeOutlineColor = [UIColor colorWithRed: 0.915 green: 0.363 blue: 0.363 alpha: 1];
-    UIColor* excludeInlineColor = [UIColor colorWithRed: 0.371 green: 0.249 blue: 0.249 alpha: 1];
-
-    //// Image Declarations
-    UIImage* gestureIcon = [UIImage imageNamed: @"gestureIcon"];
-
+    //// Relative
+    CGFloat width = MIN(frame.size.height,frame.size.width);
 
     //// Variable Declarations
     CGFloat minExcludedEnd = maximum;
@@ -52,15 +63,15 @@ static UIImage *calibrateString;
     CGFloat minimumMax = excludeMinimum;
     CGFloat maxExcludedEnd = excludeMaximum - 90;
     CGFloat maxExcludedOutline = excludeMaximum;
-    CGFloat gap = 2;
     CGFloat minExcludedEndRed = excludeMinimum - (90 + gap);
     CGFloat minExcludedOutlineRed = minExcludedEndRed + 90;
     CGFloat maxExcludedEndRed = gap + excludeMaximum;
+    
 
     //// Group
     {
         //// Background Drawing
-        UIBezierPath* backgroundPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), 180, 180)];
+        UIBezierPath* backgroundPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), width, width)];
         [backgroundColor setFill];
         [backgroundPath fill];
 
@@ -68,21 +79,21 @@ static UIImage *calibrateString;
         if (showExluded)
         {
             //// Inner 2 Drawing
-            CGRect inner2Rect = CGRectMake(CGRectGetMinX(frame) + 4.5, CGRectGetMinY(frame) + 4.5, 171, 171);
+            CGRect inner2Rect = CGRectMake(CGRectGetMinX(frame) + glowWidth/2.0, CGRectGetMinY(frame) + glowWidth/2.0, width-glowWidth, width-glowWidth);
             UIBezierPath* inner2Path = UIBezierPath.bezierPath;
             [inner2Path addArcWithCenter: CGPointMake(CGRectGetMidX(inner2Rect), CGRectGetMidY(inner2Rect)) radius: CGRectGetWidth(inner2Rect) / 2 startAngle: -maxExcludedOutline * M_PI/180 endAngle: -minExcludedEnd * M_PI/180 clockwise: YES];
 
             [inlineColor setStroke];
-            inner2Path.lineWidth = 9;
+            inner2Path.lineWidth = glowWidth;
             [inner2Path stroke];
 
 
             //// Negative End 2 Drawing
             CGContextSaveGState(context);
-            CGContextTranslateCTM(context, CGRectGetMinX(frame) + 90, CGRectGetMinY(frame) + 90);
+            CGContextTranslateCTM(context, CGRectGetMinX(frame) + width/2.0, CGRectGetMinY(frame) + width/2.0);
             CGContextRotateCTM(context, -maxExcludedEnd * M_PI / 180);
 
-            UIBezierPath* negativeEnd2Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(-0.5, -90, 1, 15) byRoundingCorners: UIRectCornerTopLeft cornerRadii: CGSizeMake(0.5, 0.5)];
+            UIBezierPath* negativeEnd2Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(lineWidth/-2.0, width/-2.0, lineWidth, endLength) byRoundingCorners: UIRectCornerTopLeft cornerRadii: CGSizeMake(lineWidth/2.0, lineWidth/2.0)];
             [negativeEnd2Path closePath];
             [outlineColor setFill];
             [negativeEnd2Path fill];
@@ -91,21 +102,21 @@ static UIImage *calibrateString;
 
 
             //// Outline 2 Drawing
-            CGRect outline2Rect = CGRectMake(CGRectGetMinX(frame) + 0.5, CGRectGetMinY(frame) + 0.5, 179, 179);
+            CGRect outline2Rect = CGRectMake(CGRectGetMinX(frame) + lineWidth/2.0, CGRectGetMinY(frame) + lineWidth/2.0, width-lineWidth, width-lineWidth);
             UIBezierPath* outline2Path = UIBezierPath.bezierPath;
             [outline2Path addArcWithCenter: CGPointMake(CGRectGetMidX(outline2Rect), CGRectGetMidY(outline2Rect)) radius: CGRectGetWidth(outline2Rect) / 2 startAngle: -maxExcludedOutline * M_PI/180 endAngle: -minExcludedEnd * M_PI/180 clockwise: YES];
 
             [outlineColor setStroke];
-            outline2Path.lineWidth = 1;
+            outline2Path.lineWidth = lineWidth;
             [outline2Path stroke];
 
 
             //// Positive End 2 Drawing
             CGContextSaveGState(context);
-            CGContextTranslateCTM(context, CGRectGetMinX(frame) + 90, CGRectGetMinY(frame) + 90);
+            CGContextTranslateCTM(context, CGRectGetMinX(frame) + width/2.0, CGRectGetMinY(frame) + width/2.0);
             CGContextRotateCTM(context, -minExcludedEnd * M_PI / 180);
 
-            UIBezierPath* positiveEnd2Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(75, -0.5, 15, 1) byRoundingCorners: UIRectCornerBottomRight cornerRadii: CGSizeMake(0.5, 0.5)];
+            UIBezierPath* positiveEnd2Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(width/2.0-endLength, lineWidth/-2.0, endLength, lineWidth) byRoundingCorners: UIRectCornerBottomRight cornerRadii: CGSizeMake(lineWidth/2.0, lineWidth/2.0)];
             [positiveEnd2Path closePath];
             [outlineColor setFill];
             [positiveEnd2Path fill];
@@ -115,21 +126,21 @@ static UIImage *calibrateString;
 
 
         //// Inner Drawing
-        CGRect innerRect = CGRectMake(CGRectGetMinX(frame) + 4.5, CGRectGetMinY(frame) + 4.5, 171, 171);
+        CGRect innerRect = CGRectMake(CGRectGetMinX(frame) + glowWidth/2.0, CGRectGetMinY(frame) + glowWidth/2.0, width-glowWidth, width-glowWidth);
         UIBezierPath* innerPath = UIBezierPath.bezierPath;
         [innerPath addArcWithCenter: CGPointMake(CGRectGetMidX(innerRect), CGRectGetMidY(innerRect)) radius: CGRectGetWidth(innerRect) / 2 startAngle: -minimumMin * M_PI/180 endAngle: -minimumMax * M_PI/180 clockwise: YES];
 
         [inlineColor setStroke];
-        innerPath.lineWidth = 9;
+        innerPath.lineWidth = glowWidth;
         [innerPath stroke];
 
 
         //// Negative End Drawing
         CGContextSaveGState(context);
-        CGContextTranslateCTM(context, CGRectGetMinX(frame) + 90, CGRectGetMinY(frame) + 90);
+        CGContextTranslateCTM(context, CGRectGetMinX(frame) + width/2.0, CGRectGetMinY(frame) + width/2.0);
         CGContextRotateCTM(context, -minEnd * M_PI / 180);
 
-        UIBezierPath* negativeEndPath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(-0.5, -90, 1, 15) byRoundingCorners: UIRectCornerTopLeft cornerRadii: CGSizeMake(0.5, 0.5)];
+        UIBezierPath* negativeEndPath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(lineWidth/-2.0, width/-2.0, lineWidth, endLength) byRoundingCorners: UIRectCornerTopLeft cornerRadii: CGSizeMake(lineWidth/2.0, lineWidth/2.0)];
         [negativeEndPath closePath];
         [outlineColor setFill];
         [negativeEndPath fill];
@@ -138,21 +149,21 @@ static UIImage *calibrateString;
 
 
         //// Outline Drawing
-        CGRect outlineRect = CGRectMake(CGRectGetMinX(frame) + 0.5, CGRectGetMinY(frame) + 0.5, 179, 179);
+        CGRect outlineRect = CGRectMake(CGRectGetMinX(frame) + lineWidth/2.0, CGRectGetMinY(frame) + lineWidth/2.0, width-lineWidth, width-lineWidth);
         UIBezierPath* outlinePath = UIBezierPath.bezierPath;
         [outlinePath addArcWithCenter: CGPointMake(CGRectGetMidX(outlineRect), CGRectGetMidY(outlineRect)) radius: CGRectGetWidth(outlineRect) / 2 startAngle: -minimumMin * M_PI/180 endAngle: -minimumMax * M_PI/180 clockwise: YES];
 
         [outlineColor setStroke];
-        outlinePath.lineWidth = 1;
+        outlinePath.lineWidth = lineWidth;
         [outlinePath stroke];
 
 
         //// Positive End Drawing
         CGContextSaveGState(context);
-        CGContextTranslateCTM(context, CGRectGetMinX(frame) + 90, CGRectGetMinY(frame) + 90);
+        CGContextTranslateCTM(context, CGRectGetMinX(frame) + width/2.0, CGRectGetMinY(frame) + width/2.0);
         CGContextRotateCTM(context, -minimumMax * M_PI / 180);
 
-        UIBezierPath* positiveEndPath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(75, -0.5, 15, 1) byRoundingCorners: UIRectCornerBottomRight cornerRadii: CGSizeMake(0.5, 0.5)];
+        UIBezierPath* positiveEndPath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(width/2.0-endLength, lineWidth/-2.0, endLength, lineWidth) byRoundingCorners: UIRectCornerBottomRight cornerRadii: CGSizeMake(lineWidth/2.0, lineWidth/2.0)];
         [positiveEndPath closePath];
         [outlineColor setFill];
         [positiveEndPath fill];
@@ -163,21 +174,21 @@ static UIImage *calibrateString;
         if (showExluded)
         {
             //// Inner 3 Drawing
-            CGRect inner3Rect = CGRectMake(CGRectGetMinX(frame) + 4.5, CGRectGetMinY(frame) + 4.5, 171, 171);
+            CGRect inner3Rect = CGRectMake(CGRectGetMinX(frame) + glowWidth/2.0, CGRectGetMinY(frame) + glowWidth/2.0, width-glowWidth, width-glowWidth);
             UIBezierPath* inner3Path = UIBezierPath.bezierPath;
             [inner3Path addArcWithCenter: CGPointMake(CGRectGetMidX(inner3Rect), CGRectGetMidY(inner3Rect)) radius: CGRectGetWidth(inner3Rect) / 2 startAngle: -minExcludedOutlineRed * M_PI/180 endAngle: -maxExcludedEndRed * M_PI/180 clockwise: YES];
 
             [excludeInlineColor setStroke];
-            inner3Path.lineWidth = 9;
+            inner3Path.lineWidth = glowWidth;
             [inner3Path stroke];
 
 
             //// Negative End 3 Drawing
             CGContextSaveGState(context);
-            CGContextTranslateCTM(context, CGRectGetMinX(frame) + 90, CGRectGetMinY(frame) + 90);
+            CGContextTranslateCTM(context, CGRectGetMinX(frame) + width/2.0, CGRectGetMinY(frame) + width/2.0);
             CGContextRotateCTM(context, -minExcludedEndRed * M_PI / 180);
 
-            UIBezierPath* negativeEnd3Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(-0.5, -90, 1, 15) byRoundingCorners: UIRectCornerTopLeft cornerRadii: CGSizeMake(0.5, 0.5)];
+            UIBezierPath* negativeEnd3Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(lineWidth/-2.0, width/-2.0, lineWidth, endLength) byRoundingCorners: UIRectCornerTopLeft cornerRadii: CGSizeMake(lineWidth/2.0, lineWidth/2.0)];
             [negativeEnd3Path closePath];
             [excludeOutlineColor setFill];
             [negativeEnd3Path fill];
@@ -186,21 +197,21 @@ static UIImage *calibrateString;
 
 
             //// Outline 3 Drawing
-            CGRect outline3Rect = CGRectMake(CGRectGetMinX(frame) + 0.5, CGRectGetMinY(frame) + 0.5, 179, 179);
+            CGRect outline3Rect = CGRectMake(CGRectGetMinX(frame) + lineWidth/2.0, CGRectGetMinY(frame) + lineWidth/2.0, width-lineWidth, width-lineWidth);
             UIBezierPath* outline3Path = UIBezierPath.bezierPath;
             [outline3Path addArcWithCenter: CGPointMake(CGRectGetMidX(outline3Rect), CGRectGetMidY(outline3Rect)) radius: CGRectGetWidth(outline3Rect) / 2 startAngle: -minExcludedOutlineRed * M_PI/180 endAngle: -maxExcludedEndRed * M_PI/180 clockwise: YES];
 
             [excludeOutlineColor setStroke];
-            outline3Path.lineWidth = 1;
+            outline3Path.lineWidth = lineWidth;
             [outline3Path stroke];
 
 
             //// Positive End 3 Drawing
             CGContextSaveGState(context);
-            CGContextTranslateCTM(context, CGRectGetMinX(frame) + 90, CGRectGetMinY(frame) + 90);
+            CGContextTranslateCTM(context, CGRectGetMinX(frame) + width/2.0, CGRectGetMinY(frame) + width/2.0);
             CGContextRotateCTM(context, -maxExcludedEndRed * M_PI / 180);
 
-            UIBezierPath* positiveEnd3Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(75, -0.5, 15, 1) byRoundingCorners: UIRectCornerBottomRight cornerRadii: CGSizeMake(0.5, 0.5)];
+            UIBezierPath* positiveEnd3Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(width/2.0-endLength, lineWidth/-2.0, endLength, lineWidth) byRoundingCorners: UIRectCornerBottomRight cornerRadii: CGSizeMake(lineWidth/2.0, lineWidth/2.0)];
             [positiveEnd3Path closePath];
             [excludeOutlineColor setFill];
             [positiveEnd3Path fill];
@@ -210,7 +221,7 @@ static UIImage *calibrateString;
 
 
         //// Dive Icon Drawing
-        CGRect diveIconRect = CGRectMake(CGRectGetMinX(frame) + 54, CGRectGetMinY(frame) + 44, 73, 77);
+        CGRect diveIconRect = CGRectMake(CGRectGetMinX(frame) + width*0.3, CGRectGetMinY(frame) + width*0.25, width*0.4, width*0.4);
         UIBezierPath* diveIconPath = [UIBezierPath bezierPathWithRect: diveIconRect];
         CGContextSaveGState(context);
         [diveIconPath addClip];
@@ -219,7 +230,7 @@ static UIImage *calibrateString;
 
 
         //// Calibrate Message Drawing
-        CGRect calibrateMessageRect = CGRectMake(CGRectGetMinX(frame) + 40, CGRectGetMinY(frame) + 128, 97, 17);
+        CGRect calibrateMessageRect = CGRectMake(CGRectGetMinX(frame) + width/5.0, CGRectGetMaxY(diveIconRect), 3*(width/5.0), width/9.0);
         UIBezierPath* calibrateMessagePath = [UIBezierPath bezierPathWithRect: calibrateMessageRect];
         CGContextSaveGState(context);
         [calibrateMessagePath addClip];

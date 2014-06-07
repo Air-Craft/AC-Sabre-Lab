@@ -145,8 +145,8 @@ static CGFloat max = 0;
     CGFloat pitch = (0.5 - (current.attitude.pos.pitch + M_PI_2) / M_PI) * 360;
     max = pitch > max ? pitch : max;
     min = pitch < min ? pitch : min;
-    CGFloat mx = 90+ (max * -1);
-    CGFloat mn = 90+ (min * -1);
+    CGFloat mx = 90 + (max * -1);
+    CGFloat mn = 90 + (min * -1);
 
     if ( _calibrator.showExcluded ){
         _calibrator.excludeMaximum = mx;
